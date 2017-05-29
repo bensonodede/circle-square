@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Cover Slider</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/slick.css">
+  <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
+
+  <style type="text/css">
+    body {
+      margin: 0px;
+    }
+
+    .carousel {
+      width: 100%;
+      max-width: 1280px;
+      max-height: 600px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .carousel .item {
+      position: relative;
+    }
+
+    .carousel .item .imageContainer {
+      display: block;
+      width: 100%;
+      position: relative;
+      max-height: 600px;
+    }
+
+    .carousel .item .imageContainer:before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      color: red;
+      width: 100%;
+      height: 100%;
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 90%, rgba(0, 0, 0, 0.75) 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(90%, rgba(0, 0, 0, 0.75)), color-stop(100%, rgba(0, 0, 0, 0.75)));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 90%, rgba(0, 0, 0, 0.75) 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 90%, rgba(0, 0, 0, 0.75) 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 90%, rgba(0, 0, 0, 0.75) 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 90%, rgba(0, 0, 0, 0.75) 100%);
+      /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#bf000000', GradientType=0);
+      /* IE6-9 */
+    }
+
+    .carousel .item img {
+      display: block;
+      width: 100%;
+    }
+
+    .carousel .item .overlay {
+      z-index: 999;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      color: #fff;
+      padding: 30px 0px 70px 0px;
+    }
+
+    .carousel .item .overlay h3 {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 300;
+      padding-bottom: 20px;
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    .carousel .item .overlay p {
+      text-align: center;
+      width: 60%;
+      margin: 0 auto;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 29px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+
+    .carousel .slick-dots {
+      position: absolute;
+      bottom: 10px;
+      z-index: 999;
+    }
+
+    .slick-dots li button:before {
+      color: #fff;
+    }
+
+    .slick-dots li.slick-active button:before {
+      color: #fff;
+    }
+
+    @media only screen and (min-width: 901px) and (max-width: 1100px) {
+      .carousel {
+        max-height: 600px;
+      }
+      .carousel .item .imageContainer {
+        max-height: 600px;
+      }
+
+      .carousel .item .overlay {
+        padding-bottom: 55px;
+      }
+      .carousel .item .overlay h3 {
+        width: 80%;
+        font-size: 34px;
+        line-height: 40px;
+        padding-bottom: 10px;
+      }
+      .carousel .item .overlay p {
+        width: 65%;
+        font-size: 15px;
+        line-height: 25px;
+      }
+    }
+
+    @media only screen and (min-width: 651px) and (max-width: 900px) {
+      .carousel .item .overlay {
+        padding-bottom: 50px;
+      }
+      .carousel .item .overlay h3 {
+        width: 80%;
+        font-size: 26px;
+        line-height: 30px;
+        padding-bottom: 10px;
+      }
+      .carousel .item .overlay p {
+        width: 70%;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+
+    @media only screen and (max-width: 650px) {
+      .carousel .item .overlay {
+        position: relative;
+        background: inherit;
+        color: #000;
+        padding: 25px 20px 40px 20px;
+      }
+      .carousel .item .overlay h3 {
+        width: 100%;
+        text-align: left;
+        color: rgba(0, 0, 0, 0.9);
+        font-size: 27px;
+        font-weight: 400;
+        padding-bottom: 10px;
+      }
+      .carousel .item .overlay p {
+        width: 100%;
+        text-align: left;
+        color: rgba(102, 102, 102, 0.9);
+        font-size: 17px;
+      }
+
+      .carousel .slick-dots {
+        bottom: -3px;
+      }
+      .slick-dots li button:before {
+        color: #000;
+      }
+
+      .slick-dots li.slick-active button:before {
+        color: #000;
+      }
+    }
+
+    @media only screen and (max-width: 550px) {
+      .carousel .item .overlay {
+        padding: 15px 15px 40px 15px;
+      }
+      .carousel .item .overlay h3 {
+        font-size: 24px;
+        line-height: 29px;
+      }
+      .carousel .item .overlay p {
+        font-size: 13px;
+        line-height: 21px;
+      }
+    }
+
+    @media only screen and (max-width: 450px) {
+      .carousel .item .overlay h3 {
+        font-size: 20px;
+        line-height: 25px;
+      }
+      .carousel .item .overlay p {
+        font-size: 13px;
+        line-height: 21px;
+      }
+    }
+
+
+
+
+
+    //Fonts
+    @import url('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800');
+  </style>
+
+</head>
+
+<body>
+
+  <div id="carousel" class="carousel">
+    <div class="item">
+      <div class="imageContainer">
+        <img src="http://cdni.condenast.co.uk/1566x878/s_v/suki-film-vogue-9jul15-grab_b2.jpg" />
+      </div>
+      <div class="overlay">
+        <h3>Inside the Wardrobe of Suki Waterhouse</h3>
+        <p>Styling yourself for Wimbledon is as much about saying the right thing as making the right call wardrobe-wise. Let Boris Becker set the sartorial tone for court-side success</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="imageContainer">
+        <img src="http://cdni.condenast.co.uk/1566x878/o_r/Olivia-Vestiaire-HOLDING-Still-02-36-vogue-1jul15-grab_878.jpg" />
+      </div>
+
+      <div class="overlay">
+        <h3>Inside the Wardrobe of Olivia Palermo</h3>
+        <p>Styling yourself for Wimbledon is as much about saying the right thing as making the right call wardrobe-wise. Let Boris Becker set the sartorial tone for court-side success</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="imageContainer">
+        <img src="http://cdni.condenast.co.uk/1566x878/s_v/tennis-film-still-1-vogue-29jun15-grab_b.jpg" />
+      </div>
+      <div class="overlay">
+        <h3>How to speak Tennis</h3>
+        <p>Styling yourself for Wimbledon is as much about saying the right thing as making the right call wardrobe-wise. Let Boris Becker set the sartorial tone for court-side success</p>
+      </div>
+    </div>
+
+
+  </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+  <script src="js/slick.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+
+
+
+
+
+
+
+          var result = 0;
+
+          function a() {
+            var carousel = document.getElementById("carousel");
+            console.log(carousel);
+            var urls = ["img/pic-sample.jpg", "img/pic-sample2.jpg", "img/pic-sample3.jpg"]
+            for (i = 0; i < urls.length; i++) {
+              carousel.insertAdjacentHTML('beforeend', '<div class="item"><div class="imageContainer"><img src="' + urls[i] + '" alt="""></div></div>');
+
+            }
+
+                  result += 5;
+                  console.log(result);
+                  _next();
+          }
+
+          function b() {
+
+            $('.carousel').slick({
+              dots: true,
+              infinite: true,
+              speed: 300,
+              slidesToShow: 1,
+              centerMode: false,
+              variableWidth: false,
+              autoplay: false,
+              arrows: false
+            });
+
+                  result += 10;
+                  console.log(result);
+                  _next();
+          }
+
+          function c() {
+                  result += 20;
+                  console.log(result);
+                  _next();
+          }
+
+          function chainCallbacks() {
+
+              var _this = this;
+              var _counter = 0;
+              var _callbacks = arguments;
+
+              var _next = function() {
+                  _counter++;
+                  if(_counter < _callbacks.length) {
+                      _callbacks[_counter].apply(_this);
+                  }
+              };
+
+              _this._next = _next;
+
+              return function() {
+                  if(_callbacks.length > 0) {
+                      _callbacks[0].apply(_this);
+                  }
+              };
+          }
+
+          var queue = chainCallbacks(a, b, c);
+          queue();
+  </script>
+
+</body>
+
+</html>
