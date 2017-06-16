@@ -23,6 +23,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
 
     <script src="js/vue.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 
 </head>
 
@@ -73,7 +74,7 @@
                 </div>
               </form>
               -->
-              
+
               <!-- Subtotal -->
               <div class="subtotal">
                 <h6>Subtotal <span class="simpleCart_total right">$220.00</span></h6>
@@ -126,7 +127,7 @@
             <label for="city">City</label>
           </div> -->
           <div class="input-field">
-            <input id="phone" type="number" class="validate">
+            <input id="phone" type="number">
             <label for="phone">Phone</label>
           </div>
           <span>All we need is your phone number. <a class="primary-text" href="login.html"></a></span>
@@ -146,7 +147,7 @@
           </p>
         -->
 
-          <a id="purchase-button" class="waves-effect waves-light btn-large primary-color block" href="index.html">Checkout</a>
+          <a id="purchase-button" class="waves-effect waves-light btn-large primary-color block" href="#!">Checkout</a>
         </div>
 
       </div>

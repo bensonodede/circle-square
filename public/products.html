@@ -17,17 +17,17 @@
   <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css" />
 
   <!-- Styles -->
-  <link href="css/keyframes.css" rel="stylesheet" type="text/css" />
-  <link href="css/materialize.min.css" rel="stylesheet" type="text/css" />
-  <link href="css/swiper.css" rel="stylesheet" type="text/css" />
-  <link href="css/swipebox.min.css" rel="stylesheet" type="text/css" />
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="/css/keyframes.css" rel="stylesheet" type="text/css" />
+  <link href="/css/materialize.min.css" rel="stylesheet" type="text/css" />
+  <link href="/css/swiper.css" rel="stylesheet" type="text/css" />
+  <link href="/css/swipebox.min.css" rel="stylesheet" type="text/css" />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 
   <!--Scripts -->
-  <script src="js/vue.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-  <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/vue.min.js"></script>
+
+
 
 </head>
 
@@ -41,7 +41,7 @@
       <div id="banner">
 
         <div class="shop-banner-full bg-1 animated fadeindown">
-          <img id="banner" v-bind:src="banner" alt="">
+          <img id="banner" v-bind:src="banner" v-bind:alt="name">
 
           <h1 class="hero-title">{{name}}</h1>
           <div class="opacity-overlay"></div>
@@ -49,23 +49,18 @@
       </div>
 
       <div class="animated fadeinup delay-1">
-        <ul class="tabs">
-          <li class="tab col s3"><a class="active" href="#product1">Tech</a></li>
-          <li class="tab col s3"><a href="#product2">Watches</a></li>
-          <li class="tab col s3"><a href="#product3">Games</a></li>
-        </ul>
 
         <div id="products-template">
 
-        <div id="product1">
-          <a href="product.html">
-            <div  onclick="getID(this)" v-bind:id="item.key" v-for="item in items" class="product half">
-            <img v-bind:src="item.slideshow[0]" alt="">
+
+
+            <div onclick="getID(this)" v-bind:id="item.key" v-for="item in items" class="product half">
+            <img v-bind:src="item.slideshow[0]" v-bind:alt="name">
               <div class="product-info">
                 <span class="small grey-text">Technology</span>
                 <h5 class="m-0"><strong>{{item.title}}</strong></h5>
                 <p class="m-0">KSh <span>{{item.price}}</span></p>
-                <!-- Rating -->
+                <!-- Rating
                 <div class="rating">
                   <i class="ion-star active"></i>
                   <i class="ion-star active"></i>
@@ -73,14 +68,14 @@
                   <i class="ion-star active"></i>
                   <i class="ion-star"></i>
                 </div>
+              -->
               </div>
             </div>
-            </a>
-        </div>
+        
 
         <div id="product2">
           <div class="product half">
-            <a href="product.html"><img src="img/product.jpg" alt=""></a>
+            <a href="product.html"><img src="/img/product.jpg" alt=""></a>
             <div class="product-info">
               <span class="small grey-text">Technology</span>
               <h5 class="m-0"><strong>Smart Watch</strong></h5>
@@ -97,7 +92,7 @@
           </div>
 
           <div class="product half">
-            <a href="product.html"><img src="img/product4.jpg" alt=""></a>
+            <a href="product.html"><img src="/img/product4.jpg" alt=""></a>
             <div class="product-info">
               <span class="small grey-text">Technology</span>
               <h5 class="m-0"><strong>Black Corn</strong></h5>
@@ -116,7 +111,7 @@
 
         <div id="product3">
           <div class="product half">
-            <a href="product.html"><img src="img/product4.jpg" alt=""></a>
+            <a href="product.html"><img src="/img/product4.jpg" alt=""></a>
             <div class="product-info">
               <span class="small grey-text">Technology</span>
               <h5 class="m-0"><strong>Black Corn</strong></h5>
@@ -133,7 +128,7 @@
           </div>
 
           <div class="product half">
-            <a href="product.html"><img src="img/product2.jpg" alt=""></a>
+            <a href="product.html"><img src="/img/product2.jpg" alt=""></a>
             <div class="product-info">
               <span class="small grey-text">Technology</span>
               <h5 class="m-0"><strong>Some Cups</strong></h5>
@@ -150,7 +145,7 @@
           </div>
 
           <div class="product half">
-            <a href="product.html"><img src="img/product.jpg" alt=""></a>
+            <a href="product.html"><img src="/img/product.jpg" alt=""></a>
             <div class="product-info">
               <span class="small grey-text">Technology</span>
               <h5 class="m-0"><strong>Smart Watch</strong></h5>
@@ -316,18 +311,18 @@
 
   </div>
   <!-- End of Main Container -->
-  <script src="js/jquery-1.12.2.js"></script>
-  <script src="js/js.cookie.js"></script>
-  <script src="js/modernizr.js"></script>
-  <script src="js/jquery.swipebox.min.js"></script>
-  <script src="js/jquery.smoothState.min.js"></script>
-  <script src="js/materialize.min.js"></script>
-  <script src="js/swiper.min.js"></script>
-  <script src="js/jquery.mixitup.min.js"></script>
-  <script src="js/masonry.min.js"></script>
-  <script src="js/chart.min.js"></script>
-  <script src="js/functions.js"></script>
-  <script src="js/products.js"></script>
+  <script src="/js/jquery-1.12.2.js"></script>
+  <script src="/js/js.cookie.js"></script>
+  <script src="/js/modernizr.js"></script>
+  <script src="/js/jquery.swipebox.min.js"></script>
+  <script src="/js/jquery.smoothState.min.js"></script>
+  <script src="/js/materialize.min.js"></script>
+  <script src="/js/swiper.min.js"></script>
+  <script src="/js/jquery.mixitup.min.js"></script>
+  <script src="/js/masonry.min.js"></script>
+  <script src="/js/chart.min.js"></script>
+  <script src="/js/functions.js"></script>
+  <script src="/js/products.js"></script>
 </body>
 
 </html>

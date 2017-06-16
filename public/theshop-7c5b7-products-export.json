@@ -1,0 +1,12 @@
+{
+  "-Kjbg3Wx9dsV5Z38kWvj" : {
+    "-KjvAA3MvW8b9c7lryz1" : {
+      "description" : "Something something something something something something something something something",
+      "price" : "1000",
+      "sizes" : [ "XS", "S", "M", "L" ],
+      "slideshow" : [ "https://source.unsplash.com/M4C5tzTeFmE/700x700/", "https://source.unsplash.com/gZKrIKtZUPc/700x700" ],
+      "tags" : [ "Sports", "Boards" ],
+      "title" : "Kicks"
+    }
+  }
+}

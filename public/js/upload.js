@@ -25,11 +25,11 @@ function createShop (){
 function createProduct(){
 
   prodRef.push({
-    title:"A book",
-    price:"1000",
-    slideshow:['https://source.unsplash.com/M4C5tzTeFmE/1600x900/', 'https://source.unsplash.com/gZKrIKtZUPc/'],
+    title:"A device",
+    price:"9,000",
+    slideshow:['https://source.unsplash.com/RAJONCCrXh8/700x700/', 'https://source.unsplash.com/78PQJ5nK1Gc/700x700/'],
     description:"Something something something something something something something something something",
-    tags:["book", "boards"],
-    sizes:["XS", "S", "M", "L",],
+    tags:["Electronics"],
+    sizes:["30", "34", "36", "38",],
   });
 }

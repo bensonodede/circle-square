@@ -16,17 +16,15 @@
     <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css"/>
 
     <!-- Styles -->
-    <link href="css/keyframes.css" rel="stylesheet" type="text/css"/>
-    <link href="css/materialize.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="css/slick.css">
-    <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
-    <link href="css/slides.css" rel="stylesheet" type="text/css"/>
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/keyframes.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/materialize.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/slick.css" rel="stylesheet" type="text/css" >
+    <link href="/css/slick-theme.css" rel="stylesheet" type="text/css">
+    <link href="/css/slides.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
 
     <!--Scripts -->
-    <script src="js/vue.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+    <script src="/js/vue.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 
 </head>
@@ -80,15 +78,28 @@
             <div id="description">
               <p class="text-flow">{{details.description}}.</p>
             </div>
+
+            <div id="choose_size" class="product-variation">
+              <h5><strong>Choose a size:</strong></h5>
+              <div class="sizes p-b-20">
+                <div id="sizes"></div>
+              </div>
+            </div>
+
+            <div id="product_button" class="product-variation">
+              <a id="add_to_cart" class="item_add waves-effect waves-light btn-large accent-color block m-20" href="#!">Add to Cart</a>
+            </div>
+
           </div>
+
           <div id="product2" class="p-20">
             <div id="reviews">
-              <p class="text-flow">what a strenuous career it is that I've chosen! Travelling day in and day out. Doing business like this takes much more effort than doing your own business at home, and on top of that there's the curse of travelling, worries about making train connections, bad and irregular food, contact with different people all the time so that you can never get to know anyone or become friendly with them. It can all go to Hell!</p>
+              <h4 class="text-flow">Coming soon</h4>
             </div>
           </div>
         </div>
 
-        <div class="product-variation">
+        <!--<div class="product-variation">
           <h5><strong>Choose a color:</strong></h5>
           <form action="#">
             <p>
@@ -108,33 +119,15 @@
                 <label for="test4">Brown</label>
             </p>
           </form>
-        </div>
+        </div>-->
 
-        <div class="product-variation">
-          <h5><strong>Choose a size:</strong></h5>
-          <div class="sizes p-b-20">
-            <div id="sizes">
 
-            </div>
-          </div>
-        </div>
 
-        <!--
-        <div class="product-variation">
-          <h5><strong>Choose a shipping method:</strong></h5>
-          <select class="browser-default">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="1">Credit Card</option>
-            <option value="2">Cash on Delivery</option>
-            <option value="3">Online Payment</option>
-          </select>
-        </div>
-      -->
-      <!-- TODO: Add modal notification for add_to_cart button -->
-        <div class="product-variation">
-          <a id="add_to_cart" class="item_add waves-effect waves-light btn-large accent-color block m-20" href="#!">Add to Cart</a>
-        </div>
-        
+
+
+
+
+
 
 
         <!-- Footer -->
@@ -164,7 +157,7 @@
       </div>
       <!-- End of Page Contents -->
 
-      <!-- Menu Trigger -->
+      <!-- Menu Trigger
       <div class="menu-trigger z-depth-2">
         <div id="menu-icon">
           <span></span>
@@ -174,7 +167,7 @@
         </div>
       </div>
 
-      <!-- Menu -->
+      <!-- Menu
       <nav id="menu" class="menu">
         <div class="menu-navigation">
           <ul class="full-menu collapsible">
@@ -270,9 +263,9 @@
                   </ul>
                 </div>
               </li> -->
-            <li><a href="shop.html" class="no-child">Featured</a></li>
-            <li><a href="products.html" class="no-child">Products</a></li>
-            <li><a href="checkout.html" class="no-child">Checkout</a></li>
+            <li><a href="/featured.html" class="no-child">Featured</a></li>
+            <li><a href="/products.html" class="no-child">Products</a></li>
+            <li><a href="/checkout" class="no-child">Checkout</a></li>
             <li><a href="checkout.html" class="no-child">Contact</a></li>
             <li><a href="index-walkthrough.html" class="no-child">Walkthrough</a></li>
           </ul>
@@ -281,19 +274,19 @@
       <!-- End of Menu -->
 
     </div><!-- End of Main Container -->
-    <script src="js/jquery-1.12.2.js"></script>
-    <script src="js/js.cookie.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/modernizr.js"></script>
-    <script src="js/swiper.min.js"></script>
-    <script src="js/jquery.smoothState.min.js"></script>
-    <script src="js/jquery.swipebox.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/jquery.mixitup.min.js"></script>
-    <script src="js/masonry.min.js"></script>
-    <script src="js/chart.min.js"></script>
-    <script src="js/functions.js"></script>
-    <script src="js/simpleCart.js"></script>
-    <script src="js/product.js"></script>
+    <script src="/js/jquery-1.12.2.js"></script>
+    <script src="/js/js.cookie.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/modernizr.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <script src="/js/jquery.smoothState.min.js"></script>
+    <script src="/js/jquery.swipebox.min.js"></script>
+    <script src="/js/materialize.min.js"></script>
+    <script src="/js/jquery.mixitup.min.js"></script>
+    <script src="/js/masonry.min.js"></script>
+    <script src="/js/chart.min.js"></script>
+    <script src="/js/functions.js"></script>
+    <script src="/js/simpleCart.js"></script>
+    <script src="/js/product.js"></script>
   </body>
 </html>

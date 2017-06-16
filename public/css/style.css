@@ -1530,7 +1530,7 @@ textarea.materialize-textarea+label {
 }
 
 .input-field input[type=search] {
-  padding: 21px 40px;
+  padding: 21px 20px;
 }
 
 
@@ -1793,6 +1793,12 @@ textarea.materialize-textarea+label {
   float: left;
   position: relative;
   height: 240px;
+}
+
+@media screen and (min-width: 390px) {
+  .shop-banner-full{
+    height: 260px;
+  }
 }
 
 .shop-banner h3 {
@@ -2609,4 +2615,159 @@ ul.faq {
   border-radius: 51px;
   color: #fff;
   background: #000;
+}
+
+#confirm-description {
+  padding: 15px;
+  text-align: -webkit-center;
+}
+
+div#product_button {
+    padding: 0 0px 20px;
+}
+
+a#add_to_cart {
+    margin: 0px !important;
+}
+
+div#choose_size {
+    padding-left: 0px;
+}
+
+.itsactive{
+   padding-left: 2px !important;
+   padding-right: 2px !important;
+   -webkit-transition: padding .25s ease;
+ }
+
+#nav_logo{
+  width: 15rem;
+  padding-left: 15px;
+}
+
+#menu_item{
+  font-size: 1.8rem;
+}
+
+
+ /***************** SEARCH ********************/
+ .input-field input[type=search]+label {
+     left: 90%;
+     position: absolute;
+ }
+
+#mynav .brand-logo{
+  color: #000;
+  background-color: #fff;
+}
+
+#mynav{
+  color: #000;
+  background-color: #fff;
+}
+#nav-mobile1 {
+  margin-right: 5%;
+}
+
+nav .nav-wrapper i{
+  font-size: 2.5rem;
+}
+
+#slide-out-search .side-nav{
+    width: 100%;
+}
+
+#sidenav-overlay{
+  z-index: 998
+}
+#closeSearch{
+  position: relative;
+  top: 8px;
+  left: 5px;
+  padding: 5px
+}
+
+.box_label{
+  line-height: 30px ;
+}
+
+.filter_info{
+  color: #000;
+  font-size: 1.5rem;
+  padding-left: 35px;
+  position: relative;
+  top: -10px;
+}
+
+[type="radio"]:not(:checked)+label, [type="radio"]:checked+label, [type="checkbox"]+label {
+    font-size: 1.8rem;
+    font-family: "Raleway", Helvetica, Arial, sans-serif;
+    color: #000;
+}
+
+#filter_header{
+  color: #000;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+#nav_content {
+  padding-bottom: 100px;
+}
+
+nav .input-field input {
+  font-size: 1.6rem;
+}
+
+.input-field input[type=search] {
+    padding: 17px 20px;
+}
+
+.filter_type{
+  color: #000;
+  font-size: 1.8rem;
+}
+
+#filter_divider{
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+#slide-out-search{
+  height: calc(100%)
+}
+
+#search_item_button {
+  color: #fff;
+  font-size: 1.8rem;
+  height: 60px;
+  text-transform: none;
+}
+
+.nav_footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    background-color: #fff;
+}
+
+.nav_content {
+    padding-bottom: 100px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#search_card{
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 30px !important;
+}
+
+.select-wrapper input.select-dropdown{
+  font-size: 1.6rem;
+}
+
+.select-wrapper span.caret{
+  top: 5px;
+  font-size: 12px;
 }

@@ -384,3 +384,35 @@ $(function () {
     };
 
 });
+
+
+
+   $('.button-collapse-menu').sideNav({
+        edge: 'left', // Choose the horizontal origin
+        closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        draggable: true // Choose whether you can drag to open on touch screens
+      }
+    );
+
+    var cent = "100%";
+    $('.button-collapse').sideNav({
+         menuWidth: cent,
+         edge: 'right', // Choose the horizontal origin
+        // closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+         //draggable: true // Choose whether you can drag to open on touch screens
+       }
+     );
+
+     $(document).ready(function() {
+       $('select').material_select();
+     });
+
+/* Close */
+$("#closeSearch").click(function(){
+  function remove(){
+    $('#slide-out-search').css({'transition': '' });
+  }
+    $('#slide-out-search').css({'right':'', 'transition': '0.25s ease' });
+    $('#sidenav-overlay').remove();
+    setTimeout(remove, 250)
+ });
