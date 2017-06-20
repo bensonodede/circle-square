@@ -14,7 +14,7 @@
   <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,700' rel='stylesheet' type='text/css' />
 
   <!-- Icons -->
-  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css" />
 
   <!-- Styles -->
   <link href="css/keyframes.css" rel="stylesheet" type="text/css" />
@@ -23,6 +23,9 @@
   <link href="css/swipebox.min.css" rel="stylesheet" type="text/css" />
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!--Scripts-->
+  <script src="/js/vue.min.js"></script>
 </head>
 
 <body>
@@ -32,10 +35,10 @@
 
 
     <ul id="slide-out-menu" class="side-nav">
-      <div class="userView">
+      <nav class="userView">
         <img id="nav_logo" src="img/warehouse_full_black.png">
-      </div>
-      <li><a id="menu_item" href="#!">Featured</a></li>
+      </nav>
+      <li><a id="menu_item" href="/featured">Featured</a></li>
       <li><a id="menu_item" href="#!">Products</a></li>
       <li><a id="menu_item" href="#!">Cart</a></li>
       <li><a id="menu_item" href="#!">Contact</a></li>
@@ -51,7 +54,16 @@
           <i id="closeSearch" class="ion-android-close"></i>
         </div>
 
-        <!-- Search bar -->
+
+        <div class="aa-input-container" id="aa-input-container">
+          <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for anything..." name="search" autocomplete="off" />
+          <svg onclick="getResults()" class="aa-input-icon" viewBox="654 -372 1664 1664">
+            <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332   s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+          </svg>
+        </div>
+
+
+        <!-- Search bar --
         <div id="search_card" class="p-20">
           <nav class="white">
             <div class="nav-wrapper">
@@ -63,253 +75,288 @@
               </form>
           </nav>
           </div>
-          <!-- End search bar -->
+           End search bar -->
 
-          <p id="filter_header">All filters</p>
-          <!--  Color filter -->
-          <form>
-            <div class="">
-              <p class="box_label">
-                <input type="checkbox" class="filled-in" id="red" />
-                <label for="red">Red</label><br>
-                <span class="filter_info">Show red colors</span>
-              </p>
+        <p id="filter_header">All filters</p>
+        <!--  Color filter -->
+        <form>
+          <div class="checkbox_filters">
+            <p class="box_label">
+              <input type="checkbox" class="filled-in" id="red" />
+              <label for="red">Red</label><br>
+              <span class="filter_info">Show red colors</span>
+            </p>
 
-              <p class="box_label">
-                <input type="checkbox" class="filled-in" id="blue" />
-                <label for="blue">Blue</label><br>
-                <span class="filter_info">Show blue colors</span>
-              </p>
+            <p class="box_label">
+              <input type="checkbox" class="filled-in" id="blue" />
+              <label for="blue">Blue</label><br>
+              <span class="filter_info">Show blue colors</span>
+            </p>
 
 
-              <p class="box_label">
-                <input type="checkbox" class="filled-in" id="Orange" />
-                <label for="Orange">Orange</label><br>
-                <span class="filter_info">Show Orange colors</span>
-              </p>
+            <p class="box_label">
+              <input type="checkbox" class="filled-in" id="Orange" />
+              <label for="Orange">Orange</label><br>
+              <span class="filter_info">Show Orange colors</span>
+            </p>
 
-              <p class="box_label">
-                <input type="checkbox" class="filled-in" id="Yellow" />
-                <label for="Yellow">Yellow</label><br>
-                <span class="filter_info">Show Yellow colors</span>
-              </p>
+            <p class="box_label">
+              <input type="checkbox" class="filled-in" id="Yellow" />
+              <label for="Yellow">Yellow</label><br>
+              <span class="filter_info">Show Yellow colors</span>
+            </p>
 
-              <p class="box_label">
-                <input type="checkbox" class="filled-in" id="Purple" />
-                <label for="Purple">Purple</label><br>
-                <span class="filter_info">Show Purple colors</span>
-              </p>
+            <p class="box_label">
+              <input type="checkbox" class="filled-in" id="Purple" />
+              <label for="Purple">Purple</label><br>
+              <span class="filter_info">Show Purple colors</span>
+            </p>
 
-              <p class="box_label">
-                <input type="checkbox" class="filled-in" id="Green" />
-                <label for="Green">Green</label><br>
-                <span class="filter_info">Show Green colors</span>
-              </p>
+            <p class="box_label">
+              <input type="checkbox" class="filled-in" id="Green" />
+              <label for="Green">Green</label><br>
+              <span class="filter_info">Show Green colors</span>
+            </p>
 
-              <p class="box_label">
-                <input type="checkbox" class="filled-in" id="Black" />
-                <label for="Black">Black</label><br>
-                <span class="filter_info">Show Black colors</span>
-              </p>
-            </div>
-          </form>
-          <!--  End color filter -->
-          <hr id="filter_divider">
+            <p class="box_label">
+              <input type="checkbox" class="filled-in" id="Black" />
+              <label for="Black">Black</label><br>
+              <span class="filter_info">Show Black colors</span>
+            </p>
+          </div>
+        </form>
+        <!--  End color filter -->
+        <hr id="filter_divider">
 
-          <!--  Size filter -->
-          <div>
-            <p class="filter_type">Size</p>
-            <div class="input-field col s12">
-              <select multiple>
+        <!--  Size filter -->
+        <div>
+          <p class="filter_type">Size</p>
+          <div class="input-field col s12">
+            <select multiple>
                 <option value=""selected>Choose your size</option>
                 <option id="dropdown_value" value="1">Option 1</option>
                 <option id="dropdown_value" value="2">Option 2</option>
                 <option id="dropdown_value" value="3">Option 3</option>
               </select>
+          </div>
+        </div>
+        <!--  End size filter -->
+
+        <hr id="filter_divider">
+        <!--  Price filter -->
+        <div>
+          <p class="filter_type">Price range</p>
+        </div>
+        <!--  End size filter -->
+
+      </div>
+
+      <div class="nav_footer">
+        <hr id="filter_divider">
+        <a id="search_item_button" class="item_add waves-effect waves-light btn-large block m-20" href="#!">See items</a>
+      </div>
+
+  </div>
+  </ul>
+  <!--********* End search side-nav *********-->
+
+
+
+  <div class="navbar-fixed">
+    <nav id="mynav">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Logo</a>
+        <ul id="nav-mobile" class="left ">
+          <a href="#" data-activates="slide-out-menu" class="button-collapse-menu"><i class="ion-navicon-round black-text text-lighten-3"></i></a>
+        </ul>
+        <ul id="nav-mobile1" class="right ">
+          <i data-activates="slide-out-search" class="button-collapse ion-android-search black-text"></i>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+  <!-- Page Contents -->
+  <div id="content" class="main grey lighten-4 animated fadein">
+
+
+    <!-- Hero Header -->
+    <div class="hero-header hero-small animated fadeindown">
+      <h1 class="hero-title primary-text">Search</h1>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Random content-->
+
+
+    <div id="results-template">
+        <div onclick="getID(this)" v-bind:id="[item.shopKey,item.key]" v-for="item in items" class="product half">
+        <img v-bind:src="item.slideshow[0]" v-bind:alt="name">
+          <div class="product-info">
+            <span class="small grey-text">Technology</span>
+            <h5 class="m-0"><strong>{{item.title}}</strong></h5>
+            <p class="m-0">KSh <span>{{item.price}}</span></p>
+            <!-- Rating
+            <div class="rating">
+              <i class="ion-star active"></i>
+              <i class="ion-star active"></i>
+              <i class="ion-star active"></i>
+              <i class="ion-star active"></i>
+              <i class="ion-star"></i>
             </div>
+          -->
           </div>
-          <!--  End size filter -->
-
-          <hr id="filter_divider">
-          <!--  Price filter -->
-          <div>
-            <p class="filter_type">Price range</p>
-          </div>
-          <!--  End size filter -->
-
         </div>
+    </div>
 
-        <div class="nav_footer">
-          <hr id="filter_divider">
-          <a id="search_item_button" class="item_add waves-effect waves-light btn-large block m-20" href="#!">See items</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    <ul class="collapsible popout search-results" data-collapsible="accordion">
+      <li class="animated fadeinright delay-1">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Information for you</div>
+        <div class="collapsible-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         </div>
-
-      </div>
+      </li>
+      <li class="animated fadeinright delay-2">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Some tips</div>
+        <div class="collapsible-body">
+          <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </li>
+      <li class="animated fadeinright delay-3">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Places near you</div>
+        <div class="collapsible-body">
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </li>
+      <li class="animated fadeinright delay-4">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Suggestions</div>
+        <div class="collapsible-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </p>
+        </div>
+      </li>
     </ul>
-      <!--********* End search side-nav *********-->
 
 
-
-    <div class="navbar-fixed">
-      <nav id="mynav">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo center">Logo</a>
-          <ul id="nav-mobile" class="left ">
-            <a href="#" data-activates="slide-out-menu" class="button-collapse-menu"><i class="ion-navicon-round black-text text-lighten-3"></i></a>
-          </ul>
-          <ul id="nav-mobile1" class="right ">
-            <i data-activates="slide-out-search" class="button-collapse ion-android-search black-text"></i>
-          </ul>
+    <ul class="collapsible popout search-results" data-collapsible="accordion">
+      <li class="animated fadeinright delay-1">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Information for you</div>
+        <div class="collapsible-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         </div>
-      </nav>
-    </div>
+      </li>
+      <li class="animated fadeinright delay-2">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Some tips</div>
+        <div class="collapsible-body">
+          <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </li>
+      <li class="animated fadeinright delay-3">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Places near you</div>
+        <div class="collapsible-body">
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </li>
+      <li class="animated fadeinright delay-4">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Suggestions</div>
+        <div class="collapsible-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </p>
+        </div>
+      </li>
+    </ul>
 
+    <ul class="collapsible popout search-results" data-collapsible="accordion">
+      <li class="animated fadeinright delay-1">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Information for you</div>
+        <div class="collapsible-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+      </li>
+      <li class="animated fadeinright delay-2">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Some tips</div>
+        <div class="collapsible-body">
+          <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </li>
+      <li class="animated fadeinright delay-3">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Places near you</div>
+        <div class="collapsible-body">
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </li>
+      <li class="animated fadeinright delay-4">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Suggestions</div>
+        <div class="collapsible-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </p>
+        </div>
+      </li>
+    </ul>
 
+    <ul class="collapsible popout search-results" data-collapsible="accordion">
+      <li class="animated fadeinright delay-1">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Information for you</div>
+        <div class="collapsible-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+      </li>
+      <li class="animated fadeinright delay-2">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Some tips</div>
+        <div class="collapsible-body">
+          <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </li>
+      <li class="animated fadeinright delay-3">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Places near you</div>
+        <div class="collapsible-body">
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </li>
+      <li class="animated fadeinright delay-4">
+        <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Suggestions</div>
+        <div class="collapsible-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </p>
+        </div>
+      </li>
+    </ul>
+-->
 
+  </div>
+  <!-- End of Page Contents -->
 
-
-    <!-- Page Contents -->
-    <div id="content" class="main grey lighten-4 animated fadein">
-
-
-      <!-- Hero Header -->
-      <div class="hero-header hero-small animated fadeindown">
-        <h1 class="hero-title primary-text">Search</h1>
-      </div>
-
-
-
-
-
-
-
-
-
-
-      <!-- Search Result-->
-
-      <ul class="collapsible popout search-results" data-collapsible="accordion">
-        <li class="animated fadeinright delay-1">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Information for you</div>
-          <div class="collapsible-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-2">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Some tips</div>
-          <div class="collapsible-body">
-            <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-3">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Places near you</div>
-          <div class="collapsible-body">
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-4">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Suggestions</div>
-          <div class="collapsible-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </p>
-          </div>
-        </li>
-      </ul>
-
-
-      <ul class="collapsible popout search-results" data-collapsible="accordion">
-        <li class="animated fadeinright delay-1">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Information for you</div>
-          <div class="collapsible-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-2">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Some tips</div>
-          <div class="collapsible-body">
-            <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-3">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Places near you</div>
-          <div class="collapsible-body">
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-4">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Suggestions</div>
-          <div class="collapsible-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </p>
-          </div>
-        </li>
-      </ul>
-
-      <ul class="collapsible popout search-results" data-collapsible="accordion">
-        <li class="animated fadeinright delay-1">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Information for you</div>
-          <div class="collapsible-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-2">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Some tips</div>
-          <div class="collapsible-body">
-            <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-3">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Places near you</div>
-          <div class="collapsible-body">
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-4">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Suggestions</div>
-          <div class="collapsible-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </p>
-          </div>
-        </li>
-      </ul>
-
-      <ul class="collapsible popout search-results" data-collapsible="accordion">
-        <li class="animated fadeinright delay-1">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Information for you</div>
-          <div class="collapsible-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-2">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Some tips</div>
-          <div class="collapsible-body">
-            <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-3">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Places near you</div>
-          <div class="collapsible-body">
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-        </li>
-        <li class="animated fadeinright delay-4">
-          <div class="collapsible-header"><i class="ion-android-more-vertical right"></i>Suggestions</div>
-          <div class="collapsible-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </p>
-          </div>
-        </li>
-      </ul>
-
-
-    </div>
-    <!-- End of Page Contents -->
-
-    <!-- Menu Trigger
+  <!-- Menu Trigger
     <div class="menu-trigger z-depth-2">
       <div id="menu-icon">
         <span></span>
@@ -320,109 +367,109 @@
     </div>
   -->
 
-    <!-- Menu -->
-    <nav id="menu" class="menu">
-      <div class="menu-navigation">
-        <ul class="full-menu collapsible">
-          <li class="menu-title">Eclipse</li>
-          <li>
-            <div class="collapsible-header">Home</div>
-            <div class="collapsible-body">
-              <ul class="collapsible">
-                <li>
-                  <a href="index.html">Classic</a>
-                  <a href="index-sliced.html">Sliced</a>
-                  <a href="index-slider.html">Slider</a>
-                  <a href="index-drawer.html">Drawer</a>
-                  <a href="index-walkthrough.html">Walkthrough</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header">Pages</div>
-            <div class="collapsible-body">
-              <ul class="collapsible">
-                <li>
-                  <a href="profile.html">Profile</a>
-                  <a href="article.html">Article</a>
-                  <a href="event.html">Event</a>
-                  <a href="project.html">Project</a>
-                  <a href="player.html">Music Player</a>
-                  <a href="todo.html">ToDo</a>
-                  <a href="category.html">Category</a>
-                  <a href="product.html">Product</a>
-                  <a href="checkout.html">Checkout</a>
-                  <a href="search.html">Search</a>
-                  <a href="faq.html">Faq</a>
-                  <a href="coming-soon.html">Coming Soon</a>
-                  <a href="404.html">404</a>
-                  <a href="500.html">500</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header">App</div>
-            <div class="collapsible-body">
-              <ul class="collapsible">
-                <li>
-                  <a href="calendar.html">Calendar</a>
-                  <a href="chat.html">Chat</a>
-                  <a href="chart.html">Chart</a>
-                  <a href="timeline.html">Timeline</a>
-                  <a href="login.html">Login</a>
-                  <a href="signup.html">Sign Up</a>
-                  <a href="lockscreen.html">Lockscreen</a>
-                  <a href="forgot.html">Password</a>
-                  <a href="notification.html">Notification</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header">Portfolio</div>
-            <div class="collapsible-body">
-              <ul class="collapsible">
-                <li>
-                  <a href="portfolio-filter.html">Filter</a>
-                  <a href="portfolio-masonry.html">Masonry</a>
-                  <a href="portfolio-card.html">Card</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header">Blog</div>
-            <div class="collapsible-body">
-              <ul class="collapsible">
-                <li>
-                  <a href="blog.html">Classic</a>
-                  <a href="blog2.html">Card</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header">Gallery</div>
-            <div class="collapsible-body">
-              <ul class="collapsible">
-                <li>
-                  <a href="gallery-filter.html">Filter</a>
-                  <a href="gallery-masonry.html">Masonry</a>
-                  <a href="gallery-card.html">Card</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li><a href="shop.html" class="no-child">Shop</a></li>
-          <li><a href="news.html" class="no-child">News</a></li>
-          <li><a href="video.html" class="no-child">Video</a></li>
-          <li><a href="contact.html" class="no-child">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!-- End of Menu -->
+  <!-- Menu -->
+  <nav id="menu" class="menu">
+    <div class="menu-navigation">
+      <ul class="full-menu collapsible">
+        <li class="menu-title">Eclipse</li>
+        <li>
+          <div class="collapsible-header">Home</div>
+          <div class="collapsible-body">
+            <ul class="collapsible">
+              <li>
+                <a href="index.html">Classic</a>
+                <a href="index-sliced.html">Sliced</a>
+                <a href="index-slider.html">Slider</a>
+                <a href="index-drawer.html">Drawer</a>
+                <a href="index-walkthrough.html">Walkthrough</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">Pages</div>
+          <div class="collapsible-body">
+            <ul class="collapsible">
+              <li>
+                <a href="profile.html">Profile</a>
+                <a href="article.html">Article</a>
+                <a href="event.html">Event</a>
+                <a href="project.html">Project</a>
+                <a href="player.html">Music Player</a>
+                <a href="todo.html">ToDo</a>
+                <a href="category.html">Category</a>
+                <a href="product.html">Product</a>
+                <a href="checkout.html">Checkout</a>
+                <a href="search.html">Search</a>
+                <a href="faq.html">Faq</a>
+                <a href="coming-soon.html">Coming Soon</a>
+                <a href="404.html">404</a>
+                <a href="500.html">500</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">App</div>
+          <div class="collapsible-body">
+            <ul class="collapsible">
+              <li>
+                <a href="calendar.html">Calendar</a>
+                <a href="chat.html">Chat</a>
+                <a href="chart.html">Chart</a>
+                <a href="timeline.html">Timeline</a>
+                <a href="login.html">Login</a>
+                <a href="signup.html">Sign Up</a>
+                <a href="lockscreen.html">Lockscreen</a>
+                <a href="forgot.html">Password</a>
+                <a href="notification.html">Notification</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">Portfolio</div>
+          <div class="collapsible-body">
+            <ul class="collapsible">
+              <li>
+                <a href="portfolio-filter.html">Filter</a>
+                <a href="portfolio-masonry.html">Masonry</a>
+                <a href="portfolio-card.html">Card</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">Blog</div>
+          <div class="collapsible-body">
+            <ul class="collapsible">
+              <li>
+                <a href="blog.html">Classic</a>
+                <a href="blog2.html">Card</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">Gallery</div>
+          <div class="collapsible-body">
+            <ul class="collapsible">
+              <li>
+                <a href="gallery-filter.html">Filter</a>
+                <a href="gallery-masonry.html">Masonry</a>
+                <a href="gallery-card.html">Card</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="shop.html" class="no-child">Shop</a></li>
+        <li><a href="news.html" class="no-child">News</a></li>
+        <li><a href="video.html" class="no-child">Video</a></li>
+        <li><a href="contact.html" class="no-child">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- End of Menu -->
 
   </div>
   <!-- End of Main Container -->
@@ -435,6 +482,8 @@
   <script src="js/jquery.mixitup.min.js"></script>
   <script src="js/masonry.min.js"></script>
   <script src="js/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
   <script src="js/functions.js"></script>
 </body>
 

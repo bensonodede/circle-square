@@ -41,6 +41,9 @@ var client = require('twilio')(accountSid, authToken);
 app.use(express.static(__dirname + '/public'));
 
 //Express routing
+app.get('/contact', function(req, res) {
+  res.sendFile(__dirname + '/public/contact.html');
+})
 app.get('/featured', function(req, res) {
 
   function snapshotToArray(snapshot) {
@@ -178,7 +181,7 @@ app.get('/seller-confirm/:token', function(req, res) {
 });
 
 
-/************************* ALGOLIA SEARCH SCRIPT ***************************/
+/************************* MOVE DATA FROM FIREBASE --> ALGOLIA ***************************/
 //Add index of products from  Firebase --> Algolia
 var index = algoliaClient.initIndex('products');
 
@@ -194,13 +197,13 @@ function snapshotToArray(snapshot) {
 
 firebase.database().ref('/products').on('child_added', function(snapshot) {
   var allProducts = snapshotToArray(snapshot);
-  //  console.log(allProducts);
+  console.log(allProducts);
 
   /*    index.addObjects(allProducts, function(err, content) {
         console.log(content);
       }); */
 });
-/************************* END ALGOLIA SEARCH SCRIPT ***************************/
+/************************* END MOVE DATA FROM FIREBASE --> ALGOLIA ***************************/
 
 
 

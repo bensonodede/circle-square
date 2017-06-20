@@ -9,7 +9,7 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="yes" name="apple-touch-fullscreen"/>
 
-    <script src="/socket.io/socket.io.js"></script>
+
     <script src="js/vue.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 
@@ -62,7 +62,7 @@
           <div class="container">
             <div class="row">
               <div class="col s12">
-                <p class="center-align grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <p class="center-align grey-text text-lighten-4">We believe online shopping should be simple and a little fun.</p>
                 <div class="center-align">
                   <i class="ion-social-facebook m-10 white-text"></i>
                   <i class="ion-social-twitter m-10 white-text"></i>
@@ -76,8 +76,8 @@
           <div class="line white"></div>
           <div class="footer-copyright primary-color">
             <div class="container">
-            2017 Dropzone
-            <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
+            2017 warehouse
+          <!--  <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a> -->
             </div>
           </div>
         </footer>
@@ -99,7 +99,7 @@
       <nav id="menu" class="menu">
         <div class="menu-navigation">
           <ul class="full-menu collapsible">
-            <li class="menu-title">Dropzone</li>
+            <img id="nav_logo" src="/img/warehouse_full_white.png">
             <!--
             <li>
               <div class="collapsible-header">Home</div>
@@ -190,12 +190,12 @@
                   </li>
                 </ul>
               </div>
-            </li> -->
-            <li><a href="shop.html" class="no-child">Featured</a></li>
-            <li><a href="products.html" class="no-child">Products</a></li>
-            <li><a href="checkout.html" class="no-child">Checkout</a></li>
-            <li><a href="checkout.html" class="no-child">Contact</a></li>
+            </li>
             <li><a href="index-walkthrough.html" class="no-child">Walkthrough</a></li>
+          -->
+            <li><a onclick="featuredRedirect()" href="" class="no-child">Featured</a></li>
+            <li><a onclick="cartRedirect()" href="" class="no-child">Cart</a></li>
+            <li><a onclick="contactRedirect()" href="" class="no-child">Contact</a></li>
           </ul>
         </div>
       </nav> <!-- End of Menu -->

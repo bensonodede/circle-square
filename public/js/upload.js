@@ -31,5 +31,6 @@ function createProduct(){
     description:"Something something something something something something something something something",
     tags:["Electronics"],
     sizes:["30", "34", "36", "38",],
+    shopKey:                             //Makes page redirect simple when using algoliasearch
   });
 }
