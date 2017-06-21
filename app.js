@@ -41,9 +41,6 @@ var client = require('twilio')(accountSid, authToken);
 app.use(express.static(__dirname + '/public'));
 
 //Express routing
-app.get('/contact', function(req, res) {
-  res.sendFile(__dirname + '/public/contact.html');
-})
 app.get('/featured', function(req, res) {
 
   function snapshotToArray(snapshot) {
@@ -65,6 +62,15 @@ app.get('/featured', function(req, res) {
     }).sendFile(__dirname + '/public/featured.html');
   });
 });
+
+
+app.get('/',function(req,res){
+  res.redirect("/featured");
+});
+
+app.get('/contact', function(req, res) {
+  res.sendFile(__dirname + '/public/contact.html');
+})
 
 app.get('/products/:token', function(req, res) {
   var shopKey = req.params.token;
@@ -130,17 +136,6 @@ app.get('/products/:token/:tokenChild', function(req, res) {
 });
 
 
-
-
-
-
-
-
-
-app.get('/product', function(req, res) {
-  res.sendFile(__dirname + '/public/products.html');
-});
-
 app.get('/checkout', function(req, res) {
   res.sendFile(__dirname + '/public/checkout.html');
 });
@@ -180,6 +175,10 @@ app.get('/seller-confirm/:token', function(req, res) {
 
 });
 
+
+app.get('*',function(req,res){
+  res.sendFile(__dirname + "/public/404.html");
+});
 
 /************************* MOVE DATA FROM FIREBASE --> ALGOLIA ***************************/
 //Add index of products from  Firebase --> Algolia
