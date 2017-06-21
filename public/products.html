@@ -57,7 +57,7 @@
             <div onclick="getID(this)" v-bind:id="item.key" v-for="item in items" class="product half">
             <img v-bind:src="item.slideshow[0]" v-bind:alt="name">
               <div class="product-info">
-                <span class="small grey-text">Technology</span>
+                <span class="small grey-text">{{item.tags[0]}}</span>
                 <h5 class="m-0"><strong>{{item.title}}</strong></h5>
                 <p class="m-0">KSh <span>{{item.price}}</span></p>
                 <!-- Rating
@@ -75,7 +75,7 @@
 
         <div id="product2">
           <div class="product half">
-            <a href="product.html"><img src="/img/product.jpg" alt=""></a>
+            <a href="#!"><img src="/img/product.jpg" alt=""></a>
             <div class="product-info">
               <span class="small grey-text">Technology</span>
               <h5 class="m-0"><strong>Smart Watch</strong></h5>
@@ -92,7 +92,7 @@
           </div>
 
           <div class="product half">
-            <a href="product.html"><img src="/img/product4.jpg" alt=""></a>
+            <a href="#!"><img src="/img/product4.jpg" alt=""></a>
             <div class="product-info">
               <span class="small grey-text">Technology</span>
               <h5 class="m-0"><strong>Black Corn</strong></h5>
@@ -111,7 +111,7 @@
 
         <div id="product3">
           <div class="product half">
-            <a href="product.html"><img src="/img/product4.jpg" alt=""></a>
+            <a href="#!"><img src="/img/product4.jpg" alt=""></a>
             <div class="product-info">
               <span class="small grey-text">Technology</span>
               <h5 class="m-0"><strong>Black Corn</strong></h5>
@@ -128,7 +128,7 @@
           </div>
 
           <div class="product half">
-            <a href="product.html"><img src="/img/product2.jpg" alt=""></a>
+            <a href="#!"><img src="/img/product2.jpg" alt=""></a>
             <div class="product-info">
               <span class="small grey-text">Technology</span>
               <h5 class="m-0"><strong>Some Cups</strong></h5>
@@ -145,7 +145,7 @@
           </div>
 
           <div class="product half">
-            <a href="product.html"><img src="/img/product.jpg" alt=""></a>
+            <a href="#!"><img src="/img/product.jpg" alt=""></a>
             <div class="product-info">
               <span class="small grey-text">Technology</span>
               <h5 class="m-0"><strong>Smart Watch</strong></h5>
