@@ -255,14 +255,14 @@ io.on('connection', function(socket) {
           console.log("ORDER TOKEN: " + token);
           /****** END UNIQUE ID generation *****/
 
-          client.messages.create({
+        /*  client.messages.create({
             to: sellerNum,
             from: "+16466797502 ",
             body: "You have a new order! Click the link below to confirm: " + "\n" + "https://thewarehouseke.herokuapp.com/seller-confirm/" + token
           }, function(err, sms) {
             process.stdout.write(sms.sid);
           });
-
+*/
           /***** Write order for each item in cart to db *****/
           var orderRef = firebase.database().ref('/order');
 
