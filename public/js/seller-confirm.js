@@ -12,17 +12,18 @@ var config = {
 firebase.initializeApp(config);
 
 
-socket.on('event', function(data) {
-  console.log(data.title);
+  var data = JSON.parse(Cookies.get('confirm'));
+  console.log(data);
 
-  var details = data.details;
+
+  var details = data.info;
   console.log(details);
   var slideshow = details.slideshow;
 
   var app = new Vue({
     el: '#product-details',
     data: {
-      details: details
+      details: details,
     }
   })
 
@@ -38,9 +39,12 @@ socket.on('event', function(data) {
     var carousel = document.getElementById("carousel");
     var sizes = document.getElementById('sizes');
     var urls = slideshow;
+    var fit = data.size;
     for (i = 0; i < urls.length; i++) {
       carousel.insertAdjacentHTML('beforeend', '<div class="item"><div class="imageContainer"><img src="' + urls[i] + '" alt="""></div></div>');
     }
+    sizes.insertAdjacentHTML('beforeend', '<span class="size">' + fit + '</span>');    
+
     _next();
   }
 
@@ -90,6 +94,3 @@ socket.on('event', function(data) {
 
   var queue = chainCallbacks(a, b, c);
   queue();
-
-
-});

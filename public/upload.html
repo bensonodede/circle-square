@@ -4,12 +4,16 @@
     <meta charset="utf-8">
     <title>Upload data</title>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-
-    <script src="js/upload.js" charset="utf-8"></script>
+    <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
     <h1>Uploading data...</h1>
     <button onclick="createShop()" type="button" class="uploadShop" name="button">Upload shop</button>
     <button onclick="createProduct()" type="button" class="uploadProduct" name="button">Upload product</button>
+    <input id="inp" type='file' multiple>
+    <p id="b64"></p>
+    <img id="img" height="150">
+
+    <script src="/js/upload.js"></script>
   </body>
 </html>

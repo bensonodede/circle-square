@@ -79,22 +79,15 @@ purchaseBtn.addEventListener('click', function() {
     });
     console.log(arr);
 
-      socket.emit('my other event', {
+      socket.emit('checkout event', {
         order: arr,
         recNum: number
       });
+    simpleCart.update();
+    simpleCart.empty();
+    simpleCart.update();
   } else {
     Materialize.toast('Invalid input', 4000, 'red');
   }
-
-
-
-
-
-
-
-
-
-
 
 });

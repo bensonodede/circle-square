@@ -4,6 +4,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var firebase = require('firebase');
 var $ = require('jquery');
+var cloudinary = require('cloudinary');
 var twilio = require('twilio');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -25,12 +26,31 @@ var config = {
 };
 firebase.initializeApp(config);
 
+//Cloudinary config
+cloudinary.config({
+  cloud_name: "dzxuz9zc9",
+  api_key: "161726958168723",
+  api_secret: "6nCXJz8_GjTNgZV9LbWXp3G0U_o"
+});
+
+io.on('connection', function(socket){
+  socket.on('news', function (data) {
+    console.log(data);
+    cloudinary.uploader.upload(data.hello, function(result) {
+      console.log(result.secure_url)
+    });
+    //var image = new Image();
+    //image.src = e.target.result;
+    //document.body.appendChild(image);
+  });
+});
+
 //Algolia search
 var algoliaClient = algoliasearch('53Q7NWI1VU', '4d0bcc1ee9c0e9572105f373457fe849')
 
 //Twilio Credentials
-var accountSid = 'AC34811ee8499db4fbce70aa2a0bb150ec';
-var authToken = '75dd14e5a5669d3533652ab3a6d2f445';
+var accountSid = 'ACfefa7ab7db30fedd3ba418d0838bbe11';
+var authToken = '248923d6ebb40fa7a445edfe1e668a42';
 
 // Require  the twiio module and create a REST client
 var client = require('twilio')(accountSid, authToken);
@@ -149,25 +169,24 @@ app.get('/seller-confirm/:token', function(req, res) {
       res.sendFile(__dirname + '/public/404.html')
       console.log("Page not found");
     } else {
-      res.sendFile(__dirname + '/public/seller-confirm.html');
       console.log(snapshot.val());
 
       var sKey = snapshot.val().shopKey;
       var pKey = snapshot.val().productKey;
-      var sellerNum = snapshot.val().sellerNum;
-      var recNum = snapshot.val().recNum;
+      var size = snapshot.val().size;
 
       firebase.database().ref('/products/' + sKey).child(pKey).once('value', function(snapshot) {
+        var info = snapshot.val();
+        console.log(info);
+        var str = {
+          info: info,
+          size: size
+        };
+        var data = JSON.stringify(str);
+        res.cookie('confirm', data, {
+          path: '/seller-confirm'
+        }).sendFile(__dirname + '/public/seller-confirm.html');
 
-        io.on('connection', function(socket) {
-          socket.emit('event', {
-            details: snapshot.val(),
-            title: snapshot.val().title,
-            price: snapshot.val().price,
-            slideshow: snapshot.val().slideshow,
-            tags: snapshot.val().tags
-          });
-        });
 
       })
     }
@@ -207,21 +226,24 @@ firebase.database().ref('/products').on('child_added', function(snapshot) {
 
 
 io.on('connection', function(socket) {
-  socket.on('my other event', function(data) {
+  socket.on('checkout event', function(data) {
     var order = data.order;
     var recNum = data.recNum;
-    console.log(recNum);
+    console.log("RECIPIENT'S NUMBER: " + recNum);
 
     /*** Begin loop through cart items ***/
     var keys = Object.keys(order);
     for (var i = 0, length = keys.length; i < length; i++) {
       console.log(order[keys[i]].productKey);
+      var size = (order[keys[i]].size);
       var shopKey = (order[keys[i]].shopKey);
       var productKey = (order[keys[i]].productKey);
 
       firebase.database().ref('/shop/' + shopKey).on('value', function(snapshot) {
-        console.log(snapshot.val().number);
-        sellerNum = snapshot.val().number;
+        var a_sellerNum = snapshot.val().number;
+        var b_sellerNum = a_sellerNum.slice(1);
+        var sellerNum = "+254" + b_sellerNum;
+        console.log("SELLER NUMBER: " + sellerNum);
 
         /***** Generate UNIQUE ID *****/
         function loopItems() {
@@ -230,17 +252,16 @@ io.on('connection', function(socket) {
           for (var i = 16; i > 0; --i) {
             token += chars[Math.round(Math.random() * (chars.length - 1))];
           }
-          console.log(token);
+          console.log("ORDER TOKEN: " + token);
           /****** END UNIQUE ID generation *****/
 
           client.messages.create({
-            body: "All in the game, yo",
-            to: "+14108675309",
-            from: "+15005550006"
+            to: sellerNum,
+            from: "+16466797502 ",
+            body: "You have a new order! Click the link below to confirm: " + "\n" + "https://thewarehouseke.herokuapp.com/seller-confirm/" + token
           }, function(err, sms) {
             process.stdout.write(sms.sid);
           });
-
 
           /***** Write order for each item in cart to db *****/
           var orderRef = firebase.database().ref('/order');
@@ -250,7 +271,8 @@ io.on('connection', function(socket) {
               recNum: recNum,
               shopKey: shopKey,
               productKey: productKey,
-              sellerNum: sellerNum
+              sellerNum: sellerNum,
+              size: size
             });
           }
           createOrder();
@@ -264,13 +286,6 @@ io.on('connection', function(socket) {
   });
 
 });
-
-
-
-
-
-
-
 
 
 //Launch Server
