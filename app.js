@@ -1,4 +1,5 @@
 var express = require('express');
+var compression = require('compression');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
@@ -14,6 +15,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
 
 // Initialize Firebase
 var config = {
@@ -34,7 +36,7 @@ cloudinary.config({
 });
 
 io.on('connection', function(socket){
-  socket.on('news', function (data) {
+  socket.on('upload', function (data) {
     console.log(data);
     cloudinary.uploader.upload(data.hello, function(result) {
       console.log(result.secure_url)
@@ -58,6 +60,7 @@ var client = require('twilio')(accountSid, authToken);
 
 
 //Give access to css and js files
+app.use(compression());
 app.use(express.static(__dirname + '/public'));
 
 //Express routing
@@ -187,7 +190,6 @@ app.get('/seller-confirm/:token', function(req, res) {
           path: '/seller-confirm'
         }).sendFile(__dirname + '/public/seller-confirm.html');
 
-
       })
     }
   });
@@ -203,6 +205,7 @@ app.get('*',function(req,res){
 //Add index of products from  Firebase --> Algolia
 var index = algoliaClient.initIndex('products');
 
+/*
 function snapshotToArray(snapshot) {
   var returnArr = [];
   snapshot.forEach(function(childSnapshot) {
@@ -217,10 +220,11 @@ firebase.database().ref('/products').on('child_added', function(snapshot) {
   var allProducts = snapshotToArray(snapshot);
   console.log(allProducts);
 
-  /*    index.addObjects(allProducts, function(err, content) {
+      index.addObjects(allProducts, function(err, content) {
         console.log(content);
-      }); */
+      });
 });
+*/
 /************************* END MOVE DATA FROM FIREBASE --> ALGOLIA ***************************/
 
 
@@ -262,7 +266,7 @@ io.on('connection', function(socket) {
           }, function(err, sms) {
             process.stdout.write(sms.sid);
           });
-          
+
           /***** Write order for each item in cart to db *****/
           var orderRef = firebase.database().ref('/order');
 
@@ -282,9 +286,15 @@ io.on('connection', function(socket) {
       });
     }
     /*** End loop through cart items ***/
-
   });
+});
 
+io.on('connection', function (socket) {
+  //console.log("SOMETHING");
+  //socket.emit('ns', { hello: 'world' });
+  socket.on('wawa', function (data) {
+    console.log(data.my);
+  });
 });
 
 

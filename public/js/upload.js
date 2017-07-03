@@ -46,7 +46,7 @@ function readFile() {
       document.getElementById("img").src       = e.target.result;
       document.getElementById("b64").innerHTML = e.target.result;
       console.log(e.target.result);
-      socket.emit('news', { hello: e.target.result });
+      socket.emit('upload', { hello: e.target.result });
       var image = new Image();
       image.src = "https://res.cloudinary.com/dzxuz9zc9/image/upload/v1498500181/yzhczace9u25wepguqwy.jpg";
       document.body.appendChild(image);

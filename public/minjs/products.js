@@ -1,0 +1,1 @@
+function getID(a){key=a.id;var e=window.location.pathname+"/"+key;window.location.href=e}var data=JSON.parse(Cookies.get("name"));console.log(data);var app2=new Vue({el:"#banner",data:{banner:data.details.banner,name:data.details.name}}),app=new Vue({el:"#products-template",data:{items:data.products},mounted:function(){this.$nextTick(function(){console.log("Complete")})}});

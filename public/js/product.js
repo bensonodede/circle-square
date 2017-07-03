@@ -31,10 +31,7 @@ function a() {
   for (i = 0; i < urls.length; i++) {
     carousel.insertAdjacentHTML('beforeend', '<div class="item"><div class="imageContainer"><img src="' + urls[i] + '" alt="""></div></div>');
   }
-  for (i = 0; i < fit.length; i++) {
-    sizes.insertAdjacentHTML('beforeend', '<span onclick="getID(this)" class="size">' + fit[i] + '</span>');
-    document.getElementsByClassName('size')[i].setAttribute("id", fit[i]);
-  }
+
   _next();
 }
 
@@ -77,7 +74,7 @@ function chainCallbacks() {
 
 var queue = chainCallbacks(a, b);
 queue();
-
+/*
 var cartButton = document.getElementById('add_to_cart');
 cartButton.addEventListener('click', function() {
   var size = Cookies.get('size');
@@ -101,7 +98,7 @@ cartButton.addEventListener('click', function() {
   }
 
 });
-
+*/
 function getID(theKey) {
   //bake cookie for size
   key = theKey.id;

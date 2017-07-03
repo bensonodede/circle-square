@@ -17,16 +17,13 @@
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css"/>
 
     <!-- Styles -->
-    <link href="/css/keyframes.css" rel="stylesheet" type="text/css"/>
-    <link href="/css/materialize.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/mincss/keyframes.css" rel="stylesheet" type="text/css"/>
+    <link href="/mincss/materialize.min.css" rel="stylesheet" type="text/css"/>
     <link href="/css/slick.css" rel="stylesheet" type="text/css" >
     <link href="/css/slick-theme.css" rel="stylesheet" type="text/css">
-    <link href="/css/slides.css" rel="stylesheet" type="text/css"/>
-    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/mincss/slides.css" rel="stylesheet" type="text/css"/>
+    <link href="/mincss/style.css" rel="stylesheet" type="text/css"/>
 
-    <!--Scripts -->
-    <script src="/js/vue.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
 
     <!-- Start google-analytics -->
     <script>
@@ -40,6 +37,81 @@
     </script>
     <!-- End google-analytics -->
 
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+      t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, i;
+        e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('84n3es628e3x');
+
+    drift.on('ready', function(api, payload){
+      api.widget.hide();
+      api.showWelcomeMessage();
+    })
+    </script>
+    <!-- End of Async Drift Code -->
+    <script>
+  (function() {
+    /* Add this class to any elements you want to use to open Drift.
+     *
+     * Examples:
+     * - <a class="drift-open-chat">Questions? We're here to help!</a>
+     * - <button class="drift-open-chat">Chat now!</button>
+     *
+     * You can have any additional classes on those elements that you
+     * would ilke.
+     */
+    var DRIFT_CHAT_SELECTOR = '.drift-open-chat'
+    /* http://youmightnotneedjquery.com/#ready */
+    function ready(fn) {
+      if (document.readyState != 'loading') {
+        fn();
+      } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', fn);
+      } else {
+        document.attachEvent('onreadystatechange', function() {
+          if (document.readyState != 'loading')
+            fn();
+        });
+      }
+    }
+    /* http://youmightnotneedjquery.com/#each */
+    function forEachElement(selector, fn) {
+      var elements = document.querySelectorAll(selector);
+      for (var i = 0; i < elements.length; i++)
+        fn(elements[i], i);
+    }
+    function openSidebar(driftApi, event) {
+      event.preventDefault();
+      driftApi.sidebar.open();
+      return false;
+    }
+    ready(function() {
+      drift.on('ready', function(api) {
+        var handleClick = openSidebar.bind(this, api)
+        forEachElement(DRIFT_CHAT_SELECTOR, function(el) {
+          el.addEventListener('click', handleClick);
+        });
+      });
+    });
+  })();
+</script>
 </head>
 
   <body>
@@ -67,7 +139,7 @@
         </div>
 
 
-        <div id="product-details">
+        <div id="product-details" v-cloak>
 
 
         <!-- Product Title -->
@@ -88,19 +160,19 @@
           </ul>
 
           <div id="product1" class="p-20">
-            <div id="description">
+            <div id="description" v-cloak>
               <p class="text-flow">{{details.description}}.</p>
             </div>
 
             <div id="choose_size" class="product-variation">
-              <h5><strong>Choose a size:</strong></h5>
+              <h5><strong>Click the button below to chat with the seller.</strong></h5>
               <div class="sizes p-b-20">
                 <div id="sizes"></div>
               </div>
             </div>
 
             <div id="product_button" class="product-variation">
-              <a id="add_to_cart" class="item_add waves-effect waves-light btn-large accent-color block m-20" href="#!">Add to Cart</a>
+              <a id="add_to_cart" class="drift-open-chat item_add waves-effect waves-light btn-large accent-color block m-20" href="#!">Chat now!</a>
             </div>
 
           </div>
@@ -169,8 +241,8 @@
 
       </div>
       <!-- End of Page Contents -->
-
-      <!-- Menu Trigger-->
+      <i onclick="goBack()" class="ion-chevron-left" id="goBack"></i>
+      <!-- Menu Trigger
       <div class="menu-trigger z-depth-2">
         <div id="menu-icon">
           <span></span>
@@ -179,6 +251,7 @@
           <span></span>
         </div>
       </div>
+    -->
 
       <!-- Menu -->
       <nav id="menu" class="menu">
@@ -286,19 +359,21 @@
       </nav> <!-- End of Menu -->
 
     </div><!-- End of Main Container -->
-    <script src="/js/jquery-1.12.2.js"></script>
-    <script src="/js/js.cookie.js"></script>
-    <script src="/js/slick.min.js"></script>
-    <script src="/js/modernizr.js"></script>
-    <script src="/js/swiper.min.js"></script>
-    <script src="/js/jquery.smoothState.min.js"></script>
-    <script src="/js/jquery.swipebox.min.js"></script>
-    <script src="/js/materialize.min.js"></script>
-    <script src="/js/jquery.mixitup.min.js"></script>
-    <script src="/js/masonry.min.js"></script>
-    <script src="/js/chart.min.js"></script>
-    <script src="/js/functions.js"></script>
-    <script src="/js/simpleCart.js"></script>
-    <script src="/js/product.js"></script>
+    <!--Scripts -->
+    <script src="/minjs/vue.min.js"></script>
+    <script src="/minjs/jquery-1.12.2.js"></script>
+    <script src="/minjs/js.cookie.js"></script>
+    <script src="/minjs/slick.min.js"></script>
+    <script src="/minjs/modernizr.js"></script>
+    <script src="/minjs/swiper.min.js"></script>
+    <script src="/minjs/jquery.smoothState.min.js"></script>
+    <script src="/minjs/jquery.swipebox.min.js"></script>
+    <script src="/minjs/materialize.min.js"></script>
+    <script src="/minjs/jquery.mixitup.min.js"></script>
+    <script src="/minjs/masonry.min.js"></script>
+    <script src="/minjs/chart.min.js"></script>
+    <script src="/minjs/functions.js"></script>
+    <script src="/minjs/simpleCart.js"></script>
+    <script src="/minjs/product.js"></script>
   </body>
 </html>

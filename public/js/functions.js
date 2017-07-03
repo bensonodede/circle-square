@@ -385,11 +385,17 @@ $(function() {
 
 });
 
+//Go back function
+function goBack(){
+  window.history.back();  
+}
+
 //Redirect functions
 
 function cartRedirect(){ window.location.href = "/checkout" };
 function featuredRedirect(){ window.location.href = "/featured" };
 function contactRedirect(){ window.location.href = "/contact" };
+
 
 // Navigation side-nav
 $('.button-collapse-menu').sideNav({

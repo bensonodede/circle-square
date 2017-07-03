@@ -18,15 +18,12 @@
   <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css" />
 
   <!-- Styles -->
-  <link href="/css/keyframes.css" rel="stylesheet" type="text/css" />
-  <link href="/css/materialize.min.css" rel="stylesheet" type="text/css" />
-  <link href="/css/swiper.css" rel="stylesheet" type="text/css" />
-  <link href="/css/swipebox.min.css" rel="stylesheet" type="text/css" />
-  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  <link href="/mincss/keyframes.css" rel="stylesheet" type="text/css" />
+  <link href="/mincss/materialize.min.css" rel="stylesheet" type="text/css" />
+  <link href="/mincss/swiper.css" rel="stylesheet" type="text/css" />
+  <link href="/mincss/swipebox.min.css" rel="stylesheet" type="text/css" />
+  <link href="/mincss/style.css" rel="stylesheet" type="text/css" />
 
-  <!--Scripts -->
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/js/vue.min.js"></script>
 
 
 
@@ -39,8 +36,7 @@
     <!-- Page Contents -->
     <div id="content" class="main animated fadein">
       <!-- Hero Header -->
-      <div id="banner">
-
+      <div id="banner" v-cloak>
         <div class="shop-banner-full bg-1 animated fadeindown">
           <img id="banner" v-bind:src="banner" v-bind:alt="name">
 
@@ -51,7 +47,7 @@
 
       <div class="animated fadeinup delay-1">
 
-        <div id="products-template">
+        <div id="products-template" v-cloak>
 
 
 
@@ -194,6 +190,8 @@
     <!-- End of Page Contents -->
 
     <!-- Menu Trigger -->
+    <i onclick="goBack()" class="ion-chevron-left" id="goBack"></i>
+<!--
     <div class="menu-trigger z-depth-2">
       <div id="menu-icon">
         <span></span>
@@ -202,7 +200,7 @@
         <span></span>
       </div>
     </div>
-
+-->
     <!-- Menu -->
     <nav id="menu" class="menu">
       <div class="menu-navigation">
@@ -310,18 +308,20 @@
 
   </div>
   <!-- End of Main Container -->
-  <script src="/js/jquery-1.12.2.js"></script>
-  <script src="/js/js.cookie.js"></script>
-  <script src="/js/modernizr.js"></script>
-  <script src="/js/jquery.swipebox.min.js"></script>
-  <script src="/js/jquery.smoothState.min.js"></script>
-  <script src="/js/materialize.min.js"></script>
-  <script src="/js/swiper.min.js"></script>
-  <script src="/js/jquery.mixitup.min.js"></script>
-  <script src="/js/masonry.min.js"></script>
-  <script src="/js/chart.min.js"></script>
-  <script src="/js/functions.js"></script>
-  <script src="/js/products.js"></script>
+  <!--Scripts -->
+  <script src="/minjs/vue.min.js"></script>
+  <script src="/minjs/jquery-1.12.2.js"></script>
+  <script src="/minjs/js.cookie.js"></script>
+  <script src="/minjs/modernizr.js"></script>
+  <script src="/minjs/jquery.swipebox.min.js"></script>
+  <script src="/minjs/jquery.smoothState.min.js"></script>
+  <script src="/minjs/materialize.min.js"></script>
+  <script src="/minjs/swiper.min.js"></script>
+  <script src="/minjs/jquery.mixitup.min.js"></script>
+  <script src="/minjs/masonry.min.js"></script>
+  <script src="/minjs/chart.min.js"></script>
+  <script src="/minjs/functions.js"></script>
+  <script src="/minjs/products.js"></script>
 </body>
 
 </html>

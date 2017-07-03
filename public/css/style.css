@@ -812,7 +812,7 @@ nav ul li {
   -moz-transition: visibility 0s 0.45s;
   transition: visibility 0s 0.45s;
   /*background: -webkit-linear-gradient(135deg,#263d1a,#16becf);
-  background: linear-gradient(135deg,#263d1a,#16becf);*/  
+  background: linear-gradient(135deg,#263d1a,#16becf);*/
   background-image: -webkit-linear-gradient(300deg, #28292b 0%, #9da8b3 100%);
   background-image: linear-gradient(300deg, #28292b 0%, #9da8b3 100%);
 }
@@ -2661,7 +2661,24 @@ nav.userView {
   font-size: 1.8rem;
 }
 
+#goBack{
+  position: fixed;
+    z-index: 3;
+    left: 20px;
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
 
+[v-cloak] {
+  display: none;
+}
 /***************** SEARCH ********************/
 
 .input-field input[type=search]+label {

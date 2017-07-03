@@ -10,10 +10,6 @@
     <meta content="yes" name="apple-touch-fullscreen"/>
     <link rel="icon" href="/img/warehouse_favicon.png" type="image/x-icon">
 
-    <script src="/js/vue.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-
-
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,700' rel='stylesheet' type='text/css'/>
 
@@ -21,11 +17,10 @@
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css"/>
 
     <!-- Styles -->
-    <link href="css/keyframes.css" rel="stylesheet" type="text/css"/>
-    <link href="css/materialize.min.css" rel="stylesheet" type="text/css"/>
-    <link href="css/swiper.css" rel="stylesheet" type="text/css"/>
-    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css"/>
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/mincss/keyframes.css" rel="stylesheet" type="text/css"/>
+    <link href="/mincss/materialize.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/mincss/swiper.css" rel="stylesheet" type="text/css"/>
+    <link href="/mincss/style.css" rel="stylesheet" type="text/css"/>
 
     <!-- Start google-analytics -->
     <script>
@@ -56,8 +51,8 @@
         <!-- Profile Content -->
         <div id="shop-template" class="animated fadeinup delay-1">
 
-          <div onclick="getID(this)" v-bind:id="item.key" v-for="item in items" class="shop-banner-full animated fadeinup delay-1">
-              <img v-bind:id="item.key + 1" v-bind:src="item.banner" alt="">
+          <div onclick="getID(this)" v-bind:id="item.key" v-for="item in items" class="shop-banner-full animated fadeinup delay-1" v-cloak>
+              <img v-bind:id="item.key + 1" v-bind:src="item.banner" alt="image" >
               <div class="opacity-overlay valign-wrapper">
                 <div class="valign center width-100">
                   <h3 class="white-text">{{item.name}}</h3>
@@ -204,26 +199,25 @@
             </li>
             <li><a href="index-walkthrough.html" class="no-child">Walkthrough</a></li>
           -->
-            <li><a onclick="featuredRedirect()" href="" class="no-child">Featured</a></li>
-            <li><a onclick="cartRedirect()" href="" class="no-child">Cart</a></li>
+            <li><a onclick="featuredRedirect()" href="" class="no-child">Featured</a></li>            
             <li><a onclick="contactRedirect()" href="" class="no-child">Contact</a></li>
           </ul>
         </div>
       </nav> <!-- End of Menu -->
 
     </div><!-- End of Main Container -->
-
-    <script src="js/js.cookie.js"></script>
-    <script src="js/jquery-1.12.2.js"></script>
-    <script src="js/modernizr.js"></script>
-    <script src="js/jquery.swipebox.min.js"></script>
-    <script src="js/jquery.smoothState.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/swiper.min.js"></script>
-    <script src="js/jquery.mixitup.min.js"></script>
-    <script src="js/masonry.min.js"></script>
-    <script src="js/chart.min.js"></script>
-    <script src="js/featured.js"></script>
-    <script src="js/functions.js"></script>
+    <script src="/minjs/vue.min.js"></script>
+    <script src="/minjs/js.cookie.js"></script>
+    <script src="/minjs/jquery-1.12.2.js"></script>
+    <script src="/minjs/modernizr.js"></script>
+    <script src="/minjs/jquery.swipebox.min.js"></script>
+    <script src="/minjs/jquery.smoothState.min.js"></script>
+    <script src="/minjs/materialize.min.js"></script>
+    <script src="/minjs/swiper.min.js"></script>
+    <script src="/minjs/jquery.mixitup.min.js"></script>
+    <script src="/minjs/masonry.min.js"></script>
+    <script src="/minjs/chart.min.js"></script>
+    <script src="/minjs/featured.js"></script>
+    <script src="/minjs/functions.js"></script>
   </body>
 </html>

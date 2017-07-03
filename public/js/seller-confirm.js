@@ -34,6 +34,14 @@ firebase.initializeApp(config);
     }
   })
 
+  //Order confirmed
+  function done(){
+    console.log("Yay");
+
+    socket.emit('wawa', {
+      this: "WE DID IT"
+    });
+  }
 
   function a() {
     var carousel = document.getElementById("carousel");
@@ -43,7 +51,7 @@ firebase.initializeApp(config);
     for (i = 0; i < urls.length; i++) {
       carousel.insertAdjacentHTML('beforeend', '<div class="item"><div class="imageContainer"><img src="' + urls[i] + '" alt="""></div></div>');
     }
-    sizes.insertAdjacentHTML('beforeend', '<span class="size">' + fit + '</span>');    
+    sizes.insertAdjacentHTML('beforeend', '<span class="size">' + fit + '</span>');
 
     _next();
   }
@@ -89,8 +97,6 @@ firebase.initializeApp(config);
       }
     };
   }
-
-
 
   var queue = chainCallbacks(a, b, c);
   queue();
