@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Upload data</title>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-  </head>
-  <body>
-    <h1>Uploading data...</h1>
-    <button onclick="createShop()" type="button" class="uploadShop" name="button">Upload shop</button>
-    <button onclick="createProduct()" type="button" class="uploadProduct" name="button">Upload product</button>
-    <input id="inp" type='file' multiple>
-    <p id="b64"></p>
-    <img id="img" height="150">
 
-    <script src="/js/upload.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Upload data</title>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script type="text/javascript" src="https://cf-4053.kxcdn.com/conversational-form/0.9.5/conversational-form.min.js" crossorigin></script>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+  <h1>Uploading data...</h1>
+  <button onclick="createShop()" type="button" class="uploadShop" name="button">Upload shop</button>
+  <button onclick="createProduct()" type="button" class="uploadProduct" name="button">Upload product</button>
+  <input id="inp" type='file' multiple>
+  <p id="b64"></p>
+  <img id="img" height="150">
+
+  <form id="my-form-element" cf-form>
+    <input type="text" id="title" cf-questions="Hello. What do you want to sell?" cf-input-placeholder="Name of the item" required>
+    <input type="number" id="price" cf-questions="How much does it cost?" cf-input-placeholder="Price of the item" required>
+    <input cf-questions="You're almost done. Please upload some pictures" id="files" type='file' multiple cf-input-placeholder="Click the button on the right to upload." required>
+    <input cf-questions="Pick one :)" type="radio" cf-label="male" value="male" required>
+    <input type="radio" cf-label="female" value="female">
+    <input type="radio" cf-label="other" value="other">
+    <input type="text" cf-questions="Hi {firstname} {lastname}, please tell me your email?">
+  </form>
+
+  <script src="/js/upload.js"></script>
+</body>
+
 </html>
