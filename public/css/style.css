@@ -2637,7 +2637,7 @@ a#add_to_cart {
 
 div#choose_size {
   padding-left: 0px;
-  text-align: center !important;
+  text-align: center;
 }
 
 .itsactive {
@@ -2675,6 +2675,10 @@ nav.userView {
     border-radius: 50%;
     text-align: center;
     box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#bold_info{
+  font-weight: 500;
 }
 
 [v-cloak] {
