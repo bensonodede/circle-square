@@ -60,7 +60,7 @@ var client = require('twilio')(accountSid, authToken);
 
 
 //Give access to css and js files
-app.use(compression());
+
 app.use(express.static(__dirname + '/public'));
 
 //Express routing

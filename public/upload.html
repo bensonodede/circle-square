@@ -20,13 +20,11 @@
   <form id="my-form-element" cf-form>
     <input type="text" id="title" cf-questions="Hello. What do you want to sell?" cf-input-placeholder="Name of the item" required>
     <input type="number" id="price" cf-questions="How much does it cost?" cf-input-placeholder="Price of the item" required>
-    <input cf-questions="You're almost done. Please upload some pictures" id="files" type='file' multiple cf-input-placeholder="Click the button on the right to upload." required>
-    <input cf-questions="Pick one :)" type="radio" cf-label="male" value="male" required>
-    <input type="radio" cf-label="female" value="female">
-    <input type="radio" cf-label="other" value="other">
-    <input type="text" cf-questions="Hi {firstname} {lastname}, please tell me your email?">
+    <input cf-questions="You're almost done. Please upload some pictures" id="files" type='file' multiple cf-input-placeholder="Click the icon on the right to upload." required>
   </form>
-
+<script type="text/javascript">
+  window.ConversationalForm.addRobotChatResponse("You have reached the end of the form!");
+</script>
   <script src="/js/upload.js"></script>
 </body>
 

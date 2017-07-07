@@ -49,6 +49,11 @@ function b() {
   _next();
 }
 
+function c() {
+
+  _next();
+}
+
 
 function chainCallbacks() {
 

@@ -276,10 +276,10 @@
               </div>
             </li>
             <li><a href="index-walkthrough.html" class="no-child">Walkthrough</a></li>
-          -->
             <li><a onclick="featuredRedirect()" href="" class="no-child">Featured</a></li>
             <li><a onclick="cartRedirect()" href="" class="no-child">Cart</a></li>
             <li><a onclick="contactRedirect()" href="" class="no-child">Contact</a></li>
+          -->
           </ul>
         </div>
       </nav> <!-- End of Menu -->
@@ -303,10 +303,13 @@
     <script src="/minjs/product.js"></script>
     <!-- WhatsHelp.io widget -->
     <script type="text/javascript">
+    // User has to visit products page first to get shop number
         (function () {
+          var data = JSON.parse(Cookies.get('name'));
+          console.log(data.details.number);
             var options = {
                 facebook: "1708781919422781", // Facebook page ID
-                whatsapp: "+254724645546", // WhatsApp number
+                whatsapp: data.details.number, // WhatsApp number
                 company_logo_url: "//static.whatshelp.io/img/flag.png", // URL of company logo (png, jpg, gif)
                 greeting_message: "Hello! I would love to answer any questions you have about this product.", // Text of greeting message
                 call_to_action: "Message us", // Call to action
