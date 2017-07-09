@@ -559,7 +559,7 @@ footer.page-footer .footer-copyright {
 
 .hero-title {
   font-size: 22px;
-  font-weight: 300;
+  font-weight: 500;
   color: #fff;
   line-height: 56px;
   text-transform: none;
@@ -2653,6 +2653,8 @@ div#choose_size {
   top: -15px ;
   padding-left: 15px;
 }
+
+
 
 nav.userView {
     background-color: #fff;
