@@ -91,7 +91,7 @@
             </div>
 
             <div style="text-align: center;" id="choose_size" class="product-variation">
-            <h5><strong>Tap the <span style="font-weight: 600;">whatsapp icon to chat</span> with the seller.</strong></h5>
+            <h5><strong>Tap the <span style="font-weight: 600;">red icon to chat</span> with the seller.</strong></h5>
               <div class="sizes p-b-20">
                 <div id="sizes"></div>
               </div>
@@ -309,12 +309,13 @@
           console.log(data.details.number);
             var options = {
                 whatsapp: data.details.number, // WhatsApp number
+                call: data.details.number,
                 company_logo_url: "//static.whatshelp.io/img/flag.png", // URL of company logo (png, jpg, gif)
                 greeting_message: "Hello! I would love to answer any questions you have about this product.", // Text of greeting message
                 call_to_action: "Message us", // Call to action
-                button_color: "#FF6550", // Color of button
+                button_color: "#E74339", // Color of button
                 position: "right", // Position may be 'right' or 'left'
-                order: "whatsapp" // Order of buttons
+                order: "whatsapp, call" // Order of buttons
             };
             var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
             var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';

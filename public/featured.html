@@ -12,6 +12,7 @@
 
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,700' rel='stylesheet' type='text/css'/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet">
 
     <!-- Icons -->
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css"/>
@@ -55,8 +56,8 @@
               <img v-bind:id="item.key + 1" v-bind:src="item.banner" alt="image" >
               <div class="opacity-overlay valign-wrapper">
                 <div class="valign center width-100">
-                  <h3 class="white-text">{{item.name}}</h3>
-                  <p id="subtext" class="white-text">{{item.subtext}}</p>
+                  <h3 id="shopname"class="white-text">{{item.name}}</h3>
+              <!--   <p id="subtext" class="white-text">{{item.subtext}}</p> -->
                 </div>
               </div>
           </div>
@@ -218,6 +219,6 @@
     <script src="/minjs/masonry.min.js"></script>
     <script src="/minjs/chart.min.js"></script>
     <script src="/minjs/featured.js"></script>
-    <script src="/minjs/functions.js"></script>    
+    <script src="/minjs/functions.js"></script>
   </body>
 </html>
