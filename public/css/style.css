@@ -790,12 +790,11 @@ nav ul li {
 .menu-trigger {
   position: fixed;
   z-index: 3;
-  left: 20px;
-  top: 20px;
+  left: 10px;
+  top: 10px;
   height: 53px;
   width: 53px;
   line-height: 53px;
-  background: #fff;
   border-radius: 50%;
   text-align: center;
 }
@@ -890,8 +889,8 @@ nav ul li {
   display: block;
   position: absolute;
   height: 2px;
-  width: 24px;
-  background: #111;
+  width: 22px;
+  background: #fff;
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -1033,81 +1032,6 @@ nav ul li {
   margin: 0;
   padding: 0;
   top: 15px;
-}
-
-
-/* 5. Animations
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.animated {
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s;
-  -webkit-transition-timing-function: ease-in;
-  transition-timing-function: ease-in;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-.fadein {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-  -webkit-animation-duration: 0.4s;
-  animation-duration: 0.4s;
-}
-
-.fadeinup {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
-}
-
-.fadeindown {
-  -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown;
-}
-
-.fadeinright {
-  -webkit-animation-name: fadeInRight;
-  animation-name: fadeInRight;
-}
-
-.bouncein {
-  -webkit-animation-name: bounceIn;
-  animation-name: bounceIn;
-}
-
-#main.is-exiting .animated {
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut;
-}
-
-.delay-1 {
-  -webkit-animation-delay: 0.1s;
-  animation-delay: 0.1s;
-}
-
-.delay-2 {
-  -webkit-animation-delay: 0.25s;
-  animation-delay: 0.25s;
-}
-
-.delay-3 {
-  -webkit-animation-delay: 0.4s;
-  animation-delay: 0.4s;
-}
-
-.delay-4 {
-  -webkit-animation-delay: 0.55s;
-  animation-delay: 0.55s;
-}
-
-.delay-5 {
-  -webkit-animation-delay: 0.45s;
-  animation-delay: 0.45s;
-}
-
-.delay-6 {
-  -webkit-animation-delay: 0.95s;
-  animation-delay: 0.95s;
 }
 
 
@@ -2650,7 +2574,7 @@ div#choose_size {
   width: 18rem;
   height: 150%;
   position: relative;
-  top: -15px ;
+  top: -25px ;
   padding-left: 15px;
 }
 
@@ -2667,16 +2591,12 @@ nav.userView {
 #goBack{
   position: fixed;
     z-index: 3;
-    left: 20px;
-    top: 20px;
+    left: 15px;
+    top: 15px;
     height: 50px;
-    width: 50px;
-    line-height: 50px;
-    background: #fff;
-    color: #000;
-    border-radius: 50%;
+    width: 30px;
+    color: #fff;
     text-align: center;
-    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #bold_info{
@@ -2936,4 +2856,79 @@ span.algolia-autocomplete {
 
 .aa-empty {
   padding: 6px 12px;
+}
+
+
+/* 5. Animations
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.animated {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fadein {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+}
+
+.fadeinup {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.fadeindown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.fadeinright {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+.bouncein {
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+}
+
+#main.is-exiting .animated {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+.delay-1 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+
+.delay-3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.delay-4 {
+  -webkit-animation-delay: 0.55s;
+  animation-delay: 0.55s;
+}
+
+.delay-5 {
+  -webkit-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+}
+
+.delay-6 {
+  -webkit-animation-delay: 0.95s;
+  animation-delay: 0.95s;
 }
