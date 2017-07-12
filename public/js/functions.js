@@ -387,7 +387,7 @@ $(function() {
 
 //Go back function
 function goBack(){
-  window.history.back();  
+  window.history.back();
 }
 
 //Redirect functions
