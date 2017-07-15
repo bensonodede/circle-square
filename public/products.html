@@ -13,6 +13,7 @@
 
   <!-- Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,700' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
 
   <!-- Icons -->
   <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css" />
@@ -37,26 +38,29 @@
     <div id="content" class="main animated fadein">
       <!-- Hero Header -->
       <div id="banner" v-cloak>
-        <div class="shop-banner-full bg-1 animated fadeindown">
+        <div id="thisbanner" class="shop-banner-full bg-1 animated fadeindown">
           <img id="banner" v-bind:src="banner" v-bind:alt="name">
 
           <h3 id="shopname" class="hero-title">{{name}}</h3>
           <div class="opacity-overlay"></div>
         </div>
+
+        <div class="more-info">
+          <h5 id="more-info-header">{{name}}</h5>
+          <p id="more-info-p">Lorem ipsum dolor sit amet. Duis eu nisl eget quam tortor consequat tempus. Vestibulum ante ipsum Curae; Aliquam erat volutpat. Phasellus aliquet, a interdum nunc nulla eu leo.</p>
+        </div>
       </div>
 
-      <div class="animated fadeinup delay-1">
 
+
+      <div class="animated fadeinup delay-1">
         <div id="products-template" v-cloak>
 
-
-
-            <div onclick="getID(this)" v-bind:id="item.key" v-for="item in items" class="product half">
+            <div onclick="getID(this)" v-bind:id="item.key" v-for="item in items" class="product">
             <img v-bind:src="item.slideshow[0]" v-bind:alt="name">
               <div class="product-info">
-                <span class="small grey-text">{{item.tags[0]}}</span>
-                <h5 class="m-0"><strong>{{item.title}}</strong></h5>
-                <p class="m-0">KSh <span>{{item.price}}</span></p>
+                <p id="title-box" class="m-0"><strong>{{item.title}}</strong></p>
+                <p id="price-box" class="m-0">KSh <span>{{item.price}}</span></p>
                 <!-- Rating
                 <div class="rating">
                   <i class="ion-star active"></i>

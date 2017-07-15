@@ -37,6 +37,7 @@ img {
   display: block;
   width: 100%;
   height: 100%;
+  background-image: url("img/1.jpg");
 }
 
 
@@ -1783,6 +1784,7 @@ textarea.materialize-textarea+label {
   width: 50%;
   float: left;
   position: relative;
+  background: url(../img/1.jpg) no-repeat center / cover;
 }
 
 .shop-banner-full {
@@ -2096,15 +2098,19 @@ ul.faq {
 
 /* Product */
 
-.product.half {
-  width: 50%;
-  padding: 10px;
+.product{
   float: left;
+  position: relative;
 }
 
 .product-info {
   text-align: center;
-  padding: 10px 20px;
+  padding: 10px 10px;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  position: absolute;
+  color: #fff;
 }
 
 .product-description {
@@ -2666,10 +2672,9 @@ nav.userView {
     z-index: 3;
     left: 15px;
     top: 15px;
-    height: 50px;
     width: 30px;
     color: #fff;
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
 }
 
@@ -2680,22 +2685,42 @@ nav.userView {
 #shopname {
     font-family: montserrat;
     text-transform: uppercase;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     letter-spacing: 0.8px;
     font-weight: 400;
 }
 
-h3#price_box {
-    border-style: none;
-    padding: 8px 13px;
-    font-size: 10px;
-    color: #ffffff;
-    position: relative;
-    background: #b0b33f;
-    top: -75px;
-    letter-spacing: 0px;
+#price-box {
+  font-family: montserrat;
+  color: #fff;
+  background-color: #b7a032;
+  padding: 5px 8px;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+#title-box {
+    color: #fff;
+    background-color: #c7b457;
     font-family: montserrat;
-    right: -130px;
+    padding: 5px 8px;
+    font-size: 1.4rem;
+}
+
+.more-info{
+  margin: 3rem 0.8rem;
+  display: inline-block;
+  font-family: montserrat;
+}
+
+#more-info-header {
+  font-family: montserrat;
+  font-weight: 500;
+  margin-bottom: 1em
+}
+
+p#more-info-p {
+  margin-bottom: 1rem;
 }
 
 [v-cloak] {
@@ -2833,6 +2858,11 @@ nav .input-field input {
 [type="checkbox"]+label{
   line-height: 20px;
 }
+
+#product-img{
+  position: relative;
+}
+
 
 /************* ALGOLIA SEARCH BAR **************/
 
