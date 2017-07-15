@@ -2708,7 +2708,7 @@ nav.userView {
 }
 
 .more-info{
-  margin: 3rem 0.8rem;
+  margin: 3rem 1rem;
   display: inline-block;
   font-family: montserrat;
 }
@@ -2716,11 +2716,13 @@ nav.userView {
 #more-info-header {
   font-family: montserrat;
   font-weight: 500;
+  font-size: 1.5rem;
   margin-bottom: 1em
 }
 
 p#more-info-p {
   margin-bottom: 1rem;
+  font-size: 1.3rem;
 }
 
 [v-cloak] {
