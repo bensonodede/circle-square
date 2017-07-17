@@ -2693,6 +2693,7 @@ nav.userView {
 #price-box {
   font-family: montserrat;
   color: #fff;
+  background-image: linear-gradient(240deg, #f6d365 0%, #fda085 100%);
   background-color: #b7a032;
   padding: 5px 8px;
   font-size: 1.2rem;
@@ -2701,7 +2702,7 @@ nav.userView {
 
 #title-box {
     color: #fff;
-    background-color: #c7b457;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
     font-family: montserrat;
     padding: 5px 8px;
     font-size: 1.2rem;
