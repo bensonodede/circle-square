@@ -86,6 +86,27 @@ app.get('/featured', function(req, res) {
   });
 });
 
+app.get('/gallery', function(req, res) {
+
+  function snapshotToArray(snapshot) {
+    var returnArr = [];
+    snapshot.forEach(function(childSnapshot) {
+      var item = childSnapshot.val();
+      item.key = childSnapshot.key;
+      returnArr.push(item);
+    });
+    return returnArr;
+  };
+
+  firebase.database().ref('/shop').on('value', function(snapshot) {
+    var allShops = snapshotToArray(snapshot);
+    var data = JSON.stringify(allShops);
+    console.log(data);
+    res.cookie('name', data, {
+      path: '/gallery'
+    }).sendFile(__dirname + '/public/gallery.html');
+  });
+});
 
 app.get('/',function(req,res){
   res.redirect("/featured");

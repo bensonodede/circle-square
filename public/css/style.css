@@ -55,7 +55,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  /*font-family: "Raleway", Helvetica, Arial, sans-serif;*/
+  font-family: 'Montserrat', sans-serif;
   margin-top: 0;
   margin-bottom: 1rem;
   font-weight: 300;
@@ -754,6 +755,8 @@ footer.page-footer .footer-copyright {
   text-align: center;
   margin-right: 1.5rem;
 }
+
+
 /* 5. Animations
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -1377,12 +1380,12 @@ nav ul li {
 }
 
 .tabs .tab a.active {
-  color: #62ca9c;
+  color: #e6866a;
   opacity: 1;
 }
 
 .tabs .indicator {
-  background-color: #62ca9c;
+  background-image: linear-gradient(240deg, #f6d365 0%, #fda085 100%);
 }
 
 
@@ -2098,7 +2101,7 @@ ul.faq {
 
 /* Product */
 
-.product{
+.product {
   float: left;
   position: relative;
 }
@@ -2115,6 +2118,7 @@ ul.faq {
 
 .product-description {
   border-top: 1px solid #eee;
+  font-family: montserrat;
 }
 
 .product-variation {
@@ -2557,11 +2561,12 @@ ul.faq {
 #purchase-button {
   margin-top: 25px;
 }
+
 h2.contact_us {
-    text-align: -webkit-center;
-    position: relative;
-    padding-top: 50%;
-    padding-bottom: 15%;
+  text-align: -webkit-center;
+  position: relative;
+  padding-top: 50%;
+  padding-bottom: 15%;
 }
 
 .toast {
@@ -2653,41 +2658,39 @@ div#choose_size {
   width: 18rem;
   height: 150%;
   position: relative;
-  top: -25px ;
+  top: -25px;
   padding-left: 15px;
 }
 
-
-
 nav.userView {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 #menu_item {
   font-size: 1.8rem;
 }
 
-#goBack{
+#goBack {
   position: fixed;
-    z-index: 3;
-    left: 15px;
-    top: 15px;
-    width: 30px;
-    color: #fff;
-    font-size: 22px;
-    text-align: center;
+  z-index: 3;
+  left: 15px;
+  top: 15px;
+  width: 30px;
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
 }
 
-#bold_info{
+#bold_info {
   font-weight:
 }
 
 #shopname {
-    font-family: montserrat;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    letter-spacing: 0.8px;
-    font-weight: 400;
+  font-family: montserrat;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 0.8px;
+  font-weight: 400;
 }
 
 #price-box {
@@ -2701,14 +2704,14 @@ nav.userView {
 }
 
 #title-box {
-    color: #fff;
-    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-    font-family: montserrat;
-    padding: 5px 8px;
-    font-size: 1.2rem;
+  color: #fff;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  font-family: montserrat;
+  padding: 5px 8px;
+  font-size: 1.2rem;
 }
 
-.more-info{
+.more-info {
   margin: 3rem 1rem;
   display: inline-block;
   font-family: montserrat;
@@ -2726,9 +2729,46 @@ p#more-info-p {
   font-size: 1.3rem;
 }
 
+h3.item_name.m-0 {
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+
+h4.item_price {
+  font-size: 2.3rem;
+}
+
+#goBack_product {
+  position: fixed;
+  z-index: 3;
+  left: 15px;
+  top: 15px;
+  width: 30px;
+  color: #000;
+  font-size: 2.3rem;
+  text-align: center;
+}
+#goBack_products {
+  position: absolute;
+  z-index: 3;
+  left: 15px;
+  top: 15px;
+  width: 30px;
+  color: #fff;
+  font-size: 2.3rem;
+  text-align: center;
+}
+
+div#reviews {
+  padding: 7rem 0rem;
+  text-align: center;
+}
+
 [v-cloak] {
   display: none;
 }
+
+
 /***************** SEARCH ********************/
 
 .input-field input[type=search]+label {
@@ -2854,15 +2894,16 @@ nav .input-field input {
   top: 5px;
   font-size: 12px;
 }
-.checkbox_filters{
+
+.checkbox_filters {
   padding-left: 5px;
 }
 
-[type="checkbox"]+label{
+[type="checkbox"]+label {
   line-height: 20px;
 }
 
-#product-img{
+#product-img {
   position: relative;
 }
 

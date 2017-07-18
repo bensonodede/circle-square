@@ -12,6 +12,7 @@
 
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,700' rel='stylesheet' type='text/css'/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
 
     <!-- Icons -->
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css"/>
@@ -70,8 +71,7 @@
 
         <!-- Product Title -->
         <div class="center-align p-20">
-          <span class="small grey-text">{{details.tags[0]}}</span>
-          <h3 class="item_name m-0"><strong>{{details.title}}</strong></h3>
+          <h3 class="item_name m-0">{{details.title}}</h3>
           <h4 class="item_price">KSh. {{details.price}}</h4>
         </div>
 
@@ -91,7 +91,7 @@
             </div>
 
             <div style="text-align: center;" id="choose_size" class="product-variation">
-            <h5><strong>Tap the <span style="font-weight: 600;">red icon to chat</span> with the seller.</strong></h5>
+            <h5>Tap the <strong>red icon to chat</strong> with the seller.</h5>
               <div class="sizes p-b-20">
                 <div id="sizes"></div>
               </div>
@@ -167,7 +167,7 @@
 
       </div>
       <!-- End of Page Contents -->
-      <i onclick="goBack()" class="ion-chevron-left" id="goBack"></i>
+      <i onclick="goBack()" class="ion-chevron-left product_back" id="goBack_product"></i>
       <!-- Menu Trigger
       <div class="menu-trigger z-depth-2">
         <div id="menu-icon">
