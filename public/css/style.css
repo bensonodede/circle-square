@@ -2748,6 +2748,7 @@ h4.item_price {
   font-size: 2.3rem;
   text-align: center;
 }
+
 #goBack_products {
   position: absolute;
   z-index: 3;
@@ -2762,6 +2763,27 @@ h4.item_price {
 div#reviews {
   padding: 7rem 0rem;
   text-align: center;
+}
+
+div#content {
+  padding-bottom: 8rem;
+}
+
+.collect {
+  position: fixed;
+  bottom: 0px;
+  z-index: 3;
+  background-color: #fff;
+  width: 100%;
+}
+
+#collect_btn {
+  color: #fff;
+  background-image: linear-gradient(240deg,#22a76d 0%,#30cc9b 100%);
+  font-family: montserrat;
+  font-size: 1.8rem;
+  height: 60px;
+  text-transform: none;
 }
 
 [v-cloak] {
