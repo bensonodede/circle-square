@@ -2804,6 +2804,7 @@ div#product_content {
 }
 #number_submit_btn{
   background-image: linear-gradient(240deg,#22a76d 0%,#30cc9b 100%);
+  font-family: montserrat;
   float: none;
   text-transform: capitalize;
 }
