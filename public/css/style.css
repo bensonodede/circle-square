@@ -2765,7 +2765,7 @@ div#reviews {
   text-align: center;
 }
 
-div#content {
+div#product_content {
   padding-bottom: 8rem;
 }
 
@@ -2781,9 +2781,38 @@ div#content {
   color: #fff;
   background-image: linear-gradient(240deg,#22a76d 0%,#30cc9b 100%);
   font-family: montserrat;
-  font-size: 1.8rem;
-  height: 60px;
+  font-size: 1.7rem;
+  height: 5rem;
+  line-height: 5rem;
+  margin: 1.5rem 3rem !important;
   text-transform: none;
+}
+
+#collect_modal {
+  height: 100%;
+}
+
+#collect_input {
+  margin: 2rem 1.5rem;
+}
+.modal.bottom-sheet {
+  max-height: 70%;
+}
+
+.modal .modal-footer{
+  text-align: center;
+}
+#number_submit_btn{
+  background-image: linear-gradient(240deg,#22a76d 0%,#30cc9b 100%);
+  float: none;
+  text-transform: capitalize;
+}
+
+#collect-instructions {
+    margin: 0rem 1.5rem;
+    font-size: 1.5rem;
+    font-family: montserrat;
+    text-align: center;
 }
 
 [v-cloak] {
