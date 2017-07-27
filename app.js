@@ -11,6 +11,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var algoliasearch = require('algoliasearch');
 var admin = require("firebase-admin");
+var fs = require("fs");
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
   extended: true
@@ -38,8 +39,9 @@ cloudinary.config({
 io.on('connection', function(socket){
   socket.on('upload', function (data) {
     console.log(data);
-    cloudinary.uploader.upload(data.hello, function(result) {
+    cloudinary.uploader.upload(data.hello, {quality: 0.6}, function(result) {
       console.log(result.secure_url)
+      socket.emit('link', { src: result.secure_url });
     });
     //var image = new Image();
     //image.src = e.target.result;

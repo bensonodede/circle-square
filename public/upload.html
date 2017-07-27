@@ -15,16 +15,10 @@
   <button onclick="createProduct()" type="button" class="uploadProduct" name="button">Upload product</button>
   <input id="inp" type='file' multiple>
   <p id="b64"></p>
-  <img id="img" height="150">
+  <img id="img" height="150" width="150">
+  <img id="uploaded_img" height="150" width="150"/>
 
-  <form id="my-form-element" cf-form>
-    <input type="text" id="title" cf-questions="Hello. What do you want to sell?" cf-input-placeholder="Name of the item" required>
-    <input type="number" id="price" cf-questions="How much does it cost?" cf-input-placeholder="Price of the item" required>
-    <input cf-questions="You're almost done. Please upload some pictures" id="files" type='file' multiple cf-input-placeholder="Click the icon on the right to upload." required>
-  </form>
-<script type="text/javascript">
-  window.ConversationalForm.addRobotChatResponse("You have reached the end of the form!");
-</script>
+
   <script src="/js/upload.js"></script>
 </body>
 

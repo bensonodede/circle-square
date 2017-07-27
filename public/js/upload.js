@@ -27,13 +27,13 @@ function createShop (){
 function createProduct(){
 
   prodRef.push({
-    title:"A device",
-    price:"9,000",
-    slideshow:['https://source.unsplash.com/RAJONCCrXh8/700x700/', 'https://source.unsplash.com/78PQJ5nK1Gc/700x700/'],
+    title:"Adidas ZX 750",
+    price:"4,000",
+    slideshow:['http://res.cloudinary.com/dzxuz9zc9/image/upload/v1501137696/Shoe_empire/DSC_0462.jpg'],
     description:"Something something something something something something something something something",
-    tags:["Electronics"],
-    sizes:["30", "34", "36", "38",],
-    shopKey: ""                         //Makes page redirect simple when using algoliasearch
+    tags:["Shoes"],
+    //sizes:["30", "34", "36", "38",],
+    shopKey: "-Kjbg3Wx9dsV5Z38kWvj"                         //Makes page redirect simple when using algoliasearch
   });
 }
 
@@ -45,11 +45,8 @@ function readFile() {
     FR.addEventListener("load", function(e) {
       document.getElementById("img").src       = e.target.result;
       document.getElementById("b64").innerHTML = e.target.result;
-      console.log(e.target.result);
+      //console.log(e.target.result);
       socket.emit('upload', { hello: e.target.result });
-      var image = new Image();
-      image.src = "https://res.cloudinary.com/dzxuz9zc9/image/upload/v1498500181/yzhczace9u25wepguqwy.jpg";
-      document.body.appendChild(image);
     });
 
     FR.readAsDataURL( this.files[0] );
@@ -57,5 +54,9 @@ function readFile() {
   }
 
 }
+socket.on('link', function (data) {
+  console.log(data);
+  document.getElementById("uploaded_img").src = data.src;
+})
 
 document.getElementById("inp").addEventListener("change", readFile);
