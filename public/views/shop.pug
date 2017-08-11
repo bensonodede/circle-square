@@ -1,0 +1,248 @@
+doctype html
+html(lang="en-US")
+  head
+    meta(charset="utf-8")
+    |   
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    |   
+    title Eclipse - Mobile Template
+    |   
+    meta(content="IE=edge", http-equiv="x-ua-compatible")
+    |   
+    meta(content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no", name="viewport")
+    |   
+    meta(content="yes", name="apple-mobile-web-app-capable")
+    |   
+    meta(content="yes", name="apple-touch-fullscreen")
+    // Fonts
+    link(href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400", rel="stylesheet")
+    |   
+    link(href="https://fonts.googleapis.com/css?family=Raleway:300,400,700", rel="stylesheet", type="text/css")
+    // Icons
+    link(href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css", media="all", rel="stylesheet", type="text/css")
+    // Styles
+    link(href="/css/keyframes.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/materialize.min.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/swiper.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/swipebox.min.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/style.css", rel="stylesheet", type="text/css")
+  body
+    #main
+      // Main Container
+      // Page Contents
+      #content.main.animated.fadein
+        .autoflow
+          // Shop banner
+          .hero-header.bg-1.animated.fadeindown
+            img(src="/img/1.jpg", alt="")
+            |           
+            h1#shopname.hero-title Shop Name
+            |           
+            .opacity-overlay
+          // Gallery
+          .grid.m-t-20
+            each product, i in products
+              .grid-item.gallery-item-card
+                a#1212121212.no-smoothState(onclick="getID(this)")
+                  img#catalogue(src= product.slideshow[1], alt="image")
+                  |                 
+                  .gallery-item-header
+                    .gallery-item-author
+                      span#product-title Jassie Northmkkkkkkkkkkkkkkkkkk
+                      |                     
+                      span#product-price.small= product.price
+              |                       
+            // End Gallery
+        |       
+        .clr
+        // Footer
+        footer.page-footer.primary-color
+          .container
+            .row
+              .col.s12
+                p.center-align.grey-text.text-lighten-4 You can use rows and columns here to organize your footer content.
+                |               
+                .center-align
+                  i.ion-social-facebook.m-10.white-text
+                  |                 
+                  i.ion-social-twitter.m-10.white-text
+                  |                 
+                  i.ion-social-pinterest.m-10.white-text
+                  |                 
+                  i.ion-social-dribbble.m-10.white-text
+          |         
+          .line.white
+          |         
+          .footer-copyright.primary-color
+            .container
+              | 2016 Codnauts
+              a.grey-text.text-lighten-4.right(href="#!") Privacy Policy
+      // End of Page Contents
+      // Menu Trigger
+      .menu-trigger.z-depth-2
+        #menu-icon
+          span
+          |         
+          span
+          |         
+          span
+          |         
+          span
+      // Menu
+      nav#menu.menu
+        .menu-navigation
+          ul.full-menu.collapsible
+            li.menu-title Eclipse
+            |           
+            li
+              .collapsible-header Home
+              |             
+              .collapsible-body
+                ul.collapsible
+                  li
+                    a(href="index.html") Classic
+                    |                   
+                    a(href="index-sliced.html") Sliced
+                    |                   
+                    a(href="index-slider.html") Slider
+                    |                   
+                    a(href="index-drawer.html") Drawer
+                    |                   
+                    a(href="index-walkthrough.html") Walkthrough
+            |           
+            li
+              .collapsible-header Pages
+              |             
+              .collapsible-body
+                ul.collapsible
+                  li
+                    a(href="profile.html") Profile
+                    |                   
+                    a(href="article.html") Article
+                    |                   
+                    a(href="event.html") Event
+                    |                   
+                    a(href="project.html") Project
+                    |                   
+                    a(href="player.html") Music Player
+                    |                   
+                    a(href="todo.html") ToDo
+                    |                   
+                    a(href="category.html") Category
+                    |                   
+                    a(href="product.html") Product
+                    |                   
+                    a(href="checkout.html") Checkout
+                    |                   
+                    a(href="search.html") Search
+                    |                   
+                    a(href="faq.html") Faq
+                    |                   
+                    a(href="coming-soon.html") Coming Soon
+                    |                   
+                    a(href="404.html") 404
+                    |                   
+                    a(href="500.html") 500
+            |           
+            li
+              .collapsible-header App
+              |             
+              .collapsible-body
+                ul.collapsible
+                  li
+                    a(href="calendar.html") Calendar
+                    |                   
+                    a(href="chat.html") Chat
+                    |                   
+                    a(href="chart.html") Chart
+                    |                   
+                    a(href="timeline.html") Timeline
+                    |                   
+                    a(href="login.html") Login
+                    |                   
+                    a(href="signup.html") Sign Up
+                    |                   
+                    a(href="lockscreen.html") Lockscreen
+                    |                   
+                    a(href="forgot.html") Password
+                    |                   
+                    a(href="notification.html") Notification
+            |           
+            li
+              .collapsible-header Portfolio
+              |             
+              .collapsible-body
+                ul.collapsible
+                  li
+                    a(href="portfolio-filter.html") Filter
+                    |                   
+                    a(href="portfolio-masonry.html") Masonry
+                    |                   
+                    a(href="portfolio-card.html") Card
+            |           
+            li
+              .collapsible-header Blog
+              |             
+              .collapsible-body
+                ul.collapsible
+                  li
+                    a(href="blog.html") Classic
+                    |                   
+                    a(href="blog2.html") Card
+            |           
+            li
+              .collapsible-header Gallery
+              |             
+              .collapsible-body
+                ul.collapsible
+                  li
+                    a(href="gallery-filter.html") Filter
+                    |                   
+                    a(href="gallery-masonry.html") Masonry
+                    |                   
+                    a(href="gallery-card.html") Card
+            |           
+            li
+              a.no-child(href="shop.html") Shop
+            |           
+            li
+              a.no-child(href="news.html") News
+            |           
+            li
+              a.no-child(href="video.html") Video
+            |           
+            li
+              a.no-child(href="contact.html") Contact
+      // End of Menu
+    // End of Main Container
+    script(src="/js/jquery-1.12.2.js")
+    |   
+    script(src="/js/modernizr.js")
+    |   
+    script(src="/js/jquery.swipebox.min.js")
+    |   
+    script(src="/js/jquery.smoothState.min.js")
+    |   
+    script(src="/js/materialize.min.js")
+    |   
+    script(src="/js/swiper.min.js")
+    |   
+    script(src="/js/jquery.mixitup.min.js")
+    |   
+    script(src="/js/masonry.min.js")
+    |   
+    script(src="/js/chart.min.js")
+    |   
+    script(src="/js/functions.js")
+    |   
+    script(type="text/javascript").
+      function getID(theKey) {
+      //Redirect
+      key = theKey.id;
+      var str = window.location.href  + "/" + key ;
+      window.location.href = str;
+      }

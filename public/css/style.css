@@ -1657,14 +1657,15 @@ textarea.materialize-textarea+label {
 .grid-item.gallery-item-card {
   background-color: #fff;
   border-radius: 2px;
-  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  /*  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  */
   margin: 0 6px 12px;
   width: calc(50% - 12px);
 }
 
 .gallery-item-header {
-  padding: 10px 20px;
+  padding: 10px 5px;
   position: relative;
 }
 
@@ -2779,7 +2780,7 @@ div#product_content {
 
 #collect_btn {
   color: #fff;
-  background-image: linear-gradient(240deg,#22a76d 0%,#30cc9b 100%);
+  background-image: linear-gradient(240deg, #22a76d 0%, #30cc9b 100%);
   font-family: montserrat;
   font-size: 1.7rem;
   height: 5rem;
@@ -2792,34 +2793,69 @@ div#product_content {
   height: 100%;
 }
 
+.product_modal{
+  height: 100%
+}
+
 #collect_input {
   margin: 2rem 1.5rem;
 }
+
 .modal.bottom-sheet {
-  max-height: 70%;
+  max-height: 100%;
 }
 
-.modal .modal-footer{
+.modal .modal-footer {
   text-align: center;
 }
-#number_submit_btn{
-  background-image: linear-gradient(240deg,#22a76d 0%,#30cc9b 100%);
+
+#number_submit_btn {
+  background-image: linear-gradient(240deg, #22a76d 0%, #30cc9b 100%);
   font-family: montserrat;
   float: none;
   text-transform: capitalize;
 }
 
 #collect-instructions {
-    margin: 0rem 1.5rem;
-    font-size: 1.5rem;
-    font-family: montserrat;
-    text-align: center;
+  margin: 0rem 1.5rem;
+  font-size: 1.5rem;
+  font-family: montserrat;
+  text-align: center;
 }
 
 [v-cloak] {
   display: none;
 }
 
+
+/******** Products Page *******/
+
+img#catalogue {
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.img_placeholder{
+  background-image: url("/img/product.jpg");
+  width: 300;
+  height: 300
+}
+
+span#product-title {
+  font-family: 'Montserrat', sans-serif;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+span#product-price {
+  font-family: montserrat;
+  font-weight: 400;
+  color: #000000;
+  opacity: 0.7;
+}
 
 /***************** SEARCH ********************/
 
@@ -2958,6 +2994,7 @@ nav .input-field input {
 #product-img {
   position: relative;
 }
+
 
 
 /************* ALGOLIA SEARCH BAR **************/

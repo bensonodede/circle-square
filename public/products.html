@@ -25,6 +25,7 @@
   <link href="/mincss/swipebox.min.css" rel="stylesheet" type="text/css" />
   <link href="/mincss/style.css" rel="stylesheet" type="text/css" />
 
+  <script src="/socket.io/socket.io.js"></script>
 
 
 
@@ -37,7 +38,7 @@
     <!-- Page Contents -->
     <div id="content" class="main animated fadein">
       <!-- Hero Header -->
-      <div id="banner" v-cloak>
+      <div id="banner">
         <div id="thisbanner" class="shop-banner-full bg-1 animated fadeindown">
           <img id="banner" v-bind:src="banner" v-bind:alt="name">
 
@@ -54,7 +55,7 @@
 
 
       <div class="animated fadeinup delay-1">
-        <div id="products-template" v-cloak>
+        <div id="products-template">
 
             <div onclick="getID(this)" v-bind:id="item.key" v-for="item in items" class="product">
             <img v-bind:src="item.slideshow[0]" v-bind:alt="name">
@@ -152,7 +153,7 @@
         <div class="clr"></div>
     </div>
 
-  
+
 
     </div>
     <!-- End of Page Contents -->
@@ -289,7 +290,7 @@
   <script src="/minjs/masonry.min.js"></script>
   <script src="/minjs/chart.min.js"></script>
   <script src="/minjs/functions.js"></script>
-  <script src="/minjs/products.js"></script>
+  <script src="/js/products.js"></script>
 </body>
 
 </html>

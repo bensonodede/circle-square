@@ -1,4 +1,4 @@
-var data = JSON.parse(Cookies.get('name'));
+/*var data = JSON.parse(Cookies.get('name'));
 console.log(data);
 
 var app2 = new Vue({
@@ -28,3 +28,9 @@ function getID(theKey) {
   var str = window.location.pathname + '/' + key;
   window.location.href = str;
 }
+*/
+var socket = io();
+
+socket.on('allProducts', function (data) {
+  console.log(data.shops);
+});

@@ -1,3 +1,4 @@
+/*
 var data = JSON.parse(Cookies.get('thisProduct'));
 console.log(data);
 
@@ -21,7 +22,6 @@ var app2 = new Vue({
     details: details
   }
 })
-
 
 
 function a() {
@@ -79,6 +79,12 @@ function chainCallbacks() {
 
 var queue = chainCallbacks(a, b);
 queue();
+*/
+
+
+
+
+
 /*
 var cartButton = document.getElementById('add_to_cart');
 cartButton.addEventListener('click', function() {

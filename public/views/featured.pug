@@ -1,0 +1,120 @@
+doctype html
+html(lang="en-US")
+  head
+    meta(charset="utf-8")
+    |     
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    |     
+    title Featured - Warehouse
+    |     
+    meta(content="IE=edge", http-equiv="x-ua-compatible")
+    |     
+    meta(content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no", name="viewport")
+    |     
+    meta(content="yes", name="apple-mobile-web-app-capable")
+    |     
+    meta(content="yes", name="apple-touch-fullscreen")
+    |     
+    link(rel="icon", href="/img/warehouse_favicon.png", type="image/x-icon")
+    // Fonts
+    link(href="https://fonts.googleapis.com/css?family=Raleway:300,400,700", rel="stylesheet", type="text/css")
+    |     
+    link(href="https://fonts.googleapis.com/css?family=Montserrat:400,500", rel="stylesheet")
+    // Icons
+    link(href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css", media="all", rel="stylesheet", type="text/css")
+    // Styles
+    link(href="/mincss/keyframes.css", rel="stylesheet", type="text/css")
+    |     
+    link(href="/mincss/materialize.min.css", rel="stylesheet", type="text/css")
+    |     
+    link(href="/mincss/swiper.css", rel="stylesheet", type="text/css")
+    |     
+    link(href="/mincss/style.css", rel="stylesheet", type="text/css")
+    |         
+  |   
+  body
+    #main
+      // Main Container
+      // Page Contents
+      #content.main.animated.fadein
+        // Banners
+        #shop-template.animated.fadeinup.delay-1
+          // ********* Shops get inserted here ***********
+        each shop, i in shops
+          .shop-banner-full.animated.fadeinup.delay-1(onclick="getID(this)", id= shop.link)
+            img(src= shop.banner, alt= shop.name)
+            |               
+            .opacity-overlay.valign-wrapper
+              .valign.center.width-100
+                  h3#shopname.white-text= shop.name
+          |           
+          .clr
+        // Footer
+        footer.page-footer.primary-color
+          .container
+            .row
+              .col.s12
+                p.center-align.grey-text.text-lighten-4 We believe online shopping should be simple and a little fun.
+                |                 
+                .center-align
+                  i.ion-social-facebook.m-10.white-text
+                  |                   
+                  i.ion-social-twitter.m-10.white-text
+                  |                   
+                  i.ion-social-instagram-outline.m-10.white-text
+          |           
+          .line.white
+          |           
+          .footer-copyright.primary-color
+            .container
+              | 2017 warehouse
+              // <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
+      // End of Page Contents
+      // Menu Trigger
+      .menu-trigger
+        #menu-icon
+          span
+          |           
+          span
+          |           
+          span
+          |           
+          span
+      // Menu
+      nav#menu.menu
+        .menu-navigation
+          ul.full-menu.collapsible
+            img#nav_logo(src="/img/warehouse_full_white.png")
+            |             
+            li
+              a.no-child(onclick="featuredRedirect()", href="") Featured
+            |             
+            li
+              a.no-child(onclick="contactRedirect()", href="") Contact
+      // End of Menu
+    // End of Main Container
+    script(src="/minjs/vue.min.js")
+    |     
+    script(src="/minjs/js.cookie.js")
+    |     
+    script(src="/minjs/jquery-1.12.2.js")
+    |     
+    script(src="/minjs/modernizr.js")
+    |     
+    script(src="/minjs/jquery.swipebox.min.js")
+    |     
+    script(src="/minjs/jquery.smoothState.min.js")
+    |     
+    script(src="/minjs/materialize.min.js")
+    |     
+    script(src="/minjs/swiper.min.js")
+    |     
+    script(src="/minjs/jquery.mixitup.min.js")
+    |     
+    script(src="/minjs/masonry.min.js")
+    |     
+    script(src="/minjs/chart.min.js")
+    |     
+    script(src="/js/featured.js")
+    |     
+    script(src="/minjs/functions.js")

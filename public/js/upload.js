@@ -27,10 +27,10 @@ function createShop (){
 function createProduct(){
 
   prodRef.push({
-    title:"Adidas ZX 750",
+    title:"Puma Roma white",
     price:"4,000",
-    slideshow:['http://res.cloudinary.com/dzxuz9zc9/image/upload/v1501137696/Shoe_empire/DSC_0462.jpg'],
-    description:"Something something something something something something something something something",
+    slideshow:['http://res.cloudinary.com/dzxuz9zc9/image/upload/v1501137693/Shoe_empire/DSC_0496.jpg','http://res.cloudinary.com/dzxuz9zc9/image/upload/v1501137692/Shoe_empire/DSC_0494.jpg'],
+    description:"",
     tags:["Shoes"],
     //sizes:["30", "34", "36", "38",],
     shopKey: "-Kjbg3Wx9dsV5Z38kWvj"                         //Makes page redirect simple when using algoliasearch
