@@ -138,6 +138,6 @@ app.get('/success', function(req, res){
   res.sendFile(__dirname + '/public/success.html')
 });
 //Start Server
-app.listen(7000, function() {
-  console.log('Server started on port 7000...');
+app.listen(process.env.PORT || 3000, function() {
+  console.log('Server started on port 3000...');
 });
