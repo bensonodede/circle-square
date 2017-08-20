@@ -1,123 +1,110 @@
-/*
-var data = JSON.parse(Cookies.get('thisProduct'));
-console.log(data);
-
-var shopKey = data.shopKey;
-var productKey = data.productKey;
-var details = data.info;
-var slideshow = details.slideshow;
-var fit = details.sizes;
-
-var app = new Vue({
-  el: '#product-details',
-  data: {
-    details: details
-  }
-})
-
-
-var app2 = new Vue({
-  el: '#description',
-  data: {
-    details: details
-  }
-})
-
-
-function a() {
-  var carousel = document.getElementById("carousel");
-  var sizes = document.getElementById('sizes');
-  var urls = slideshow;
-  for (i = 0; i < urls.length; i++) {
-    carousel.insertAdjacentHTML('beforeend', '<div class="item"><div class="imageContainer"><img src="' + urls[i] + '" alt="""></div></div>');
-  }
-
-  _next();
-}
-
-function b() {
+$(document).ready(function() {
+  //Init image carousel
   $('.carousel').slick({
     dots: true,
     infinite: true,
     speed: 300,
     slidesToShow: 1,
+    adaptiveHeight: true,
     centerMode: false,
     variableWidth: false,
     autoplay: false,
     arrows: false
   });
-  _next();
-}
 
-function c() {
+  //Start array function
+  function range(start, end) {
+    return Array(end - start + 1).fill().map((_, idx) => start + idx)
+  }
+  var result = range(2, 16);
 
-  _next();
-}
-
-
-function chainCallbacks() {
-
-  var _this = this;
-  var _counter = 0;
-  var _callbacks = arguments;
-
-  var _next = function() {
-    _counter++;
-    if (_counter < _callbacks.length) {
-      _callbacks[_counter].apply(_this);
-    }
-  };
-
-  _this._next = _next;
-
-  return function() {
-    if (_callbacks.length > 0) {
-      _callbacks[0].apply(_this);
-    }
-  };
-}
-
-var queue = chainCallbacks(a, b);
-queue();
-*/
-
-
-
-
-
-/*
-var cartButton = document.getElementById('add_to_cart');
-cartButton.addEventListener('click', function() {
-  var size = Cookies.get('size');
-
-  if (size) {
-    simpleCart.add({
-      name: details.title,
-      price: details.price,
-      thumb: slideshow[0],
-      size: size,
-      shopKey: shopKey,
-      productKey: productKey,
-    });
-
-    Materialize.toast('Item has been added to cart!', 4000);
-    Cookies.remove('size', {
-      path: window.location.pathname
-    });
-  } else {
-    Materialize.toast('Please choose a size', 4000, 'red');
+  //Insert sizes
+  var urls = result;
+  var sizes = document.getElementById('sizes');
+  for (i = 0; i < urls.length; i++) {
+    sizes.insertAdjacentHTML('beforeend', '<span id=' + urls[i] + ' class="size" onclick="getID(this)">' + urls[i] + '</span>');
   }
 
-});
-*/
-function getID(theKey) {
-  //bake cookie for size
-  key = theKey.id;
-  Cookies.set('size', key, {
-    path: window.location.pathname
+  //Init sizes carousel
+  $('#sizes').slick({
+    dots: false,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 3,
+    centerMode: true,
+    variableWidth: false,
+    autoplay: false,
+    mobileFirst: true,
+    arrows: false,
+    swipeToSlide: true,
+    initialSlide: 6
   });
+
+  //Checkout slides
+  $('.checkout-carousel').slick({
+    dots: false,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 1,
+    adaptiveHeight: true,
+    centerMode: false,
+    variableWidth: false,
+    autoplay: false,
+    arrows: false,
+    swipeToSlide: false,
+    initialSlide: 0
+  });
+
+  //Move to next slide on button
+  $('.next-slide-btn').click(function() {
+    $('.checkout-carousel').slick('slickNext');
+  });
+
+});
+
+//Checkout function
+function checkout() {
+
+  // Grab input value and size value
+  var num = document.getElementById('checkout-number-input');
+  var myNum = num.value;
+  sizeCookie = Cookies.get('name');
+  console.log(sizeCookie);
+  //Regex test
+  var regExNumber = new RegExp("^[0-9\-\+]{10}$");
+  //Check for size cookie
+  if (sizeCookie) {
+    //Verify number format length
+    if (regExNumber.test(myNum)) {
+      //Check for '0' as first number
+      if (myNum.charAt(0) === '0') {
+        Materialize.toast('Success!', 3000, 'green');
+        $.post("/shop/:shopName/:id", {
+          size: sizeCookie,
+          number: myNum
+        }, function(data) {
+          window.location.href = "/success";
+        });
+      } else {
+        Materialize.toast('Invalid phone number', 3000, 'red');
+      }
+      //End check for '0' as first number
+    } else {
+      Materialize.toast('Invalid phone number', 3000, 'red');
+    }
+    //End verify number format length
+  } else {
+    Materialize.toast('Please choose your size', 3000, 'red');
+  }
+  //End check for size cookie
+
 }
 
-Cookies.remove('size', {
-  path: window.location.pathname
-});
+
+//Get size value and bake cookie
+function getID(size) {
+  var size = size.id;
+  Cookies.set('name', size);
+}
+//remove any previous size cookies
+Cookies.remove('name');

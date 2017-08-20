@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "algoliasearch": "^3.23.0",
-    "body-parser": "^1.16.1",
+    "body-parser": "^1.17.2",
     "browser-express": "^3.1.0",
     "browserify": "^14.0.0",
     "cloudinary": "^1.9.0",

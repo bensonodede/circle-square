@@ -83,11 +83,11 @@
 }
 
 .slick-dots li button:before {
-  color: #fff;
+  color: #000;
 }
 
 .slick-dots li.slick-active button:before {
-  color: #fff;
+  color: #000;
 }
 
 @media only screen and (min-width: 901px) and (max-width: 1100px) {
@@ -138,11 +138,11 @@
     bottom: 5px;
   }
   .slick-dots li button:before {
-    color: #fff;
+    color: #000;
   }
 
   .slick-dots li.slick-active button:before {
-    color: #fff;
+    color: #000;
   }
 }
 

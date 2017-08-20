@@ -1,0 +1,217 @@
+doctype html
+html(lang="en-US")
+  head
+    meta(charset="utf-8")
+    |   
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    |   
+    title View product - Warehouse
+    |   
+    meta(content="IE=edge", http-equiv="x-ua-compatible")
+    |   
+    meta(content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no", name="viewport")
+    |   
+    meta(content="yes", name="apple-mobile-web-app-capable")
+    |   
+    meta(content="yes", name="apple-touch-fullscreen")
+    |   
+    link(rel="icon", href="/img/warehouse_favicon.png", type="image/x-icon")
+    // Fonts
+    link(href="https://fonts.googleapis.com/css?family=Raleway:300,400,700", rel="stylesheet", type="text/css")
+    |   
+    link(href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500", rel="stylesheet")
+    // Icons
+    link(href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css", media="all", rel="stylesheet", type="text/css")
+    // Styles
+    link(href="/mincss/keyframes.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/mincss/materialize.min.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/slick.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/slick-lightbox.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/slick-theme.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/slides.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/style.css", rel="stylesheet", type="text/css")
+  body
+    #main
+      // Main Container
+      // Page Contents
+      #product_content.main.animated.fadein
+        // Hero Header
+        #first.hero-header.animated.fadein
+          // Slider
+          #carousel.carousel
+            each slideshow, i in slideshows
+              .item
+                .imageContainer
+                  img(src= slideshow)
+          // End of Slider          
+        |       
+        #product-details
+          // Product Title
+          .center-align.p-20
+            h3.item_name.m-0 #{details.title}
+            |           
+            h4.item_price KSh #{details.price}
+        // Prduct Description
+        .product-description
+          .p-20
+            #description
+              p.text-flow #{details.description}
+            |           
+            #choose_size.product-variation(style="text-align: center;")
+              h6
+                | please choose your 
+                strong shoe size (UK)
+              #sizes.sizes.p-b-20
+              h6
+                | Not sure? See 
+                a#size-chart-link(target="_blank" href="/size-chart")
+                  strong size-chart
+          
+            // Modal Structure
+      #collect_modal.modal.bottom-sheet.white
+        div
+          i#goBack_product.modal-action.modal-close.ion-close.product_back
+        // Start slick checkout
+        .checkout-carousel
+          // first slide
+          .valign.center-align
+            h4#checkout-title.valign.center-align How it works
+            |           
+            hr#checkout-hr-1
+            |           
+            .timeline
+              .dot
+              |             
+              #checkout-media-body.media-body
+                span
+                  | You will receive an 
+                  strong.checkout-bold SMS
+                  |  once your order has been confirmed.
+            |           
+            .timeline
+              .dot
+              |             
+              #checkout-media-body.media-body
+                span
+                  | Our courier will call you to get 
+                  strong.checkout-bold your loaction.
+            |           
+            .timeline
+              .dot
+              |             
+              #checkout-media-body.media-body
+                span
+                  | Make your payment with 
+                  strong.checkout-bold cash or M-pesa
+                  |  once your item has been delivered.
+            |           
+            a.next-slide-btn.waves-effect.waves-light.btn-large.block.m-20(href="#!") Next
+          // End first slide
+          // second slide
+          div
+            ul.cost-list
+              h4#checkout-title.valign.center-align Order summary
+              |             
+              hr#checkout-hr
+              |             
+              li#checkout-text
+                | Your item cost : 
+                span.right KSh. #{details.price}
+              |             
+              li#checkout-text
+                | Delivery cost : 
+                span.right KSh. 300
+              |             
+              li#checkout-total
+                | Total: 
+                span.right KSh. #{total}
+            |           
+            a.next-slide-btn.waves-effect.waves-light.btn-large.block.m-20(href="#!") Next
+          // End second slide
+          // third slide
+          .valign.center-align
+            h4#checkout-title.valign.center-align Checkout
+            hr#checkout-hr            
+            p#collect-instructions
+              | Please enter your 
+              strong.checkout-bold phone number
+              |  to checkout.
+            form#myform(method='POST', action='/shop/:shopName/:id', type="number")
+              .input-field
+                input#checkout-number-input(name="number" type="number", placeholder="0712345678")
+                |           
+                a.next-slide-btn.waves-effect.waves-light.btn-large.block.m-20(href="#",  onclick="checkout()") Submit            
+          // End third slide        
+        // End slick carousel
+      // End modal structure
+
+      // Open modal
+      .collect
+        hr#filter_divider
+        |       
+        a#collect_btn.modal-trigger.waves-effect.waves-light.btn-large.block.m-20(href="#collect_modal") Get it now
+      |     
+      i#goBack_product.ion-chevron-left.product_back(onclick="goBack()")
+      // End of Page Contents
+      //
+        Menu Trigger
+        <div class="menu-trigger z-depth-2">
+        <div id="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
+        </div>
+      // Menu
+      nav#menu.menu
+        .menu-navigation
+          ul.full-menu.collapsible
+            img#nav_logo(src="/img/warehouse_full_white.png")
+      // End of Menu
+    // End of Main Container
+    // Scripts
+    script(src="/minjs/vue.min.js")
+    |   
+    script(src="/minjs/jquery-1.12.2.js")
+    |   
+    script(src="/minjs/js.cookie.js")
+    |   
+    script(src="/minjs/slick.min.js")
+    |   
+    script(src="/js/slick-lightbox.min.js")
+    |   
+    script(src="/minjs/modernizr.js")
+    |   
+    script(src="/minjs/swiper.min.js")
+    |   
+    script(src="/minjs/jquery.smoothState.min.js")
+    |   
+    script(src="/minjs/jquery.swipebox.min.js")
+    |   
+    script(src="/minjs/materialize.min.js")
+    |   
+    script(src="/minjs/jquery.mixitup.min.js")
+    |   
+    script(src="/minjs/masonry.min.js")
+    |   
+    script(src="/minjs/chart.min.js")
+    |   
+    script(src="/minjs/functions.js")
+    |   
+    script(src="/minjs/simpleCart.js")
+    |   
+    script(src="/js/product.js")
+    |   
+    script(type="text/javascript").
+      $(document).ready(function(){
+      $('.imageContainer').slickLightbox({
+      itemSelector: '.item'
+      });
+      });

@@ -22,9 +22,10 @@
   <link href="/mincss/keyframes.css" rel="stylesheet" type="text/css" />
   <link href="/mincss/materialize.min.css" rel="stylesheet" type="text/css" />
   <link href="/css/slick.css" rel="stylesheet" type="text/css">
+  <link href="/css/swiper.css" rel="stylesheet" type="text/css">
   <link href="/css/slick-theme.css" rel="stylesheet" type="text/css">
   <link href="/mincss/slides.css" rel="stylesheet" type="text/css" />
-  <link href="/mincss/style.css" rel="stylesheet" type="text/css" />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 
 
 
@@ -36,14 +37,17 @@
     <!-- Main Container -->
 
 
-
-
     <!-- Page Contents -->
     <div id="product_content" class="main animated fadein">
       <!-- Hero Header -->
       <div id="first" class="hero-header animated fadein">
         <!-- Slider -->
         <div id="carousel" class="carousel">
+          <div class="item">
+            <div class="imageContainer">
+              <img src="/img/1.jpg" alt="">
+            </div>
+          </div>
         </div>
         <!-- End of Slider -->
 
@@ -72,7 +76,6 @@
       <!-- Prduct Description -->
       <div class="product-description">
 
-
         <div class="p-20">
           <div id="description">
             <p class="text-flow">{{details.description}}.</p>
@@ -81,57 +84,100 @@
           <div style="text-align: center;" id="choose_size" class="product-variation">
             <h6>How does <strong>Click and collect</strong> work?</h6>
             <div class="sizes p-b-20">
-              <div id="sizes"></div>
+              <div id="sizes">
+              </div>
             </div>
           </div>
-          <!--
-            <div id="product_button" class="product-variation">
-              <a id="add_to_cart" class="drift-open-chat item_add waves-effect waves-light btn-large accent-color block m-20" href="#!">Chat now!</a>
-            </div>
-          -->
         </div>
 
-
       </div>
-
-
-      <!--<div class="product-variation">
-          <h5><strong>Choose a color:</strong></h5>
-          <form action="#">
-            <p>
-              <input name="group1" type="radio" id="test1" />
-              <label for="test1">Red</label>
-            </p>
-            <p>
-              <input name="group1" type="radio" id="test2" />
-              <label for="test2">Yellow</label>
-            </p>
-            <p>
-              <input name="group1" type="radio" id="test3"  />
-              <label for="test3">Green</label>
-            </p>
-              <p>
-                <input name="group1" type="radio" id="test4" />
-                <label for="test4">Brown</label>
-            </p>
-          </form>
-        </div>-->
-
 
     </div>
 
     <!-- Modal Structure -->
-    <div id="collect_modal" class="modal bottom-sheet">
-      <div id="collect_input" class="input-field">
-        <input id="phone" type="number">
-        <label for="phone">Phone number</label>
+    <div id="collect_modal" class="modal bottom-sheet white">
+      <div>
+        <i class="modal-action modal-close ion-close product_back" id="goBack_product"></i>
       </div>
 
-      <p id="collect-instructions">We will send you a confirmation <strong>SMS</strong> and details on how to pick up your item.</p>
-      <div class="modal-footer">
-        <button id="number_submit_btn" class="btn modal-action modal-close waves-effect waves-light" type="submit" name="action">Submit</button>
+      <!-- Start slick checkout -->
+      <div class="checkout-carousel">
+        <!-- first slide -->
+        <div class="valign center-align">
+          <h4 id="checkout-title" class="valign center-align">How it works</h4>
+          <hr id="checkout-hr-1">
+          <div class="timeline">
+            <div class="dot"></div>
+            <div id="checkout-media-body" class="media-body">
+              <span>You will receive an <strong class="checkout-bold">SMS</strong> once your order has been confirmed.</span>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <div class="dot"></div>
+            <div id="checkout-media-body" class="media-body">
+              <span>Our courier will call you to get <strong class="checkout-bold">your loaction.</strong></span>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <div class="dot"></div>
+            <div id="checkout-media-body" class="media-body">
+              <span>Make your payment with <strong class="checkout-bold">cash or M-pesa</strong> once your item has been delivered.</span>
+            </div>
+          </div>
+          <a class="next-slide-btn waves-effect waves-light btn-large block m-20" href="#!">Next</a>
+        </div>
+        <!--End first slide -->
+
+        <!-- second slide -->
+        <div>
+          <ul class="cost-list">
+            <h4 id="checkout-title" class="valign center-align">Order summary</h4>
+            <hr id="checkout-hr">
+            <li id="checkout-text">Your item cost : <span class="right">KSh. 3000</span></li>
+            <li id="checkout-text">Delivery cost : <span class="right">KSh. 3000</span></li>
+            <li id="checkout-total">Total: <span class="right">KSh. 3000</span> </li>
+          </ul>
+          <a class="next-slide-btn waves-effect waves-light btn-large block m-20" href="#!">Next</a>
+        </div>
+        <!--End second slide -->
+
+        <!-- third slide -->
+        <div class="valign center-align">
+          <p id="collect-instructions">Please enter your <strong>phone number</strong> to checkout.</p>
+          <div id="collect_input" class="">
+            <input id="phone" type="number">
+            <label for="phone"></label>
+          </div>
+          <a class="next-slide-btn waves-effect waves-light btn-large block m-20" href="#!">Done</a>
+        </div>
+        <!--End third slide -->
+
+        <!--Fourth slide -->
+        <div class="valign center-align">
+          <img id="checkmark" src="/css/checkmark-gif.gif" alt="">
+          <h4>Thank you, you twat!</h4>
+          <a class="next-slide-btn waves-effect waves-light btn-large block m-20" href="#!">Next</a>
+        </div>
+        <!--End fourth slide -->
+
       </div>
+      <!--End slick carousel -->
     </div>
+    <!--End modal structure -->
+
+
+
+
+
+
+
+    <!--**************** CAROUSEL FOR SIZES  ******************
+                 INCLUDE UK AND US SIZING OPTIONS
+                   ALLOW FOR MULTIPLE SIZES SELECTIONS-->
+
+
 
     <!-- Click and collect button -->
     <div class="collect">
@@ -157,102 +203,6 @@
       <div class="menu-navigation">
         <ul class="full-menu collapsible">
           <img id="nav_logo" src="/img/warehouse_full_white.png">
-          <!--
-            <li>
-              <div class="collapsible-header">Home</div>
-              <div class="collapsible-body">
-                <ul class="collapsible">
-                  <li>
-                    <a href="index.html">Classic</a>
-                    <a href="index-sliced.html">Sliced</a>
-                    <a href="index-slider.html">Slider</a>
-                    <a href="index-drawer.html">Drawer</a>
-                    <a href="index-walkthrough.html">Walkthrough</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="collapsible-header">Pages</div>
-              <div class="collapsible-body">
-                <ul class="collapsible">
-                  <li>
-                    <a href="profile.html">Profile</a>
-                    <a href="article.html">Article</a>
-                    <a href="event.html">Event</a>
-                    <a href="project.html">Project</a>
-                    <a href="player.html">Music Player</a>
-                    <a href="todo.html">ToDo</a>
-                    <a href="category.html">Category</a>
-                    <a href="product.html">Product</a>
-                    <a href="checkout.html">Checkout</a>
-                    <a href="search.html">Search</a>
-                    <a href="faq.html">Faq</a>
-                    <a href="coming-soon.html">Coming Soon</a>
-                    <a href="404.html">404</a>
-                    <a href="500.html">500</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="collapsible-header">App</div>
-              <div class="collapsible-body">
-                <ul class="collapsible">
-                  <li>
-                    <a href="calendar.html">Calendar</a>
-                    <a href="chat.html">Chat</a>
-                    <a href="chart.html">Chart</a>
-                    <a href="timeline.html">Timeline</a>
-                    <a href="login.html">Login</a>
-                    <a href="signup.html">Sign Up</a>
-                    <a href="lockscreen.html">Lockscreen</a>
-                    <a href="forgot.html">Password</a>
-                    <a href="notification.html">Notification</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="collapsible-header">Portfolio</div>
-              <div class="collapsible-body">
-                <ul class="collapsible">
-                  <li>
-                    <a href="portfolio-filter.html">Filter</a>
-                    <a href="portfolio-masonry.html">Masonry</a>
-                    <a href="portfolio-card.html">Card</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="collapsible-header">Blog</div>
-              <div class="collapsible-body">
-                <ul class="collapsible">
-                  <li>
-                    <a href="blog.html">Classic</a>
-                    <a href="blog2.html">Card</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="collapsible-header">Gallery</div>
-              <div class="collapsible-body">
-                <ul class="collapsible">
-                  <li>
-                    <a href="gallery-filter.html">Filter</a>
-                    <a href="gallery-masonry.html">Masonry</a>
-                    <a href="gallery-card.html">Card</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li><a href="index-walkthrough.html" class="no-child">Walkthrough</a></li>
-            <li><a onclick="featuredRedirect()" href="" class="no-child">Featured</a></li>
-            <li><a onclick="cartRedirect()" href="" class="no-child">Cart</a></li>
-            <li><a onclick="contactRedirect()" href="" class="no-child">Contact</a></li>
-          -->
         </ul>
       </div>
     </nav>
@@ -275,30 +225,8 @@
   <script src="/minjs/chart.min.js"></script>
   <script src="/minjs/functions.js"></script>
   <script src="/minjs/simpleCart.js"></script>
-  <script src="/minjs/product.js"></script>
-  <!-- WhatsHelp.io widget
-    <script type="text/javascript">
-    // User has to visit products page first to get shop number
-        (function () {
-          var data = JSON.parse(Cookies.get('name'));
-          console.log(data.details.number);
-            var options = {
-                whatsapp: data.details.number, // WhatsApp number
-                call: data.details.number,
-                company_logo_url: "//static.whatshelp.io/img/flag.png", // URL of company logo (png, jpg, gif)
-                greeting_message: "Hello! I would love to answer any questions you have about this product.", // Text of greeting message
-                call_to_action: "Message us", // Call to action
-                button_color: "#E74339", // Color of button
-                position: "right", // Position may be 'right' or 'left'
-                order: "whatsapp, call" // Order of buttons
-            };
-            var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
-            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
-            s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
-            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-        })();
-    </script>
-     /WhatsHelp.io widget -->
+  <script src="/js/product.js"></script>
+
 </body>
 
 </html>

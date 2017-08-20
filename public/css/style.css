@@ -1795,7 +1795,7 @@ textarea.materialize-textarea+label {
   width: 100%;
   float: left;
   position: relative;
-  height: 240px;
+  height: 38vh;
 }
 
 @media screen and (min-width: 390px) {
@@ -2142,7 +2142,8 @@ ul.faq {
 
 .sizes .size:hover {
   border: 1px solid #62ca9c;
-  background-color: #62ca9c;
+  background-image: linear-gradient(240deg, #22a76d 0%, #30cc9b 100%);
+  /*background-color: #62ca9c;*/
   color: #fff;
 }
 
@@ -2483,7 +2484,7 @@ ul.faq {
 /* Timeline */
 
 .timeline {
-  margin-left: 58px;
+  margin-left: 45px;
   border-left: 1px solid #eee;
 }
 
@@ -2732,11 +2733,11 @@ p#more-info-p {
 
 h3.item_name.m-0 {
   font-weight: 400;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 }
 
 h4.item_price {
-  font-size: 2.3rem;
+  font-size: 2rem;
 }
 
 #goBack_product {
@@ -2767,11 +2768,11 @@ div#reviews {
 }
 
 div#product_content {
-  padding-bottom: 8rem;
+  padding-bottom: 0rem;
 }
 
 .collect {
-  position: fixed;
+  position: relative;
   bottom: 0px;
   z-index: 3;
   background-color: #fff;
@@ -2793,12 +2794,8 @@ div#product_content {
   height: 100%;
 }
 
-.product_modal{
+.product_modal {
   height: 100%
-}
-
-#collect_input {
-  margin: 2rem 1.5rem;
 }
 
 .modal.bottom-sheet {
@@ -2828,17 +2825,15 @@ div#product_content {
 }
 
 
-/******** Products Page *******/
+/******** Shop Page *******/
 
 img#catalogue {
   border-radius: 5px;
   -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-}
-.img_placeholder{
-  background-image: url("/img/product.jpg");
-  width: 300;
-  height: 300
+  width: 100% !important;
+  height: 25vh !important;
+  background-color: #d8d8d8;
 }
 
 span#product-title {
@@ -2846,16 +2841,134 @@ span#product-title {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1.5rem;
 }
 
 span#product-price {
   font-family: montserrat;
-  font-weight: 400;
+  font-weight: 600;
   color: #000000;
-  opacity: 0.7;
+  opacity: 0.5;
 }
+
+
+/********* Product-page ****************/
+
+
+/********* Checkout-page ****************/
+.checkout-carousel {
+  top: 30%;
+}
+
+#checkout-title{
+  margin-bottom: 0rem;
+  font-weight: 400;
+}
+
+#checkout-text{
+  font-family: montserrat;
+  margin: 1rem 4rem;
+}
+#checkout-total{
+  font-family: montserrat;
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 1rem 4rem;
+}
+
+.next-slide-btn {
+  color: #fff;
+  background-image: linear-gradient(240deg, #22a76d 0%, #30cc9b 100%);
+  font-family: montserrat;
+  font-size: 1.7rem;
+  height: 5rem;
+  line-height: 5rem;
+  margin: 1.5rem 3rem !important;
+  text-transform: none;
+}
+
+#checkout-hr{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#checkout-hr-1{
+  margin-top: 2rem;
+  margin-bottom: 0rem;
+}
+
+
+.dot{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  opacity: 1;
+  position: relative;
+  background-color: #7d7d7d;
+  left: -7px;
+  top: 26px;
+}
+
+#checkout-media-body{
+  padding: 0rem 1.5rem;
+  font-size: 1.5rem;
+  font-family: montserrat;
+  font-weight: 300;
+  text-align: left;
+}
+
+.checkout-bold{
+  font-weight: 600;
+}
+
+#checkout-number-input {
+  margin: 2rem 1.5rem;
+  width: 82%;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  font-family: montserrat;
+  letter-spacing: 1.5px;
+  height: 5rem;
+  font-size: 2rem;
+}
+
+
+img#checkmark{
+  height: 20rem;
+  width: 20rem;
+  margin: auto;
+}
+
+.green {
+  background-color: #36c78d !important;
+}
+/******** Success Page *******/
+.success-message{
+  top: 20%;
+  position: absolute;
+  width: 100%;
+}
+
+#success-text{
+  margin-bottom: 4rem;
+}
+
+/******** Size-chart Page *******/
+
+.size-chart-heading {
+  text-align: center;
+  margin-top: 1.6rem;
+}
+
+.size-chart {
+  padding: 1rem 0.6rem;
+}
+
+#size-chart-link {
+  color: #22a76d;
+}
+
 
 /***************** SEARCH ********************/
 
@@ -2994,7 +3107,6 @@ nav .input-field input {
 #product-img {
   position: relative;
 }
-
 
 
 /************* ALGOLIA SEARCH BAR **************/

@@ -38,23 +38,24 @@ html(lang="en-US")
         .autoflow
           // Shop banner
           .hero-header.bg-1.animated.fadeindown
-            img(src="/img/1.jpg", alt="")
+            img(src= shop.banner, alt="")
             |           
-            h1#shopname.hero-title Shop Name
+            h1#shopname.hero-title #{shop.name}
             |           
             .opacity-overlay
           // Gallery
-          .grid.m-t-20
+          .grid.m-t-20.animated.fadeinup.delay-2
             each product, i in products
               .grid-item.gallery-item-card
-                a#1212121212.no-smoothState(onclick="getID(this)")
-                  img#catalogue(src= product.slideshow[1], alt="image")
+                a.catalogue_placeholder.no-smoothState(onclick="getID(this)" id= product._id)
+                  
+                  img#catalogue(src= product.slideshow[0])
                   |                 
                   .gallery-item-header
                     .gallery-item-author
-                      span#product-title Jassie Northmkkkkkkkkkkkkkkkkkk
+                      span#product-title #{product.title}
                       |                     
-                      span#product-price.small= product.price
+                      span#product-price.small KSh #{product.price}
               |                       
             // End Gallery
         |       
