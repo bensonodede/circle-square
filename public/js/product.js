@@ -40,19 +40,22 @@ $(document).ready(function() {
     initialSlide: 6
   });
 
-  //Checkout slides
-  $('.checkout-carousel').slick({
-    dots: false,
-    infinite: false,
-    speed: 300,
-    slidesToShow: 1,
-    adaptiveHeight: true,
-    centerMode: false,
-    variableWidth: false,
-    autoplay: false,
-    arrows: false,
-    swipeToSlide: false,
-    initialSlide: 0
+  //Init checkout slides on btn click 
+  $( "#collect_btn" ).click(function() {
+    //Checkout slides
+    $('.checkout-carousel').slick({
+      dots: false,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 1,
+      adaptiveHeight: true,
+      centerMode: false,
+      variableWidth: false,
+      autoplay: false,
+      arrows: false,
+      swipeToSlide: false,
+      initialSlide: 0
+    });
   });
 
   //Move to next slide on button

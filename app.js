@@ -24,7 +24,7 @@ app.use(express.static(__dirname + '/public'));
 var Shops = require('./public/models/shops');
 var Products = require('./public/models/products');
 
-
+/*
 Products.create({
   shopID:'5984d5c5c1533b43ac446109',
   title: 'Nike Sb stefan janoski',
@@ -38,7 +38,7 @@ Products.create({
   if (err) return handleError(err);
   // saved!
 });
-
+*/
 
 //Load view engine
 app.set('views', path.join(__dirname, 'public/views'));
