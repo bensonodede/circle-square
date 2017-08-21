@@ -40,8 +40,8 @@ $(document).ready(function() {
     initialSlide: 6
   });
 
-  //Init checkout slides on btn click 
-  $( "#collect_btn" ).click(function() {
+  //Init checkout slides on btn click
+  $( "#collect_btn" ).one("click", function() {
     //Checkout slides
     $('.checkout-carousel').slick({
       dots: false,
@@ -68,7 +68,8 @@ $(document).ready(function() {
 //Checkout function
 function checkout() {
 
-  // Grab input value and size value
+  // Grab input value, size value and productID
+  var productID = window.location.pathname.split("/").pop();
   var num = document.getElementById('checkout-number-input');
   var myNum = num.value;
   sizeCookie = Cookies.get('name');
@@ -83,6 +84,7 @@ function checkout() {
       if (myNum.charAt(0) === '0') {
         Materialize.toast('Success!', 3000, 'green');
         $.post("/shop/:shopName/:id", {
+          productID: productID,
           size: sizeCookie,
           number: myNum
         }, function(data) {

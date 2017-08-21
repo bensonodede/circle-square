@@ -23,6 +23,7 @@ app.use(express.static(__dirname + '/public'));
 //Import models
 var Shops = require('./public/models/shops');
 var Products = require('./public/models/products');
+var Orders = require('./public/models/orders');
 
 /*
 Products.create({
@@ -45,7 +46,9 @@ app.set('views', path.join(__dirname, 'public/views'));
 app.set('view engine', 'pug');
 
 // Body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(bodyParser.json());
 
 
@@ -75,8 +78,9 @@ app.get('/shop/:shopName', function(req, res) {
     } else {
 
       //Query for shop banner
-      Shops.findOne({ 'link': req.params.shopName }, function(err, shop){
-        console.log(shop);
+      Shops.findOne({
+        'link': req.params.shopName
+      }, function(err, shop) {
         //Render featured page
         res.render('shop', {
           products: products,
@@ -93,51 +97,73 @@ app.get('/shop/:shopName', function(req, res) {
 //Product info page
 app.get('/shop/:shopName/:id', function(req, res) {
 
-  Products.findOne({ '_id' : req.params.id }, function(err, details){
+  Products.findOne({
+    '_id': req.params.id
+  }, function(err, details) {
     if (err) {
       console.log(err);
     } else {
       var sum = details.price + 300;
       var total = sum.toLocaleString();
       res.render('product', {
-        details : details,
-        slideshows : details.slideshow,
-        total : total
+        details: details,
+        slideshows: details.slideshow,
+        total: total
       });
     }
   });
 
 });
 
-// TODO: Generate token and store in DB
 // Post Checkout details
-app.post('/shop/:shopName/:id', function(req, res){
-  var myNum = req.body.number;
-  if (myNum.charAt(0) === '0') {
-    myNum = myNum.slice(1);
-    var number = "+254" + myNum;
-    console.log(number);
-    console.log(req.body.size);
-    res.send('Done');
-  }
-  else {
-    console.log('ERROR');
-  }
-});
+app.post('/shop/:shopName/:id', function(req, res) {
+      var myNum = req.body.number;
+      if (myNum.charAt(0) === '0') {
+        myNum = myNum.slice(1);
+        var number = "+254" + myNum;
+        var size = req.body.size;
+        var productID = req.body.productID;
+        res.send('Done');
 
-//Size chart
-app.get('/size-chart', function(req, res){
-  res.sendFile(__dirname + '/public/size-chart.html')
-});
+        function createOrder() {
+          //Generate UNIQUE ID
+          var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          var token = '';
+          for (var i = 16; i > 0; --i) {
+            token += chars[Math.round(Math.random() * (chars.length - 1))];
+          }
+          console.log("ORDER TOKEN: " + token);
+          //END UNIQUE ID generation
 
-app.get('/product', function(req, res){
-  res.sendFile(__dirname + '/public/product.html')
-});
+          Orders.create({
+            orderID: token,
+            productID: productID,
+            size: size,
+            number: number
+          }, function(err) {
+            if (err) return handleError(err);
+          });
 
-app.get('/success', function(req, res){
-  res.sendFile(__dirname + '/public/success.html')
-});
-//Start Server
-app.listen(process.env.PORT || 3000, function() {
-  console.log('Server started on port 3000...');
-});
+        }
+        createOrder();
+        } else {
+          console.log('ERROR');
+        }
+      });
+
+    //Size chart
+    app.get('/size-chart', function(req, res) {
+      res.sendFile(__dirname + '/public/size-chart.html')
+    });
+
+    app.get('/product', function(req, res) {
+      res.sendFile(__dirname + '/public/product.html')
+    });
+
+    app.get('/success', function(req, res) {
+      res.sendFile(__dirname + '/public/success.html')
+    });
+    //Start Server
+    app.listen(process.env.PORT || 3000, function() {
+      console.log('Server started on port 3000...');
+    });
