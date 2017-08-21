@@ -51,9 +51,25 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-
-//Featured route
+// Home page route
 app.get('/', function(req, res) {
+
+  //Query db for all products
+  Products.find({}, function(err, products) {
+    if (err) {
+      console.log(err);
+    } else {
+      //Render featured page
+      res.render('home', {
+        products: products
+      });
+    }
+  });
+
+});
+
+//Featured shops route
+app.get('/featured', function(req, res) {
 
   //Query db for all shops
   Shops.find({}, function(err, shops) {
@@ -69,7 +85,7 @@ app.get('/', function(req, res) {
 
 });
 
-//Products list page
+/*Products list page
 app.get('/shop/:shopName', function(req, res) {
   //Query db for all products
   Products.find({}, function(err, products) {
@@ -93,12 +109,13 @@ app.get('/shop/:shopName', function(req, res) {
     }
   });
 });
+*/
 
 //Product info page
-app.get('/shop/:shopName/:id', function(req, res) {
-
+app.get('/shop', function(req, res) {
+  var p = req.query.p;
   Products.findOne({
-    '_id': req.params.id
+    '_id': p
   }, function(err, details) {
     if (err) {
       console.log(err);
@@ -116,7 +133,7 @@ app.get('/shop/:shopName/:id', function(req, res) {
 });
 
 // Post Checkout details
-app.post('/shop/:shopName/:id', function(req, res) {
+app.post('/shop', function(req, res) {
   var myNum = req.body.number;
   if (myNum.charAt(0) === '0') {
     myNum = myNum.slice(1);

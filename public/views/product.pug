@@ -53,10 +53,10 @@ html(lang="en-US")
         |       
         #product-details
           // Product Title
-          .center-align.p-20
-            h3.item_name.m-0 #{details.title}
-            |           
-            h4.item_price KSh #{details.price}
+          h3.item_name.m-0 #{details.title}
+          |           
+          p.item_price.m-0 Price:
+            span#priceDetails  KSh #{details.price}
         // Prduct Description
         .product-description
           .p-20
@@ -142,7 +142,7 @@ html(lang="en-US")
               | Please enter your 
               strong.checkout-bold phone number
               |  to checkout.
-            form#myform(method='POST', action='/shop/:shopName/:id', type="number")
+            form#myform(method='POST', action='/shop', type="number")
               .input-field
                 input#checkout-number-input(name="number" type="number", placeholder="0712345678")
                 |           

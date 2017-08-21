@@ -2734,10 +2734,21 @@ p#more-info-p {
 h3.item_name.m-0 {
   font-weight: 400;
   font-size: 2.2rem;
+  padding: 25px 20px;
 }
 
-h4.item_price {
-  font-size: 2rem;
+p.item_price {
+  font-family: montserrat;
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  border-top: 1px solid #eee;
+  color: #848484;
+}
+
+#priceDetails {
+  color: #000;
+  margin: 0rem 1rem;
 }
 
 #goBack_product {
@@ -2848,18 +2859,21 @@ span#product-title {
 span#product-price {
   font-family: montserrat;
   font-weight: 600;
-  color: #000000;
-  opacity: 0.5;
+  color: #848484;
 }
 
 
 /********* Product-page ****************/
 
+#bannerImg {
+  position: absolute;
+}
+
 
 /********* Checkout-page ****************/
 
 .checkout-carousel {
-  top: 30%;
+  top: 25%;
 }
 
 #checkout-title {

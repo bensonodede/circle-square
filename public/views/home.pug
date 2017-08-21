@@ -37,12 +37,7 @@ html(lang="en-US")
       #content.main.animated.fadein
         .autoflow
           // Shop banner
-          .hero-header.bg-1.animated.fadeindown
-            img#bannerImg(src= shop.banner, alt="")
-            |           
-            h1#shopname.hero-title #{shop.name}
-            |           
-            .opacity-overlay
+            
           // Gallery
           .grid.m-t-20.animated.fadeinup.delay-2
             each product, i in products
@@ -244,6 +239,6 @@ html(lang="en-US")
       function getID(theKey) {
       //Redirect
       key = theKey.id;
-      var str = window.location.href  + "/" + key ;
+      var str = window.location.href  + "shop?p=" + key ;
       window.location.href = str;
       }

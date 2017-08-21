@@ -83,7 +83,7 @@ function checkout() {
       //Check for '0' as first number
       if (myNum.charAt(0) === '0') {
         Materialize.toast('Success!', 3000, 'green');
-        $.post("/shop/:shopName/:id", {
+        $.post("/shop", {
           productID: productID,
           size: sizeCookie,
           number: myNum
