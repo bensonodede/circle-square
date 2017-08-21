@@ -117,53 +117,85 @@ app.get('/shop/:shopName/:id', function(req, res) {
 
 // Post Checkout details
 app.post('/shop/:shopName/:id', function(req, res) {
-      var myNum = req.body.number;
-      if (myNum.charAt(0) === '0') {
-        myNum = myNum.slice(1);
-        var number = "+254" + myNum;
-        var size = req.body.size;
-        var productID = req.body.productID;
-        res.send('Done');
+  var myNum = req.body.number;
+  if (myNum.charAt(0) === '0') {
+    myNum = myNum.slice(1);
+    var number = "+254" + myNum;
+    var size = req.body.size;
+    var productID = req.body.productID;
+    res.send('Done');
 
-        function createOrder() {
-          //Generate UNIQUE ID
-          var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-          var token = '';
-          for (var i = 16; i > 0; --i) {
-            token += chars[Math.round(Math.random() * (chars.length - 1))];
-          }
-          console.log("ORDER TOKEN: " + token);
-          //END UNIQUE ID generation
+    function createOrder() {
+      //Generate UNIQUE ID
+      var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      var token = '';
+      for (var i = 16; i > 0; --i) {
+        token += chars[Math.round(Math.random() * (chars.length - 1))];
+      }
+      console.log("ORDER TOKEN: " + token);
+      //END UNIQUE ID generation
 
-          Orders.create({
-            orderID: token,
-            productID: productID,
-            size: size,
-            number: number
-          }, function(err) {
-            if (err) return handleError(err);
-          });
+      Orders.create({
+        _id: token,
+        productID: productID,
+        size: size,
+        number: number
+      }, function(err) {
+        if (err) return handleError(err);
+      });
 
-        }
-        createOrder();
+    }
+    createOrder();
+  } else {
+    console.log('ERROR');
+  }
+});
+
+app.get('/seller-confirm/:id', function(req, res) {
+
+  Orders.findOne({
+    '_id': req.params.id
+  }, function(err, orders) {
+    if (err) {
+      console.log(err);
+    } else {
+
+      Products.findOne({
+        '_id': orders.productID
+      }, function(err, details) {
+        if (err) {
+          console.log(err);
         } else {
-          console.log('ERROR');
+          console.log(details);
+          var sum = details.price;
+          var total = sum.toLocaleString();
+          console.log(total);
+          res.render('seller-confirm', {
+            details: details,
+            slideshows: details.slideshow,
+            total: total,
+            size: orders.size
+          });
         }
       });
 
-    //Size chart
-    app.get('/size-chart', function(req, res) {
-      res.sendFile(__dirname + '/public/size-chart.html')
-    });
 
-    app.get('/product', function(req, res) {
-      res.sendFile(__dirname + '/public/product.html')
-    });
 
-    app.get('/success', function(req, res) {
-      res.sendFile(__dirname + '/public/success.html')
-    });
-    //Start Server
-    app.listen(process.env.PORT || 3000, function() {
-      console.log('Server started on port 3000...');
-    });
+    }
+  });
+
+
+});
+//Size chart
+app.get('/size-chart', function(req, res) {
+  res.sendFile(__dirname + '/public/size-chart.html')
+});
+
+
+app.get('/success', function(req, res) {
+  res.sendFile(__dirname + '/public/success.html')
+});
+//Start Server
+app.listen(process.env.PORT || 3000, function() {
+  console.log('Server started on port 3000...');
+});

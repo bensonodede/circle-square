@@ -2857,20 +2857,22 @@ span#product-price {
 
 
 /********* Checkout-page ****************/
+
 .checkout-carousel {
   top: 30%;
 }
 
-#checkout-title{
+#checkout-title {
   margin-bottom: 0rem;
   font-weight: 400;
 }
 
-#checkout-text{
+#checkout-text {
   font-family: montserrat;
   margin: 1rem 4rem;
 }
-#checkout-total{
+
+#checkout-total {
   font-family: montserrat;
   font-size: 2rem;
   font-weight: 500;
@@ -2888,18 +2890,17 @@ span#product-price {
   text-transform: none;
 }
 
-#checkout-hr{
+#checkout-hr {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
-#checkout-hr-1{
+#checkout-hr-1 {
   margin-top: 2rem;
   margin-bottom: 0rem;
 }
 
-
-.dot{
+.dot {
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -2910,7 +2911,7 @@ span#product-price {
   top: 26px;
 }
 
-#checkout-media-body{
+#checkout-media-body {
   padding: 0rem 1.5rem;
   font-size: 1.5rem;
   font-family: montserrat;
@@ -2918,7 +2919,7 @@ span#product-price {
   text-align: left;
 }
 
-.checkout-bold{
+.checkout-bold {
   font-weight: 600;
 }
 
@@ -2933,8 +2934,7 @@ span#product-price {
   font-size: 2rem;
 }
 
-
-img#checkmark{
+img#checkmark {
   height: 20rem;
   width: 20rem;
   margin: auto;
@@ -2943,16 +2943,20 @@ img#checkmark{
 .green {
   background-color: #36c78d !important;
 }
+
+
 /******** Success Page *******/
-.success-message{
+
+.success-message {
   top: 20%;
   position: absolute;
   width: 100%;
 }
 
-#success-text{
+#success-text {
   margin-bottom: 4rem;
 }
+
 
 /******** Size-chart Page *******/
 
@@ -2967,6 +2971,15 @@ img#checkmark{
 
 #size-chart-link {
   color: #22a76d;
+}
+
+
+/********* Seller-confirm-page ****************/
+
+span#confirmSize {
+  border: 1px solid #62ca9c;
+  background-image: linear-gradient(240deg, #22a76d 0%, #30cc9b 100%);
+  color: #fff;
 }
 
 
