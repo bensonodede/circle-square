@@ -208,9 +208,13 @@ app.get('/size-chart', function(req, res) {
   res.sendFile(__dirname + '/public/size-chart.html')
 });
 
-
 app.get('/success', function(req, res) {
   res.sendFile(__dirname + '/public/success.html')
+});
+
+
+app.get('/nav', function(req, res) {
+  res.sendFile(__dirname + '/public/mynav.html')
 });
 //Start Server
 app.listen(process.env.PORT || 3000, function() {
