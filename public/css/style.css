@@ -738,7 +738,8 @@ footer.page-footer .footer-copyright {
   height: 50px;
   display: block;
   cursor: pointer;
-  font-weight: 700;
+  font-family: montserrat;
+  font-weight: 300;
   font-size: 2.0rem;
   letter-spacing: 2px;
   position: relative;
@@ -889,10 +890,7 @@ nav ul li {
   -webkit-transition: visibility 0s 0.45s;
   -moz-transition: visibility 0s 0.45s;
   transition: visibility 0s 0.45s;
-  /*background: -webkit-linear-gradient(135deg,#263d1a,#16becf);
-  background: linear-gradient(135deg,#263d1a,#16becf);*/
-  background-image: -webkit-linear-gradient(300deg, #28292b 0%, #9da8b3 100%);
-  background-image: linear-gradient(300deg, #28292b 0%, #9da8b3 100%);
+  background-color: #eaeaea;
 }
 
 .menu .menu-navigation {
@@ -1056,7 +1054,7 @@ nav ul li {
 }
 
 .full-menu a {
-  color: #fff;
+  color: #808080;
   font-size: 1.5rem;
 }
 
