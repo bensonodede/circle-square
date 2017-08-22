@@ -740,7 +740,7 @@ footer.page-footer .footer-copyright {
   cursor: pointer;
   font-family: montserrat;
   font-weight: 300;
-  font-size: 2.0rem;
+  font-size: 1.5rem;
   letter-spacing: 2px;
   position: relative;
   z-index: 1;
@@ -2656,11 +2656,16 @@ div#choose_size {
 }
 
 #nav_logo {
-  width: 18rem;
+  width: 14rem;
   height: 150%;
   position: relative;
-  top: -25px;
-  padding-left: 15px;
+  top: -20px;
+  padding-left: 0px;
+}
+
+#nav_divider {
+  margin-top: -15px;
+  margin-bottom: 35px;
 }
 
 nav.userView {
