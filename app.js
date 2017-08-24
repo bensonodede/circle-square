@@ -3,7 +3,9 @@ var path = require('path');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
-
+var api_key = 'SEM3F7ED8B41D23C63B8A78673721B336BBC';
+var api_secret = 'ODg5NjRjMmJlYjY2MDlmZmFlZTU0Mzg2MGI1N2I3MDU';
+var sem3 = require('semantics3-node')(api_key, api_secret);
 
 //Initialize the database
 mongoose.connect('mongodb://bensonodede:Odede300@ds145263.mlab.com:45263/warehouse');
@@ -25,7 +27,22 @@ var Shops = require('./public/models/shops');
 var Products = require('./public/models/products');
 var Orders = require('./public/models/orders');
 
+
 /*
+// Build the request
+sem3.products.products_field( "search", "iphone" );
+
+// Run the request
+sem3.products.get_products(
+   function(err, products) {
+      if (err) {
+         console.log("Couldn't execute request: get_products");
+         return;
+      }
+    // View results of the request
+    console.log( "Results of request:\n" + JSON.stringify( products ) );
+   }
+);
 Products.create({
   shopID:'5984d5c5c1533b43ac446109',
   title: 'Nike Sb stefan janoski',
@@ -85,7 +102,8 @@ app.get('/featured', function(req, res) {
 
 });
 
-/*Products list page
+/*
+Products list page
 app.get('/shop/:shopName', function(req, res) {
   //Query db for all products
   Products.find({}, function(err, products) {
@@ -208,13 +226,76 @@ app.get('/size-chart', function(req, res) {
   res.sendFile(__dirname + '/public/size-chart.html')
 });
 
+//success page
 app.get('/success', function(req, res) {
   res.sendFile(__dirname + '/public/success.html')
 });
 
+//upload
+app.get('/upload/:id', function(req, res) {
+  var query = req.params.id;
+  console.log(query);
+  // Build the request
+  sem3.products.products_field("search", query);
 
-app.get('/nav', function(req, res) {
-  res.sendFile(__dirname + '/public/mynav.html')
+  // Run the request
+  sem3.products.get_products(
+    function(err, products) {
+      if (err) {
+        console.log("Couldn't execute request: get_products");
+        return;
+      }
+      // View results of the request
+      var one = JSON.parse(products);
+      var results = one.results;
+      //console.log(results);
+      res.render('upload' ,{
+        results: results
+      })
+      var index;
+      var a = results;
+      for (index = 0; index < a.length; ++index) {
+        var images = a[index].images;
+        //console.log(images);
+        console.log("Name is: " + a[index].name);
+      }
+    }
+  );
+});
+
+app.post('/upload/:id', function(req, res) {
+  console.log(req.body.name);
+  console.log(req.body.price);
+  console.log(req.body.imgs);
+  console.log(req.body.desc);
+
+
+  Products.create({
+    shopID:'5984d5c5c1533b43ac446109',
+    title: req.body.name,
+    slideshow: JSON.parse(req.body.imgs),
+    price: req.body.price,
+    description: req.body.desc,
+    //tags: ['Shoes', 'Skateboarding'],
+    //sizes: ['4', '5', '6'],
+    //inventory: 12
+  }, function(err) {
+    if (err) return handleError(err);
+  });
+  res.send('/search');
+
+
+});
+
+
+//search
+app.get('/search', function(req, res) {
+  res.sendFile(__dirname + '/public/search.html')
+});
+
+app.post('/search', function(req, res) {
+  var params = req.body.search;
+  res.send('/upload/' + params);
 });
 //Start Server
 app.listen(process.env.PORT || 3000, function() {

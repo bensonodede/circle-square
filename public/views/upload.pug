@@ -1,0 +1,133 @@
+doctype html
+html(lang="en-US")
+  head
+    meta(charset="utf-8")
+    |   
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    |   
+    title Eclipse - Mobile Template
+    |   
+    meta(content="IE=edge", http-equiv="x-ua-compatible")
+    |   
+    meta(content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no", name="viewport")
+    |   
+    meta(content="yes", name="apple-mobile-web-app-capable")
+    |   
+    meta(content="yes", name="apple-touch-fullscreen")
+    // Fonts
+    link(href="https://fonts.googleapis.com/css?family=Raleway:300,400,700", rel="stylesheet", type="text/css")
+    // Icons
+    link(href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css", media="all", rel="stylesheet", type="text/css")
+    // Styles
+    link(href="/css/keyframes.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/materialize.min.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/swiper.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/swipebox.min.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/style.css", rel="stylesheet", type="text/css")
+  body
+    #main
+      // Main Container
+      // Page Contents
+      #content.main.animated.fadein
+        // Header
+        .hero-header.hero-small.animated.fadeindown
+          h1.hero-title.primary-text Upload
+      
+        // Gallery        
+        .grid.m-t-20
+          each result, i in results
+            .grid-item.gallery-item-card
+              input.box1.filled-in(type="checkbox", id=result.images[0])
+              |           
+              label#img-upload-box(for=result.images[0])
+              |           
+              img(src=result.images[0], alt="image")
+          // End gallery
+        .clr
+        |    
+        h4 Choose one Item name
+        each result, i in results     
+          .p-10
+            p.text-flow
+              input.box2.filled-in(id=result.name, type="checkbox")
+              |           
+              label#text-upload-box(for=result.name)                
+              | #{result.name}
+          
+        h4 Choose one description
+        each result, i in results     
+         - if(result.hasOwnProperty("features"))
+          - if(result.features.hasOwnProperty("blob"))
+            .p-10
+              p.text-flow
+                input.box3.filled-in(id=result.features.blob, type="checkbox")
+                |           
+                label#text-upload-box(for=result.features.blob)                
+                | #{result.features.blob}
+        h4 Enter price
+        form#myform(type="number")
+          .input-field
+            input#upload-number-input(name="number" type="number", placeholder="Price")
+        |       
+        a#done.next-slide-btn.waves-effect.waves-light.btn-large.block.m-20(href="#!") Done
+        // Footer
+      // End of Page Contents      
+    // End of Main Container
+    script(src="/js/jquery-1.12.2.js")
+    |   
+    script(src="/js/modernizr.js")
+    |   
+    script(src="/js/jquery.swipebox.min.js")
+    |   
+    script(src="/js/jquery.smoothState.min.js")
+    |   
+    script(src="/js/materialize.min.js")
+    |   
+    script(src="/js/swiper.min.js")
+    |   
+    script(src="/js/jquery.mixitup.min.js")
+    |   
+    script(src="/js/masonry.min.js")
+    |   
+    script(src="/js/chart.min.js")
+    |   
+    script(src="/js/functions.js")
+    |   
+    script(type="text/javascript").
+      $("#done").click(function() {
+      if ($("input[type='checkbox'].box1").is(":checked")) {
+      if ($("input[type='checkbox'].box2").is(":checked")) {
+      if ($("input[type='checkbox'].box3").is(":checked")) {
+      a = [];
+      $("input[type='checkbox'].box1:checked").each(function() {
+      a.push(this.id);
+      });
+      $("input[type='checkbox'].box2:checked").map(function() {
+      var b = this.id;
+      $("input[type='checkbox'].box3:checked").map(function() {
+      var c = this.id;
+      var d = $("#upload-number-input").val();
+      console.log(a); // a = Array of images
+      console.log(b); // b = Product Name
+      console.log(c); // c = description
+      console.log(d); // d = price
+      $.post("/upload/:id", {
+      imgs: JSON.stringify(a),
+      name: b,
+      desc: c,
+      price: d
+      }, function(data) {
+      console.log(data);
+      window.location.href = data;
+      });
+      });
+      });
+      }
+      }
+      }
+      });
+      

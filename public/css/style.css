@@ -234,6 +234,10 @@ h1.title.big {
   padding: 0 !important;
 }
 
+.p-10 {
+  padding: 10px !important;
+}
+
 .p-20 {
   padding: 20px !important;
 }
@@ -3000,6 +3004,28 @@ span#confirmSize {
   color: #fff;
 }
 
+
+/******** Upload data Page *******/
+
+#img-upload-box {
+  position: absolute;
+}
+
+label#text-upload-box {
+  font-family: monospace;
+  font-weight: 300;
+}
+
+#upload-number-input {
+    margin: 2rem 1.5rem;
+    width: 82%;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    font-family: montserrat;
+    letter-spacing: 1.5px;
+    height: 5rem;
+    font-size: 2rem;
+}
 
 /***************** SEARCH ********************/
 
