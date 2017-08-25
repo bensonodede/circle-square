@@ -65,11 +65,28 @@ $(document).ready(function() {
 
 });
 
+
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+    console.log(vars);
+}
+var p = getUrlVars()["p"];
+
+
 //Checkout function
 function checkout() {
 
   // Grab input value, size value and productID
-  var productID = window.location.pathname.split("/").pop();
+  var productID = p;
   var num = document.getElementById('checkout-number-input');
   var myNum = num.value;
   sizeCookie = Cookies.get('name');

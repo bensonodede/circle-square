@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var api_key = 'SEM3F7ED8B41D23C63B8A78673721B336BBC';
 var api_secret = 'ODg5NjRjMmJlYjY2MDlmZmFlZTU0Mzg2MGI1N2I3MDU';
 var sem3 = require('semantics3-node')(api_key, api_secret);
-
+var twilio = require('twilio');
 //Initialize the database
 mongoose.connect('mongodb://bensonodede:Odede300@ds145263.mlab.com:45263/warehouse');
 var db = mongoose.connection;
@@ -16,6 +16,12 @@ db.once('open', function() {
   // we're connected!
 });
 
+//Twilio Credentials
+var accountSid = 'ACfefa7ab7db30fedd3ba418d0838bbe11';
+var authToken = '248923d6ebb40fa7a445edfe1e668a42';
+
+// Require  the twiio module and create a REST client
+var client = require('twilio')(accountSid, authToken);
 //Initialize app
 var app = require('express')();
 
@@ -132,6 +138,7 @@ app.get('/shop/:shopName', function(req, res) {
 //Product info page
 app.get('/shop', function(req, res) {
   var p = req.query.p;
+
   Products.findOne({
     '_id': p
   }, function(err, details) {
@@ -157,8 +164,10 @@ app.post('/shop', function(req, res) {
     myNum = myNum.slice(1);
     var number = "+254" + myNum;
     var size = req.body.size;
-    var productID = req.body.productID;
+    var str = req.body.productID;
+    var productID = str.replace('#!','');
     res.send('Done');
+    console.log(productID);
 
     function createOrder() {
       //Generate UNIQUE ID
@@ -170,6 +179,7 @@ app.post('/shop', function(req, res) {
       console.log("ORDER TOKEN: " + token);
       //END UNIQUE ID generation
 
+      //Save order to db
       Orders.create({
         _id: token,
         productID: productID,
@@ -178,6 +188,34 @@ app.post('/shop', function(req, res) {
       }, function(err) {
         if (err) return handleError(err);
       });
+
+      //Query db
+      Products.findOne({
+        '_id': productID
+      }, function(err, details) {
+        if (err) {
+          console.log(err);
+        } else {
+          Shops.findOne({
+            '_id': details.shopID
+          }, function(err, shop) {
+            if (err) {
+              console.log(err);
+            } else {
+              //Send confirm message
+              client.messages.create({
+              to: shop.number,
+              from: "+16466797502 ",
+              body: "You have a new order! Click the link below to confirm: " + "\n" + "https://thewarehouseke.herokuapp.com/seller-confirm/" + token
+            }, function(err, sms) {
+            process.stdout.write(sms.sid);
+          });
+          //End send confirm message
+            }
+          });
+        }
+      });
+      //End query db
 
     }
     createOrder();
@@ -249,7 +287,7 @@ app.get('/upload/:id', function(req, res) {
       var one = JSON.parse(products);
       var results = one.results;
       //console.log(results);
-      res.render('upload' ,{
+      res.render('upload', {
         results: results
       })
       var index;
@@ -271,7 +309,7 @@ app.post('/upload/:id', function(req, res) {
 
 
   Products.create({
-    shopID:'5984d5c5c1533b43ac446109',
+    shopID: '5984d5c5c1533b43ac446109',
     title: req.body.name,
     slideshow: JSON.parse(req.body.imgs),
     price: req.body.price,
