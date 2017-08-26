@@ -165,7 +165,7 @@ app.post('/shop', function(req, res) {
     var number = "+254" + myNum;
     var size = req.body.size;
     var str = req.body.productID;
-    var productID = str.replace('#!','');
+    var productID = str.replace('#!', '');
     res.send('Done');
     console.log(productID);
 
@@ -204,13 +204,13 @@ app.post('/shop', function(req, res) {
             } else {
               //Send confirm message
               client.messages.create({
-              to: shop.number,
-              from: "+16466797502 ",
-              body: "You have a new order! Click the link below to confirm: " + "\n" + "https://thewarehouseke.herokuapp.com/seller-confirm/" + token
-            }, function(err, sms) {
-            process.stdout.write(sms.sid);
-          });
-          //End send confirm message
+                to: shop.number,
+                from: "+16466797502 ",
+                body: "You have a new order! Click the link below to confirm: " + "\n" + "https://thewarehouseke.herokuapp.com/seller-confirm/" + token
+              }, function(err, sms) {
+                process.stdout.write(sms.sid);
+              });
+              //End send confirm message
             }
           });
         }
@@ -239,10 +239,8 @@ app.get('/seller-confirm/:id', function(req, res) {
         if (err) {
           console.log(err);
         } else {
-          console.log(details);
           var sum = details.price;
           var total = sum.toLocaleString();
-          console.log(total);
           res.render('seller-confirm', {
             details: details,
             slideshows: details.slideshow,
@@ -252,11 +250,44 @@ app.get('/seller-confirm/:id', function(req, res) {
         }
       });
 
-
-
     }
   });
 
+});
+
+app.post('/seller-confirm/:id', function(req, res) {
+  var value = req.body.value;
+  var path = req.body.path;
+
+  Orders.findOne({
+    '_id': path
+  }, function(err, orders) {
+    if (err) {
+      console.log(err);
+    } else {
+
+      if (value === "True") {
+        client.messages.create({
+          to: orders.number,
+          from: "+16466797502 ",
+          body: "Order ID: #" + orders._id + "\n" + "Your order has been confirmed! Our courier will contact you shortly to deliver your item." + "\n" + "\n" + "The warehouse KE"
+        }, function(err, sms) {
+          process.stdout.write(sms.sid);
+        });
+        res.send("done");
+      } else {
+        client.messages.create({
+          to: orders.number,
+          from: "+16466797502 ",
+          body: "Order ID: #" + orders._id + "\n" + "The item you ordered is currently not available" + "\n" + "\n" + "The warehouse KE"
+        }, function(err, sms) {
+          process.stdout.write(sms.sid);
+        });
+        res.send("done");
+      }
+
+    }
+  });
 
 });
 //Size chart
@@ -267,6 +298,10 @@ app.get('/size-chart', function(req, res) {
 //success page
 app.get('/success', function(req, res) {
   res.sendFile(__dirname + '/public/success.html')
+});
+
+app.get('/success-seller', function(req, res) {
+  res.sendFile(__dirname + '/public/success-seller.html')
 });
 
 //upload
@@ -295,7 +330,6 @@ app.get('/upload/:id', function(req, res) {
       for (index = 0; index < a.length; ++index) {
         var images = a[index].images;
         //console.log(images);
-        console.log("Name is: " + a[index].name);
       }
     }
   );
