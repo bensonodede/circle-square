@@ -251,7 +251,7 @@ app.post('/seller-confirm/:id', function(req, res) {
         client.messages.create({
           to: orders.number,
           from: "+16466797502 ",
-          body: "Order ID: #" + orders._id + "\n" + "Your order has been confirmed! Our courier will contact you shortly to deliver your item." + "\n" + "\n" + "The warehouse KE"
+          body: "Order ID: #" + orders._id + "\n" + "Your order has been confirmed! Our courier will contact you shortly to deliver your item." + "\n" + "\n" + "Warehouse Africa."
         }, function(err, sms) {
           process.stdout.write(sms.sid);
         });
@@ -260,7 +260,7 @@ app.post('/seller-confirm/:id', function(req, res) {
         client.messages.create({
           to: orders.number,
           from: "+16466797502 ",
-          body: "Order ID: #" + orders._id + "\n" + "The item you ordered is currently not available" + "\n" + "\n" + "The warehouse KE"
+          body: "Order ID: #" + orders._id + "\n" + "The item you ordered is currently not available" + "\n" + "\n" + "Warehouse Africa."
         }, function(err, sms) {
           process.stdout.write(sms.sid);
         });

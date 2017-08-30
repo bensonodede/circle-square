@@ -523,7 +523,7 @@ footer.page-footer .footer-copyright {
 .hero-header {
   position: relative;
   z-index: 1;
-  min-height: 34vh;
+  min-height: 38vh;
 }
 
 .hero-header.hero-small {
@@ -1798,7 +1798,7 @@ textarea.materialize-textarea+label {
   width: 100%;
   float: left;
   position: relative;
-  height: 34vh;
+  height: 38vh;
 }
 
 @media screen and (min-width: 390px) {
@@ -2760,12 +2760,12 @@ p.item_price {
 }
 
 #goBack_product {
-  position: fixed;
-  z-index: 3;
-  left: 15px;
+  position: absolute;
+  z-index: 1500;
+  left: 12px;
   top: 15px;
   width: 30px;
-  color: #524d4d;
+  color: #777777;
   font-size: 2rem;
   text-align: center;
 }
@@ -2973,9 +2973,12 @@ img#checkmark {
 
 
 /******** Success Page *******/
+  #content-succes {
+    background-color: #fff;
+  }
 
 .success-message {
-  top: 20%;
+  top: 15%;
   position: absolute;
   width: 100%;
 }
