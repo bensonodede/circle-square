@@ -523,7 +523,7 @@ footer.page-footer .footer-copyright {
 .hero-header {
   position: relative;
   z-index: 1;
-  min-height: 212px;
+  min-height: 34vh;
 }
 
 .hero-header.hero-small {
@@ -1798,7 +1798,7 @@ textarea.materialize-textarea+label {
   width: 100%;
   float: left;
   position: relative;
-  height: 38vh;
+  height: 34vh;
 }
 
 @media screen and (min-width: 390px) {
@@ -2845,11 +2845,16 @@ div#product_content {
 
 
 /******** Shop Page *******/
+#content{
+  background-color: #f9f9f9;
+}
 
 img#catalogue {
+  /*
   border-radius: 5px;
   -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  */
   width: 100% !important;
   height: 25vh !important;
   background-color: #d8d8d8;
@@ -2867,7 +2872,7 @@ span#product-title {
 span#product-price {
   font-family: montserrat;
   font-weight: 600;
-  color: #848484;
+  color: #afafaf;
 }
 
 
@@ -3022,11 +3027,21 @@ label#text-upload-box {
     padding-bottom: 2rem;
     padding-top: 2rem;
     font-family: montserrat;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     height: 5rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
+#upload-text-input {
+    margin: 2rem 1.5rem;
+    width: 82%;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    font-family: montserrat;
+    letter-spacing: 1px;
+    height: 5rem;
+    font-size: 1.5rem;
+}
 /***************** SEARCH ********************/
 
 .input-field input[type=search]+label {

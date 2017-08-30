@@ -55,27 +55,27 @@ html(lang="en-US")
             // End Gallery
         |       
         .clr
-          // Footer
-          footer.page-footer.primary-color
-            .container
-              .row
-                .col.s12
-                  p.center-align.grey-text.text-lighten-4 We believe online shopping should be simple and a little fun.
-                  |                 
-                  .center-align
-                    a(target="_blank" href="https://www.facebook.com/thewarehouseke")
-                      i.ion-social-facebook.m-10.white-text
-                    |                   
-                    a(target="_blank" href="https://www.instagram.com/thewarehouse_ke/")
-                      i.ion-social-instagram-outline.m-10.white-text
+      // Footer
+      footer.page-footer.primary-color
+        .container
+          .row
+            .col.s12
+              p.center-align.grey-text.text-lighten-4 We believe online shopping should be simple and a little fun.
+              |                 
+              .center-align
+                a(target="_blank" href="https://www.facebook.com/warehouseafrica/")
+                  i.ion-social-facebook.m-10.white-text
+                |                   
+                a(target="_blank" href="https://www.instagram.com/warehouse_africa/")
+                  i.ion-social-instagram-outline.m-10.white-text
 
-            |           
-            .line.white
-            |           
-            .footer-copyright.primary-color
-              .container
-                | 2017 warehouse
-                // <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
+        |           
+        .line.white
+        |           
+        .footer-copyright.primary-color
+          .container
+            | 2017 warehouse
+            // <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
       // End of Page Contents
       // Menu Trigger
       .menu-trigger.z-depth-2
@@ -96,10 +96,10 @@ html(lang="en-US")
             hr#nav_divider
             |
             li
-              a.no-child(href="shop.html") Home
+              a.no-child(onclick="homeRedirect()" href="") Home
             |           
             li
-              a.no-child(href="news.html") Partners
+              a.no-child(onclick="featuredRedirect()" href="") Partners
             |           
             li
               //a.no-child(href="video.html") About
@@ -132,6 +132,6 @@ html(lang="en-US")
       function getID(theKey) {
       //Redirect
       key = theKey.id;
-      var str = window.location.href  + "shop?p=" + key ;
+      var str = "/shop/view?p=" + key ;
       window.location.href = str;
       }

@@ -7,6 +7,9 @@ var api_key = 'SEM3F7ED8B41D23C63B8A78673721B336BBC';
 var api_secret = 'ODg5NjRjMmJlYjY2MDlmZmFlZTU0Mzg2MGI1N2I3MDU';
 var sem3 = require('semantics3-node')(api_key, api_secret);
 var twilio = require('twilio');
+var imageSearch = require('node-google-image-search');
+
+
 //Initialize the database
 mongoose.connect('mongodb://bensonodede:Odede300@ds145263.mlab.com:45263/warehouse');
 var db = mongoose.connection;
@@ -16,9 +19,11 @@ db.once('open', function() {
   // we're connected!
 });
 
+
+
 //Twilio Credentials
-var accountSid = 'ACfefa7ab7db30fedd3ba418d0838bbe11';
-var authToken = '248923d6ebb40fa7a445edfe1e668a42';
+var accountSid = process.env.TWILIO_SID;
+var authToken = process.env.TWILIO_TOKEN;
 
 // Require  the twiio module and create a REST client
 var client = require('twilio')(accountSid, authToken);
@@ -33,37 +38,6 @@ var Shops = require('./public/models/shops');
 var Products = require('./public/models/products');
 var Orders = require('./public/models/orders');
 
-
-/*
-// Build the request
-sem3.products.products_field( "search", "iphone" );
-
-// Run the request
-sem3.products.get_products(
-   function(err, products) {
-      if (err) {
-         console.log("Couldn't execute request: get_products");
-         return;
-      }
-    // View results of the request
-    console.log( "Results of request:\n" + JSON.stringify( products ) );
-   }
-);
-Products.create({
-  shopID:'5984d5c5c1533b43ac446109',
-  title: 'Nike Sb stefan janoski',
-  slideshow: ['https://images.nike.com/is/image/DotCom/PDP_HERO/833603_012_A_PREM/sb-zoom-stefan-janoski-og-mens-skateboarding-shoe.jpg','https://images.nike.com/is/image/DotCom/PDP_HERO_S/833603_012_D_PREM/sb-zoom-stefan-janoski-og-mens-skateboarding-shoe.jpg'],
-  price: 4000,
-  description: 'Designed with insights from a legendary athlete, the Nike SB Zoom Stefan Janoski OG Mens Skateboarding Shoe features a low-profile cushioning for a clean, classic look and responsive impact protection. A flexible rubber outsole with herringbone traction offers exceptional grip and boardfeel.',
-  tags: ['Shoes', 'Skateboarding'],
-  sizes: ['4', '5', '6'],
-  inventory: 12
-}, function(err) {
-  if (err) return handleError(err);
-  // saved!
-});
-*/
-
 //Load view engine
 app.set('views', path.join(__dirname, 'public/views'));
 app.set('view engine', 'pug');
@@ -74,9 +48,20 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+/*
+Shops.create({
+  _id: "5984d5c5c1533b43ac446109",
+  name: "Shoe empire",
+  link: "Shoe_empire",
+  number: "+254724645546",
+  banner: "http://res.cloudinary.com/dzxuz9zc9/image/upload/v1501133850/Shoe_empire/Shoe_empire_banner.jpg"
+}, function(err) {
+  if (err) return handleError(err);
+});
+*/
+
 // Home page route
 app.get('/', function(req, res) {
-
   //Query db for all products
   Products.find({}, function(err, products) {
     if (err) {
@@ -88,7 +73,6 @@ app.get('/', function(req, res) {
       });
     }
   });
-
 });
 
 //Featured shops route
@@ -108,9 +92,9 @@ app.get('/featured', function(req, res) {
 
 });
 
-/*
-Products list page
-app.get('/shop/:shopName', function(req, res) {
+
+//Products list page
+app.get('/featured/:shopName', function(req, res) {
   //Query db for all products
   Products.find({}, function(err, products) {
     if (err) {
@@ -133,10 +117,10 @@ app.get('/shop/:shopName', function(req, res) {
     }
   });
 });
-*/
+
 
 //Product info page
-app.get('/shop', function(req, res) {
+app.get('/shop/view', function(req, res) {
   var p = req.query.p;
 
   Products.findOne({
@@ -158,7 +142,7 @@ app.get('/shop', function(req, res) {
 });
 
 // Post Checkout details
-app.post('/shop', function(req, res) {
+app.post('/shop/view', function(req, res) {
   var myNum = req.body.number;
   if (myNum.charAt(0) === '0') {
     myNum = myNum.slice(1);
@@ -307,47 +291,39 @@ app.get('/success-seller', function(req, res) {
 //upload
 app.get('/upload/:id', function(req, res) {
   var query = req.params.id;
-  console.log(query);
-  // Build the request
-  sem3.products.products_field("search", query);
+  //console.log(query);
 
-  // Run the request
-  sem3.products.get_products(
-    function(err, products) {
-      if (err) {
-        console.log("Couldn't execute request: get_products");
-        return;
-      }
-      // View results of the request
-      var one = JSON.parse(products);
-      var results = one.results;
-      //console.log(results);
+  // Build the request
+  // Parameters = {1.'search term', 2.callback function, 3.offset 4.number of results(10 max) }
+  var offset = 0;
+  var results = imageSearch (query, callback, offset, 10);
+
+  function callback(products) {
+      //View results of the request
+      console.log(products.length);
       res.render('upload', {
-        results: results
-      })
-      var index;
-      var a = results;
-      for (index = 0; index < a.length; ++index) {
-        var images = a[index].images;
-        //console.log(images);
+        results: products
+      });
+      var array = products;
+      //console.log(array.length);
+      for (var i = 0; i < array.length; i++) {
+        console.log(array[i].link);
+        console.log(array[i]);
       }
-    }
-  );
+  }
+
 });
 
 app.post('/upload/:id', function(req, res) {
   console.log(req.body.name);
   console.log(req.body.price);
   console.log(req.body.imgs);
-  console.log(req.body.desc);
-
 
   Products.create({
     shopID: '5984d5c5c1533b43ac446109',
     title: req.body.name,
     slideshow: JSON.parse(req.body.imgs),
     price: req.body.price,
-    description: req.body.desc,
     //tags: ['Shoes', 'Skateboarding'],
     //sizes: ['4', '5', '6'],
     //inventory: 12

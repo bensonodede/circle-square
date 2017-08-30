@@ -392,7 +392,7 @@ function goBack(){
 
 //Redirect functions
 
-function cartRedirect(){ window.location.href = "/checkout" };
+function homeRedirect(){ window.location.href = "/" };
 function featuredRedirect(){ window.location.href = "/featured" };
 function contactRedirect(){ window.location.href = "/contact" };
 

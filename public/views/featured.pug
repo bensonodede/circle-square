@@ -29,7 +29,7 @@ html(lang="en-US")
     |     
     link(href="/mincss/swiper.css", rel="stylesheet", type="text/css")
     |     
-    link(href="/mincss/style.css", rel="stylesheet", type="text/css")
+    link(href="/css/style.css", rel="stylesheet", type="text/css")
     |         
   |   
   body
@@ -57,18 +57,19 @@ html(lang="en-US")
                 p.center-align.grey-text.text-lighten-4 We believe online shopping should be simple and a little fun.
                 |                 
                 .center-align
-                  i.ion-social-facebook.m-10.white-text
+                  a(target="_blank" href="https://www.facebook.com/warehouseafrica/")
+                    i.ion-social-facebook.m-10.white-text
                   |                   
-                  i.ion-social-twitter.m-10.white-text
-                  |                   
-                  i.ion-social-instagram-outline.m-10.white-text
+                  a(target="_blank" href="https://www.instagram.com/warehouse_africa/")
+                    i.ion-social-instagram-outline.m-10.white-text
+
           |           
           .line.white
           |           
           .footer-copyright.primary-color
             .container
               | 2017 warehouse
-              // <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
+              // <a class="
       // End of Page Contents
       // Menu Trigger
       .menu-trigger
@@ -84,13 +85,21 @@ html(lang="en-US")
       nav#menu.menu
         .menu-navigation
           ul.full-menu.collapsible
-            img#nav_logo(src="/img/warehouse_full_white.png")
-            |             
+            img#nav_logo(src="/img/warehouse_full_black.png")
+            |                       
+            hr#nav_divider
+            |
             li
-              a.no-child(onclick="featuredRedirect()", href="") Featured
-            |             
+              a.no-child(onclick="homeRedirect()" href="") Home
+            |           
             li
-              a.no-child(onclick="contactRedirect()", href="") Contact
+              a.no-child(onclick="featuredRedirect()" href="") Partners
+            |           
+            li
+              //a.no-child(href="video.html") About
+            |           
+            li
+              a.no-child(href="contact.html") Contact
       // End of Menu
     // End of Main Container
     script(src="/minjs/vue.min.js")
@@ -117,4 +126,4 @@ html(lang="en-US")
     |     
     script(src="/js/featured.js")
     |     
-    script(src="/minjs/functions.js")
+    script(src="/js/functions.js")

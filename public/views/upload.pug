@@ -41,35 +41,19 @@ html(lang="en-US")
         .grid.m-t-20
           each result, i in results
             .grid-item.gallery-item-card
-              input.box1.filled-in(type="checkbox", id=result.images[0])
+              input.box1.filled-in(type="checkbox", id=result.link)
               |           
-              label#img-upload-box(for=result.images[0])
+              label#img-upload-box(for=result.link)
               |           
-              img#catalogue(src=result.images[0], alt="image")
+              img#catalogue(src=result.link, alt="image")
           // End gallery
         .clr
-        |    
-        h4 Choose one Item name
-        each result, i in results     
-          .p-10
-            p.text-flow
-              input.box2.filled-in(id=result.name, type="checkbox")
-              |           
-              label#text-upload-box(for=result.name)                
-              | #{result.name}
-          
-        h4 Choose one description
-        each result, i in results     
-         - if(result.hasOwnProperty("features"))
-          - if(result.features.hasOwnProperty("blob"))
-            .p-10
-              p.text-flow
-                input.box3.filled-in(id=result.features.blob, type="checkbox")
-                |           
-                label#text-upload-box(for=result.features.blob)                
-                | #{result.features.blob}
-        h4 Enter price
-        form#myform(type="number")
+        |            
+        form#myform
+          h6.p-10 Enter Item name
+          .input-field
+            input#upload-text-input(name="price" type="text", placeholder="Item name")
+          h6.p-10 Enter price
           .input-field
             input#upload-number-input(name="number" type="number", placeholder="Price")
         |       
@@ -97,37 +81,4 @@ html(lang="en-US")
     |   
     script(src="/js/functions.js")
     |   
-    script(type="text/javascript").
-      $("#done").click(function() {
-      if ($("input[type='checkbox'].box1").is(":checked")) {
-      if ($("input[type='checkbox'].box2").is(":checked")) {
-      if ($("input[type='checkbox'].box3").is(":checked")) {
-      a = [];
-      $("input[type='checkbox'].box1:checked").each(function() {
-      a.push(this.id);
-      });
-      $("input[type='checkbox'].box2:checked").map(function() {
-      var b = this.id;
-      $("input[type='checkbox'].box3:checked").map(function() {
-      var c = this.id;
-      var d = $("#upload-number-input").val();
-      console.log(a); // a = Array of images
-      console.log(b); // b = Product Name
-      console.log(c); // c = description
-      console.log(d); // d = price
-      $.post("/upload/:id", {
-      imgs: JSON.stringify(a),
-      name: b,
-      desc: c,
-      price: d
-      }, function(data) {
-      console.log(data);
-      window.location.href = data;
-      });
-      });
-      });
-      }
-      }
-      }
-      });
-      
+    script(src="/js/upload.js").      
