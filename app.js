@@ -3,15 +3,12 @@ var path = require('path');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
-var api_key = 'SEM3F7ED8B41D23C63B8A78673721B336BBC';
-var api_secret = 'ODg5NjRjMmJlYjY2MDlmZmFlZTU0Mzg2MGI1N2I3MDU';
-var sem3 = require('semantics3-node')(api_key, api_secret);
 var twilio = require('twilio');
 var imageSearch = require('node-google-image-search');
 
 
 //Initialize the database
-mongoose.connect('mongodb://bensonodede:Odede300@ds145263.mlab.com:45263/warehouse');
+mongoose.connect( process.env.MONGODB_URI );
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -67,7 +64,7 @@ app.get('/', function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      //Render featured page
+      //Render home page
       res.render('home', {
         products: products
       });
@@ -105,7 +102,7 @@ app.get('/featured/:shopName', function(req, res) {
       Shops.findOne({
         'link': req.params.shopName
       }, function(err, shop) {
-        //Render featured page
+        //Render shop page
         res.render('shop', {
           products: products,
           shop: shop
