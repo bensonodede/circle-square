@@ -332,6 +332,10 @@ app.post('/upload/:id', function(req, res) {
 
 });
 
+//contact
+app.get('/contact', function(req, res) {
+  res.render('contact');
+});
 
 //search
 app.get('/search', function(req, res) {

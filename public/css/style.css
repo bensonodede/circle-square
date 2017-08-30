@@ -2567,10 +2567,11 @@ ul.faq {
   margin-top: 25px;
 }
 
-h2.contact_us {
+.contact_us {
   text-align: -webkit-center;
   position: relative;
-  padding-top: 50%;
+  font-size: 2.8rem;
+  padding-top: 35%;
   padding-bottom: 15%;
 }
 
@@ -2973,18 +2974,19 @@ img#checkmark {
 
 
 /******** Success Page *******/
-  #content-succes {
+  #content-success {
     background-color: #fff;
   }
 
 .success-message {
-  top: 15%;
+  top: 8%;
   position: absolute;
   width: 100%;
 }
 
 #success-text {
-  margin-bottom: 4rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
 }
 
 
