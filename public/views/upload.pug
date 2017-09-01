@@ -45,7 +45,7 @@ html(lang="en-US")
               |           
               label#img-upload-box(for=result.link)
               |           
-              img#catalogue(src=result.link, alt="image")
+              img.lazy#catalogue(data-src=result.link, alt="image")
           // End gallery
         .clr
         |            
@@ -64,7 +64,9 @@ html(lang="en-US")
     script(src="/js/jquery-1.12.2.js")
     |   
     script(src="/js/modernizr.js")
-    |   
+    | 
+    script(src="/js/jquery.lazy.min.js")
+    |  
     script(src="/js/jquery.swipebox.min.js")
     |   
     script(src="/js/jquery.smoothState.min.js")
