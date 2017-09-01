@@ -80,10 +80,16 @@ function initiate_plugins() {
   // Swipebox
   $('.swipebox').swipebox();
 
-  // Masonry
   $('.grid').masonry({
     itemSelector: '.grid-item'
   });
+
+  /*y layout Masonry after each image loads
+  $('.grid').imagesLoaded().progress(function() {
+    console.log("YEAH");
+    $grid.masonry();
+  });
+*/
 
 
   // Scrolling Floating Action Button
@@ -386,15 +392,23 @@ $(function() {
 });
 
 //Go back function
-function goBack(){
+function goBack() {
   window.history.back();
 }
 
 //Redirect functions
 
-function homeRedirect(){ window.location.href = "/" };
-function featuredRedirect(){ window.location.href = "/featured" };
-function contactRedirect(){ window.location.href = "/contact" };
+function homeRedirect() {
+  window.location.href = "/"
+};
+
+function featuredRedirect() {
+  window.location.href = "/featured"
+};
+
+function contactRedirect() {
+  window.location.href = "/contact"
+};
 
 
 // Navigation side-nav

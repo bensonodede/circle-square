@@ -1,0 +1,94 @@
+doctype html
+html(lang="en-US")
+  head
+    meta(charset="utf-8")
+    |   
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+    |   
+    title Success - Warehouse
+    |   
+    meta(content="IE=edge", http-equiv="x-ua-compatible")
+    |   
+    meta(content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no", name="viewport")
+    |   
+    meta(content="yes", name="apple-mobile-web-app-capable")
+    |   
+    meta(content="yes", name="apple-touch-fullscreen")
+    |   
+    link(rel="icon", href="/img/warehouse_favicon.png", type="image/x-icon")
+    // Fonts
+    link(href="https://fonts.googleapis.com/css?family=Raleway:300,400,700", rel="stylesheet", type="text/css")
+    // Icons
+    link(href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css", media="all", rel="stylesheet", type="text/css")
+    // Styles
+    link(href="/css/keyframes.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/materialize.min.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/swiper.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/swipebox.min.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/style.css", rel="stylesheet", type="text/css")
+  body
+    #main
+      // Main Container
+      // Page Contents
+      #content-success.success-message.main.animated.fadeIn.delay-3
+        .valign
+          h4#success-text Awesome!        
+          |         
+          p#success-text-p
+            | Your order has been placed successfully!
+            br
+            | You will receive an 
+            strong.checkout-bold SMS
+            |  once your order has been confirmed.
+          |         
+          .checkout-details
+            img.checkout-image(src= img, alt="")
+            |           
+            .checkout-product-title
+              h6
+                | #{title}
+              span Size #{size}
+          |         
+          a#success-button.animated.fadeInUp.delay-6.next-slide-btn.waves-effect.waves-light.btn-large.block.m-20(href="#!") Continue shopping
+      // End of Page Contents
+      //
+        Menu Trigger
+        <div class="menu-trigger z-depth-2">
+        <div id="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
+        </div>
+      // Menu
+      // End of Menu
+    // End of Main Container
+    script(src="/js/jquery-1.12.2.js")
+    |   
+    script(src="/js/modernizr.js")
+    |   
+    script(src="/js/jquery.swipebox.min.js")
+    |   
+    script(src="/js/jquery.smoothState.min.js")
+    |   
+    script(src="/js/materialize.min.js")
+    |   
+    script(src="/js/swiper.min.js")
+    |   
+    script(src="/js/jquery.mixitup.min.js")
+    |   
+    script(src="/js/masonry.min.js")
+    |   
+    script(src="/js/chart.min.js")
+    |   
+    script(src="/js/functions.js")
+    |   
+    script(type="text/javascript").
+      $('#success-button').click(function(){
+      window.location.href = '/';
+      });

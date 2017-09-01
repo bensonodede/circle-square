@@ -147,7 +147,6 @@ app.post('/shop/view', function(req, res) {
     var size = req.body.size;
     var str = req.body.productID;
     var productID = str.replace('#!', '');
-    res.send('Done');
     console.log(productID);
 
     function createOrder() {
@@ -157,6 +156,7 @@ app.post('/shop/view', function(req, res) {
       for (var i = 16; i > 0; --i) {
         token += chars[Math.round(Math.random() * (chars.length - 1))];
       }
+      res.send(token);
       console.log("ORDER TOKEN: " + token);
       //END UNIQUE ID generation
 
@@ -187,7 +187,7 @@ app.post('/shop/view', function(req, res) {
               client.messages.create({
                 to: shop.number,
                 from: "+16466797502 ",
-                body: "You have a new order! Click the link below to confirm: " + "\n" + "https://thewarehouseke.herokuapp.com/seller-confirm/" + token
+                body: "You have a new order!" + "\n" + "Order ID: #" + token + "\n" + "\n" + "Click the link below to confirm: " + "\n" + "https://thewarehouseke.herokuapp.com/seller-confirm/" + token
               }, function(err, sms) {
                 process.stdout.write(sms.sid);
               });
@@ -251,7 +251,7 @@ app.post('/seller-confirm/:id', function(req, res) {
         client.messages.create({
           to: orders.number,
           from: "+16466797502 ",
-          body: "Order ID: #" + orders._id + "\n" + "Your order has been confirmed! Our courier will contact you shortly to deliver your item." + "\n" + "\n" + "Warehouse Africa."
+          body: "Order ID: #" + orders._id + "\n" + "\n" + "Your order has been confirmed! Our courier will contact you shortly to deliver your item." + "\n" + "\n" + "Warehouse Africa."
         }, function(err, sms) {
           process.stdout.write(sms.sid);
         });
@@ -260,7 +260,7 @@ app.post('/seller-confirm/:id', function(req, res) {
         client.messages.create({
           to: orders.number,
           from: "+16466797502 ",
-          body: "Order ID: #" + orders._id + "\n" + "The item you ordered is currently not available" + "\n" + "\n" + "Warehouse Africa."
+          body: "Order ID: #" + orders._id + "\n" + "\n" + "The item you ordered is currently not available" + "\n" + "\n" + "Warehouse Africa."
         }, function(err, sms) {
           process.stdout.write(sms.sid);
         });
@@ -277,8 +277,31 @@ app.get('/size-chart', function(req, res) {
 });
 
 //success page
-app.get('/success', function(req, res) {
-  res.sendFile(__dirname + '/public/success.html')
+app.get('/success/:id', function(req, res) {
+  Orders.findOne({
+    '_id': req.params.id
+  }, function(err, orders) {
+    if (err) {
+      console.log(err);
+    } else {
+      Products.findOne({
+        '_id': orders.productID
+      }, function(err, details) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render('success', {
+            id: orders._id,
+            title: details.title,
+            img: details.slideshow[0],
+            size: orders.size
+          });
+        }
+      });
+
+    }
+  });
+  //res.sendFile(__dirname + '/public/success.html')
 });
 
 app.get('/success-seller', function(req, res) {
@@ -336,6 +359,11 @@ app.post('/upload/:id', function(req, res) {
 app.get('/contact', function(req, res) {
   res.render('contact');
 });
+
+app.get('/checkout', function(req, res) {
+  res.sendFile(__dirname + '/public/checkout.html')
+});
+
 
 //search
 app.get('/search', function(req, res) {

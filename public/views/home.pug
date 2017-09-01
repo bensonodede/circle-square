@@ -37,14 +37,13 @@ html(lang="en-US")
       #content.main.animated.fadein
         .autoflow
           // Shop banner
-            
           // Gallery
           .grid.m-t-20.animated.fadeinup.delay-2
             each product, i in products
               .grid-item.gallery-item-card
                 a.catalogue_placeholder.no-smoothState(onclick="getID(this)" id= product._id)
                   
-                  img#catalogue(src= product.slideshow[0])
+                  img.lazy#catalogue(data-src= product.slideshow[0])
                   |                 
                   .gallery-item-header
                     .gallery-item-author
@@ -96,18 +95,20 @@ html(lang="en-US")
             hr#nav_divider
             |
             li
-              a.no-child(onclick="homeRedirect()" href="") Home
+              a.no-child(onclick="homeRedirect()" href="/") Home
             |           
             li
-              a.no-child(onclick="featuredRedirect()" href="") Partners          
+              a.no-child(onclick="featuredRedirect()" href="/featured") Partners          
             |           
             li
-              a.no-child(onclick="contactRedirect()" href="") Contact
+              a.no-child(onclick="contactRedirect()" href="/contact") Contact
       // End of Menu
     // End of Main Container
     script(src="/js/jquery-1.12.2.js")
     |   
     script(src="/js/modernizr.js")
+    |
+    script(src="/js/jquery.lazy.min.js")
     |   
     script(src="/js/jquery.swipebox.min.js")
     |   
@@ -121,9 +122,9 @@ html(lang="en-US")
     |   
     script(src="/js/masonry.min.js")
     |   
-    script(src="/js/chart.min.js")
-    |   
     script(src="/js/functions.js")
+    |   
+    script(src="/js/home.js")
     |   
     script(type="text/javascript").
       function getID(theKey) {

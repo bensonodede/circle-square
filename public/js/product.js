@@ -41,7 +41,7 @@ $(document).ready(function() {
   });
 
   //Init checkout slides on btn click
-  $( "#collect_btn" ).one("click", function() {
+  $("#collect_btn").one("click", function() {
     //Checkout slides
     $('.checkout-carousel').slick({
       dots: false,
@@ -63,21 +63,28 @@ $(document).ready(function() {
     $('.checkout-carousel').slick('slickNext');
   });
 
+
+  //Size on cick function
+  $('#sizes .size').on('click', function() {
+    $('#sizes .size').removeClass('active-size');
+    $(this).addClass('active-size');
+    console.log("DONE");
+  });
+
 });
 
 
-function getUrlVars()
-{
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++)
-    {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-    return vars;
-    console.log(vars);
+function getUrlVars() {
+  var vars = [],
+    hash;
+  var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+  for (var i = 0; i < hashes.length; i++) {
+    hash = hashes[i].split('=');
+    vars.push(hash[0]);
+    vars[hash[0]] = hash[1];
+  }
+  return vars;
+  console.log(vars);
 }
 var p = getUrlVars()["p"];
 
@@ -105,7 +112,7 @@ function checkout() {
           size: sizeCookie,
           number: myNum
         }, function(data) {
-          window.location.href = "/success";
+          window.location.href = "/success/" + data;
         });
       } else {
         Materialize.toast('Invalid phone number', 3000, 'red');
@@ -121,7 +128,6 @@ function checkout() {
   //End check for size cookie
 
 }
-
 
 //Get size value and bake cookie
 function getID(size) {

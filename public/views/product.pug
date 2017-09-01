@@ -76,7 +76,7 @@ html(lang="en-US")
             // Modal Structure
       #collect_modal.modal.bottom-sheet.white
         div
-          i#goBack_product.modal-action.modal-close.ion-close.product_back
+          i#goBack_product.modal-action.modal-close.ion-android-close.product_back
         // Start slick checkout
         .checkout-carousel
           // first slide
@@ -142,7 +142,7 @@ html(lang="en-US")
               | Please enter your 
               strong.checkout-bold phone number
               |  to checkout.
-            form#myform(method='POST', action='/shop', type="number")
+            form#myform(type="number")
               .input-field
                 input#checkout-number-input(name="number" type="number", placeholder="0712345678")
                 |           
@@ -157,7 +157,7 @@ html(lang="en-US")
         |       
         a#collect_btn.modal-trigger.waves-effect.waves-light.btn-large.block.m-20(href="#collect_modal") Get it now
       |     
-      i#goBack_product.ion-chevron-left.product_back(onclick="goBack()")
+      i#goBack_product.ion-android-arrow-back.product_back(onclick="goBack()")
       // End of Page Contents      
       // Menu
       nav#menu.menu
@@ -167,6 +167,8 @@ html(lang="en-US")
       // End of Menu
     // End of Main Container
     // Scripts
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js")
+    |
     script(src="/minjs/vue.min.js")
     |   
     script(src="/minjs/jquery-1.12.2.js")

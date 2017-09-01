@@ -18,11 +18,11 @@
   <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css" />
 
   <!-- Styles -->
-  <link href="css/keyframes.css" rel="stylesheet" type="text/css" />
-  <link href="css/materialize.min.css" rel="stylesheet" type="text/css" />
-  <link href="css/swiper.css" rel="stylesheet" type="text/css" />
-  <link href="css/swipebox.min.css" rel="stylesheet" type="text/css" />
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="/css/keyframes.css" rel="stylesheet" type="text/css" />
+  <link href="/css/materialize.min.css" rel="stylesheet" type="text/css" />
+  <link href="/css/swiper.css" rel="stylesheet" type="text/css" />
+  <link href="/css/swipebox.min.css" rel="stylesheet" type="text/css" />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -31,11 +31,19 @@
 
     <!-- Page Contents -->
     <div id="content-success" class="success-message main animated fadein">
+      <div class="valign">
+        <h4 id="success-text" class="animated fadeInUp delay-4">Awesome!</h4>
+        <p id="success-text-p">ORDER ID: <strong class="checkout-bold">#123456789</strong></p>
+        <p id="success-text-p">Your order has been placed successfully!<br>You will receive an <strong class="checkout-bold">SMS</strong> once your order has been confirmed.</p>
 
-      <div class="valign center-align">
-        <img id="checkmark" class="animated fadein delay-3" src="/css/checkmark-gif.gif" alt="">
-        <h4 id="success-text" class="animated fadeInUp delay-4">Thank you.</h4>
-        <span>You will receive an <strong class="checkout-bold">SMS</strong> once your order has been confirmed.</span>
+        <div class="checkout-details">
+          <img class="checkout-image" src="/img/user2.jpg" alt="">
+          <div class="checkout-product-title">
+            <h6>example name<span class="right">KSH. 1000</span></h6>
+            <span>Size 43 - 44</span>
+          </div>
+        </div>
+
         <a id="success-button" class="animated fadeInUp delay-6 next-slide-btn waves-effect waves-light btn-large block m-20" href="#!">Continue shopping</a>
       </div>
 
@@ -58,16 +66,16 @@
 
   </div>
   <!-- End of Main Container -->
-  <script src="js/jquery-1.12.2.js"></script>
-  <script src="js/modernizr.js"></script>
-  <script src="js/jquery.swipebox.min.js"></script>
-  <script src="js/jquery.smoothState.min.js"></script>
-  <script src="js/materialize.min.js"></script>
-  <script src="js/swiper.min.js"></script>
-  <script src="js/jquery.mixitup.min.js"></script>
-  <script src="js/masonry.min.js"></script>
-  <script src="js/chart.min.js"></script>
-  <script src="js/functions.js"></script>
+  <script src="/js/jquery-1.12.2.js"></script>
+  <script src="/js/modernizr.js"></script>
+  <script src="/js/jquery.swipebox.min.js"></script>
+  <script src="/js/jquery.smoothState.min.js"></script>
+  <script src="/js/materialize.min.js"></script>
+  <script src="/js/swiper.min.js"></script>
+  <script src="/js/jquery.mixitup.min.js"></script>
+  <script src="/js/masonry.min.js"></script>
+  <script src="/js/chart.min.js"></script>
+  <script src="/js/functions.js"></script>
   <script type="text/javascript">
     $('#success-button').click(function(){
        window.location.href = '/';
