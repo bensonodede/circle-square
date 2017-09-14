@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
 var twilio = require('twilio');
 var imageSearch = require('node-google-image-search');
-
+var Accountkit = require('node-accountkit');
 
 //Initialize the database
 mongoose.connect( process.env.MONGODB_URI );
@@ -260,7 +260,7 @@ app.post('/seller-confirm/:id', function(req, res) {
         client.messages.create({
           to: orders.number,
           from: "+16466797502 ",
-          body: "Order ID: #" + orders._id + "\n" + "\n" + "The item you ordered is currently not available" + "\n" + "\n" + "Warehouse Africa."
+          body: "Order ID: #" + orders._id + "\n" + "\n" + "Sorry, the item you ordered is currently not available" + "\n" + "\n" + "Warehouse Africa."
         }, function(err, sms) {
           process.stdout.write(sms.sid);
         });
@@ -360,10 +360,13 @@ app.get('/contact', function(req, res) {
   res.render('contact');
 });
 
-app.get('/checkout', function(req, res) {
-  res.sendFile(__dirname + '/public/checkout.html')
+app.get('/nav', function(req, res) {
+  res.sendFile(__dirname + '/public/mynav.html')
 });
 
+app.get('/grid', function(req, res) {
+  res.sendFile(__dirname + '/public/gallery-card.html')
+});
 
 //search
 app.get('/search', function(req, res) {

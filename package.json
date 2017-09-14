@@ -40,6 +40,7 @@
     "leaflet": "^1.0.3",
     "material-ui": "^0.17.0",
     "mongoose": "^4.11.4",
+    "node-accountkit": "^1.1.6",
     "node-google-image-search": "^1.0.3",
     "pug": "^2.0.0-rc.3",
     "react": "^15.4.2",

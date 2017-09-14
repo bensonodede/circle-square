@@ -5,15 +5,26 @@ var $grid = $('.grid').masonry({
 
 $(document).ready(function() {
 
-  $(function() {
-    $('.lazy').lazy({
-
-      // called after an element was successfully handled
-      afterLoad: function(element) {
-        $grid.masonry();
-      },
-
+  $('#featured-slide').slick({
+    dots: false,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 1.5,
+    centerMode: false,
+    variableWidth: false,
+    autoplay: false,
+    mobileFirst: true,
+    arrows: false,
+    swipeToSlide: true
   });
-});
+
+/*  $(function() {
+    $('.lazy').lazy({
+      effect: "fadeIn",
+      effectTime: 2000,
+      threshold: 0
+    });
+  });
+*/
 
 });
