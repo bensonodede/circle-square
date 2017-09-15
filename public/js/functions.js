@@ -208,6 +208,7 @@ function initiate_plugins() {
     $(this).toggleClass('open');
   });
 
+
 }
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
 
@@ -435,17 +436,32 @@ $("#closeSearch").click(function() {
 
 
 
+// Menu-arrow animation
+
+var upClass = 'menu-arrow-left';
+var downClass = 'menu-arrow-right';
+
+function toggle() {
+  var square = document.getElementById('menu-arrow');
+
+  if (~square.className.indexOf(downClass)) {
+    square.className = square.className.replace(downClass, upClass);
+  } else {
+    square.className = square.className.replace(upClass, downClass);
+  }
+
+}
 
 /********************* ALGOLIA SEARCH FUNCTIONS ****************************/
 
 
 //Algolia autocomplete and suggestions search script
-/*
 var client = algoliasearch("53Q7NWI1VU", "3393f31617d57b6957d78dc1f65f504f"); // Use SEARCH ONLY API key, NO admin key
 var products = client.initIndex('products');
 //initialize autocomplete on search input (ID selector must match)
 autocomplete('#aa-search-input', {
-  hint: true
+  hint: true,
+  debug: true
 }, {
   source: autocomplete.sources.hits(products, {
     hitsPerPage: 5
@@ -462,10 +478,11 @@ autocomplete('#aa-search-input', {
     empty: '<div class="aa-empty">No matching results</div>'
   }
 });
-*/
+
 
 
 //Algolia instantsearch and results page
+/*
 var search = instantsearch({
   // Replace with your own values
   appId: '53Q7NWI1VU',
@@ -490,18 +507,18 @@ search.addWidget(
       item: function(item) {
         console.log(item);
         return '<div class="item-result">' +
-                '<a class="catalogue_placeholder no-smoothState" onclick="getID(this)" id='+ item._highlightResult._id.$oid.value + '>' +
-                  '<img class="lazy item-image-result" src="'+ item.slideshow[0] +'">' +
-                    '<div class="gallery-item-header">'+
-                      '<div id="card-details">'+
-                        '<span id="product-price">' +
-                          '<div class="inline">'+ item.price +'</div>' +
-                          '</span>' +
-                          '<span id="product-title">' + item._highlightResult.title.value +'</span>'+
-                      '</div>'
-                    '</div>'
-                  '</a>'
-                '</div>'
+          '<a class="catalogue_placeholder no-smoothState" onclick="getID(this)" id=' + item._highlightResult._id.$oid.value + '>' +
+          '<img class="lazy item-image-result" src="' + item.slideshow[0] + '">' +
+          '<div class="gallery-item-header">' +
+          '<div id="card-details">' +
+          '<span id="product-price">' +
+          '<div class="inline">' + item.price + '</div>' +
+          '</span>' +
+          '<span id="product-title">' + item._highlightResult.title.value + '</span>' +
+          '</div>'
+        '</div>'
+        '</a>'
+        '</div>'
 
 
 
@@ -515,22 +532,24 @@ search.addWidget(
                   '</div>' +
                 '</a>' +
               '</div>'
-              */
-/*
-'<div class="item-result">' +
-        '<a class="catalogue_placeholder no-smoothState" onclick="getID(this)" id="">' +
-          '<img class="lazy" id="catalogue" src="'+ item.slideshow[0] +'">' +
-            '<div class="gallery-item-header">'+
-              '<div id="card-details">'+
-                '<span id="product-price">' +
-                  '<div class="inline">'+ item.price +'</div>' +
-                  '</span>' +
-                  '<span id="product-title">' + item._highlightResult.title.value +'</span>'+
-              '</div>'
-            '</div>'
-          '</a>'
-        '</div>'
-*/
+
+
+
+
+
+        '<div class="item-result">' +
+                '<a class="catalogue_placeholder no-smoothState" onclick="getID(this)" id="">' +
+                  '<img class="lazy" id="catalogue" src="'+ item.slideshow[0] +'">' +
+                    '<div class="gallery-item-header">'+
+                      '<div id="card-details">'+
+                        '<span id="product-price">' +
+                          '<div class="inline">'+ item.price +'</div>' +
+                          '</span>' +
+                          '<span id="product-title">' + item._highlightResult.title.value +'</span>'+
+                      '</div>'
+                    '</div>'
+                  '</a>'
+                '</div>'
 
       },
       empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
@@ -538,7 +557,7 @@ search.addWidget(
   })
 );
 
-$("#aa-search-input").on("change keyup paste", function(){
+$("#aa-search-input").on("change keyup paste", function() {
   if ($("#aa-search-input").val() == "") {
     $("#page-contents").show();
     $("#hits").hide();
@@ -548,15 +567,17 @@ $("#aa-search-input").on("change keyup paste", function(){
   }
 });
 
-$("#aa-search-input").on("focusin", function(){
+$("#aa-search-input").on("focusin", function() {
   if ($("#aa-search-input").val() == "") {
     $("#hits").hide();
   }
   search.start();
 });
 
-$("#aa-search-input").on("focusout", function(){
+$("#aa-search-input").on("focusout", function() {
   if ($("#aa-search-input").val() == "") {
     $("#page-contents").show();
   }
 });
+
+*/
