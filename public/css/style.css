@@ -1659,10 +1659,11 @@ textarea.materialize-textarea+label {
 .grid-item.gallery-item-card {
   background-color: transparent;
   border-radius: 8px;
-  /*-webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);*/
   margin: 0 6px 12px;
+  border: 1px solid rgba(0, 0, 0, .05)!important;
+  padding-bottom: 15px;
   width: calc(50% - 12px);
+  box-shadow: 0 1px 7px rgba(0, 0, 0, .05);
 }
 
 .gallery-item-header {
@@ -2809,7 +2810,7 @@ div#product_content {
   text-transform: none;
 }
 
-.btn:hover, .btn-large:hover{
+.btn:hover, .btn-large:hover {
   background-color: #000;
 }
 
@@ -2849,14 +2850,13 @@ div#product_content {
 
 
 /******** Shop Page *******/
-#content{
+
+#content {
   background-color: #fff;
 }
 
 img#catalogue {
-  border: 1px solid rgba(0, 0, 0, .04)!important;
-  box-shadow: 0 1px 7px rgba(0, 0, 0, .05);
-  border-radius: 8px;
+  border-radius: 8px 8px 0px 0px;
   background-color: #d8d8d8;
 }
 
@@ -2866,16 +2866,18 @@ span#product-title {
   overflow: hidden;
   white-space: nowrap;
   font-weight: 600;
-  line-height: 24px;
-  font-size: 1.8rem;
+  line-height: 20px;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
 span#product-price {
   font-family: montserrat;
-  font-weight: 600;
-  font-size: 1.6rem !important;
-  color: #909090;
+  font-weight: 400;
+  font-size: 13px !important;
+  color: #b3b3b3;
 }
+
 #home-text {
   font-family: montserrat;
   font-weight: 600;
@@ -2889,7 +2891,6 @@ span#product-price {
   padding-left: 24px;
   padding-right: 24px
 }
-
 
 #cart-button {
   font-family: montserrat;
@@ -3006,9 +3007,10 @@ img#checkmark {
 
 
 /******** Success Page *******/
-  #content-success {
-    background-color: #fff;
-  }
+
+#content-success {
+  background-color: #fff;
+}
 
 .success-message {
   top: 20%;
@@ -3035,12 +3037,15 @@ img#checkmark {
   font-size: 1.6rem;
   margin-bottom: 3rem;
 }
+
 .checkout-details {
   padding: 0rem 3.4rem;
   margin-bottom: 5rem;
   margin-top: 3rem;
   display: flex;
 }
+
+
 /******** Size-chart Page *******/
 
 .size-chart-heading {
@@ -3078,26 +3083,28 @@ label#text-upload-box {
 }
 
 #upload-number-input {
-    margin: 2rem 1.5rem;
-    width: 82%;
-    padding-bottom: 2rem;
-    padding-top: 2rem;
-    font-family: montserrat;
-    letter-spacing: 1px;
-    height: 5rem;
-    font-size: 1.5rem;
+  margin: 2rem 1.5rem;
+  width: 82%;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  font-family: montserrat;
+  letter-spacing: 1px;
+  height: 5rem;
+  font-size: 1.5rem;
 }
 
 #upload-text-input {
-    margin: 2rem 1.5rem;
-    width: 82%;
-    padding-bottom: 2rem;
-    padding-top: 2rem;
-    font-family: montserrat;
-    letter-spacing: 1px;
-    height: 5rem;
-    font-size: 1.5rem;
+  margin: 2rem 1.5rem;
+  width: 82%;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  font-family: montserrat;
+  letter-spacing: 1px;
+  height: 5rem;
+  font-size: 1.5rem;
 }
+
+
 /***************** SEARCH ********************/
 
 .input-field input[type=search]+label {
