@@ -80,18 +80,6 @@ function initiate_plugins() {
   // Swipebox
   $('.swipebox').swipebox();
 
-  $('.grid').masonry({
-    itemSelector: '.grid-item'
-  });
-
-  /*y layout Masonry after each image loads
-  $('.grid').imagesLoaded().progress(function() {
-    console.log("YEAH");
-    $grid.masonry();
-  });
-*/
-
-
   // Scrolling Floating Action Button
   $(window).scroll(function() {
     var scroll = $(window).scrollTop();
@@ -219,6 +207,7 @@ function initiate_plugins() {
   $('#menu-icon').on('click', function() {
     $(this).toggleClass('open');
   });
+
 
 }
 ////--> End of Call all function for Ajax, now from there recall all the functions <--////
@@ -447,8 +436,23 @@ $("#closeSearch").click(function() {
 
 
 
+// Menu-arrow animation
 
-/********************* ALGOLIA SEARCH FUNCTIONS ****************************
+var upClass = 'menu-arrow-left';
+var downClass = 'menu-arrow-right';
+
+function toggle() {
+  var square = document.getElementById('menu-arrow');
+
+  if (~square.className.indexOf(downClass)) {
+    square.className = square.className.replace(downClass, upClass);
+  } else {
+    square.className = square.className.replace(upClass, downClass);
+  }
+
+}
+
+/********************* ALGOLIA SEARCH FUNCTIONS ****************************/
 
 
 //Algolia autocomplete and suggestions search script
@@ -456,7 +460,8 @@ var client = algoliasearch("53Q7NWI1VU", "3393f31617d57b6957d78dc1f65f504f"); //
 var products = client.initIndex('products');
 //initialize autocomplete on search input (ID selector must match)
 autocomplete('#aa-search-input', {
-  hint: true
+  hint: true,
+  debug: true
 }, {
   source: autocomplete.sources.hits(products, {
     hitsPerPage: 5
@@ -475,49 +480,104 @@ autocomplete('#aa-search-input', {
 });
 
 
+
 //Algolia instantsearch and results page
+/*
+var search = instantsearch({
+  // Replace with your own values
+  appId: '53Q7NWI1VU',
+  apiKey: '3393f31617d57b6957d78dc1f65f504f', // search only API key, no ADMIN key
+  indexName: 'products'
+});
 
-function getResults() {
-  var searchInput = document.getElementById("aa-search-input").value;
-  console.log(searchInput);
+//Binding the search input
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#aa-search-input'
+  })
+);
 
-  products.search(searchInput, {
-    attributesToRetrieve: ['title', 'price', 'slideshow', 'key', 'shopKey'],
-    hitsPerPage: 50
-  }, function searchDone(err, content) {
-    if (err) {
-      console.error(err);
-      return;
-    }
+//Displaying results
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits',
+    hitsPerPage: 10,
+    urlSync: true,
+    templates: {
+      item: function(item) {
+        console.log(item);
+        return '<div class="item-result">' +
+          '<a class="catalogue_placeholder no-smoothState" onclick="getID(this)" id=' + item._highlightResult._id.$oid.value + '>' +
+          '<img class="lazy item-image-result" src="' + item.slideshow[0] + '">' +
+          '<div class="gallery-item-header">' +
+          '<div id="card-details">' +
+          '<span id="product-price">' +
+          '<div class="inline">' + item.price + '</div>' +
+          '</span>' +
+          '<span id="product-title">' + item._highlightResult.title.value + '</span>' +
+          '</div>'
+        '</div>'
+        '</a>'
+        '</div>'
 
-    console.log(content.hits);
 
 
-    var app = new Vue({
-      el: '#results-template',
-      data: {
-        items: content.hits
+        /*'<div class="grid-item gallery-item-card">' +
+                  '<img src="img/1.jpg" alt="image">' +
+                  '<div class="gallery-item-header">' +
+                    '<div class="gallery-item-author">' +
+                      '<span>Jassie North</span>' +
+                      '<span class="small">1hour ago - 62 Share</span>' +
+                    '</div>' +
+                  '</div>' +
+                '</a>' +
+              '</div>'
+
+
+
+
+
+        '<div class="item-result">' +
+                '<a class="catalogue_placeholder no-smoothState" onclick="getID(this)" id="">' +
+                  '<img class="lazy" id="catalogue" src="'+ item.slideshow[0] +'">' +
+                    '<div class="gallery-item-header">'+
+                      '<div id="card-details">'+
+                        '<span id="product-price">' +
+                          '<div class="inline">'+ item.price +'</div>' +
+                          '</span>' +
+                          '<span id="product-title">' + item._highlightResult.title.value +'</span>'+
+                      '</div>'
+                    '</div>'
+                  '</a>'
+                '</div>'
+
       },
-      mounted: function() {
-        this.$nextTick(function() {
-          // code that assumes this.$el is in-document
-          console.log("Complete");
-        })
-      }
-    })
-
-
-    for (var h in content.hits) {
-      console.log('Hit(' + content.hits[h].objectID + '): ' + content.hits[h]);
+      empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
     }
-  });
-}
+  })
+);
 
-function getID(theKey) {
-  //Redirect
-  key = theKey.id;
-  var link = key.replace(",", "/");
-  var str = 'products/' + link;
-  window.location.href = str;
-}
+$("#aa-search-input").on("change keyup paste", function() {
+  if ($("#aa-search-input").val() == "") {
+    $("#page-contents").show();
+    $("#hits").hide();
+  } else {
+    $("#page-contents").hide();
+    $("#hits").show();
+  }
+});
+
+$("#aa-search-input").on("focusin", function() {
+  if ($("#aa-search-input").val() == "") {
+    $("#hits").hide();
+  }
+  search.start();
+});
+
+$("#aa-search-input").on("focusout", function() {
+  if ($("#aa-search-input").val() == "") {
+    $("#page-contents").show();
+  }
+});
+
 */
