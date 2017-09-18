@@ -374,6 +374,14 @@ app.post('/search', function(req, res) {
   var params = req.body.search;
   res.send('/upload/' + params);
 });
+
+
+app.get('/nav', function(req,res){
+  res.sendFile(__dirname + '/public/mynav.html')
+});
+
+
+
 //Start Server
 app.listen(process.env.PORT || 3000, function() {
   console.log('Server started on port 3000...');

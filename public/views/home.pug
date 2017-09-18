@@ -15,7 +15,7 @@ html(lang="en-US")
     |   
     meta(content="yes", name="apple-touch-fullscreen")
     // Fonts
-    link(href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400", rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600", rel="stylesheet")
     |   
     link(href="https://fonts.googleapis.com/css?family=Raleway:300,400,700", rel="stylesheet", type="text/css")
     // Icons
@@ -35,22 +35,23 @@ html(lang="en-US")
       // Main Container
       // Page Contents
       #content.main.animated.fadein
+        //img(src= "img/warehouse_round_black.png")
+        h3#home-title Warehouse
+        p#home-text Try on shoes for free, only pay for what you keep.
         .autoflow
-          // Shop banner
           // Gallery
-          .grid.m-t-20.animated.fadeinup.delay-2
+          #home-grid.grid.m-t-20.animated.fadeinup.delay-2
             each product, i in products
-              .grid-item.gallery-item-card
-                a.catalogue_placeholder.no-smoothState(onclick="getID(this)" id= product._id)
-                  
+              .grid-item.gallery-item-card(onclick="getID(this)" id= product._id)                  
                   img.lazy#catalogue(data-src= product.slideshow[0])
                   |                 
                   .gallery-item-header
                     .gallery-item-author
                       span#product-title #{product.title}
-                      |                     
+                      |         
+                      .i.ion-ios-pricetag.left            
                       span#product-price.small KSh #{product.price}
-              |                       
+                    a#cart-button.waves-effect.waves-light.btn(href="#collect_modal") Try it out
             // End Gallery
         |       
         .clr
@@ -77,7 +78,7 @@ html(lang="en-US")
             // <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
       // End of Page Contents
       // Menu Trigger
-      .menu-trigger.z-depth-2
+      .menu-trigger
         #menu-icon
           span
           |         
@@ -117,6 +118,10 @@ html(lang="en-US")
     script(src="/js/materialize.min.js")
     |   
     script(src="/js/swiper.min.js")
+    |
+    script(src="//cdn.jsdelivr.net/velocity/1.5/velocity.min.js")
+    |
+    script(src="//cdn.jsdelivr.net/velocity/1.5/velocity.ui.min.js")
     |   
     script(src="/js/jquery.mixitup.min.js")
     |   
@@ -125,11 +130,4 @@ html(lang="en-US")
     script(src="/js/functions.js")
     |   
     script(src="/js/home.js")
-    |   
-    script(type="text/javascript").
-      function getID(theKey) {
-      //Redirect
-      key = theKey.id;
-      var str = "/shop/view?p=" + key ;
-      window.location.href = str;
-      }
+    
