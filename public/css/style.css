@@ -873,7 +873,7 @@ nav ul li {
 .menu-trigger {
   position: fixed;
   z-index: 3;
-  left: 10px;
+  left: 5px;
   top: 10px;
   height: 48px;
   width: 48px;
@@ -1659,7 +1659,7 @@ textarea.materialize-textarea+label {
 .grid-item.gallery-item-card {
   background-color: transparent;
   border-radius: 8px;
-  margin: 0 6px 12px;
+  margin: 0 5px 12px 6px;
   border: 1px solid rgba(0, 0, 0, .05)!important;
   padding-bottom: 15px;
   width: calc(50% - 12px);
@@ -2886,12 +2886,19 @@ span#product-price {
   font-size: 22px;
 }
 
+#home-logo {
+  width: 20%;
+  position: relative;
+  top: 70px;
+  left: -10px;
+}
+
 #home-title {
   font-family: montserrat;
   font-weight: 600;
   font-size: 26px;
   padding-left: 16px;
-  padding-top: 30%;
+  padding-top: 90px;
   padding-right: 24px;
 }
 
@@ -2900,7 +2907,7 @@ span#product-price {
   font-weight: 600;
   font-size: 26px;
   padding-left: 16px;
-  padding-top: 20%;
+  padding-top: 20px;
   padding-right: 24px;
 }
 
