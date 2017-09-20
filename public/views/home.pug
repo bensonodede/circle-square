@@ -43,7 +43,7 @@ html(lang="en-US")
         #home-grid.animated.fadeinup.delay-2
           each product, i in products
             .grid-item.gallery-item-card(onclick="getID(this)" id= product._id)                  
-                img.lazy#catalogue(data-src= product.slideshow[0])
+                img.lazy#catalogue(src= product.slideshow[0])
                 |                 
                 .gallery-item-header
                   .gallery-item-author

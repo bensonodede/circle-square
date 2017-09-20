@@ -1662,8 +1662,8 @@ textarea.materialize-textarea+label {
   margin: 0 5px 12px 6px;
   border: 1px solid rgba(0, 0, 0, .05)!important;
   padding-bottom: 15px;
-  width: 200px !important;
-  height: 260px !important;
+  width: 170px !important;
+  height: 210px !important;
   box-shadow: 0 1px 7px rgba(0, 0, 0, .05);
 }
 
@@ -2860,7 +2860,7 @@ img#catalogue {
   border-radius: 8px 8px 0px 0px;
   background-color: #d8d8d8;
   object-fit: cover;
-  height: 78% !important;
+  height: 75% !important;
 }
 
 span#product-title {
@@ -2916,6 +2916,7 @@ span#product-price {
 
 #home-grid {
   overflow: hidden !important;
+  padding-left: 10px;
 }
 
 #cart-button {
