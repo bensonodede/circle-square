@@ -27,6 +27,10 @@ html(lang="en-US")
     |   
     link(href="/css/swiper.css", rel="stylesheet", type="text/css")
     |   
+    link(href="/css/slick.css", rel="stylesheet", type="text/css")
+    |   
+    link(href="/css/slick-theme.css", rel="stylesheet", type="text/css")
+    |   
     link(href="/css/swipebox.min.css", rel="stylesheet", type="text/css")
     |       
     link(href="/css/style.css", rel="stylesheet", type="text/css")
@@ -48,7 +52,6 @@ html(lang="en-US")
                 .gallery-item-header
                   .gallery-item-author
                     span#product-title #{product.title}
-                    |         
                     span#product-price.small KSh #{product.price}
                   //a#cart-button.waves-effect.waves-light.btn(href="#collect_modal") Try it out
           // End Gallery
@@ -106,6 +109,8 @@ html(lang="en-US")
     // End of Main Container
     script(src="/js/jquery-1.12.2.js")
     |   
+    script(src="/minjs/slick.min.js")
+    |
     script(src="/js/modernizr.js")
     |
     script(src="/js/jquery.lazy.min.js")
@@ -114,8 +119,6 @@ html(lang="en-US")
     |   
     script(src="/js/jquery.smoothState.min.js")
     |   
-    script(src="/minjs/slick.min.js")
-    |
     script(src="/js/materialize.min.js")
     |   
     script(src="/js/swiper.min.js")

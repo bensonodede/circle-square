@@ -3,22 +3,22 @@ var $grid = $('.grid').masonry({
   percentPosition: true
 });
 
+
 $(document).ready(function() {
 
   $(function() {
+    $('#home-grid').slick({
+      dots: false,
+      infinite: false,
+      slidesToScroll: 1,
+      variableWidth: false,
+      speed: 300,
+      mobileFirst: true,
+      arrows: false
+    });
   //  $(".lazy").Lazy();
   });
 
-  $('#home-grid').slick({
-    dots: false,
-    infinite: false,
-    speed: 300,
-    mobileFirst: true,
-    centerMode: false,
-    variableWidth: false,
-    autoplay: false,
-    arrows: false
-  });
 
 
 
