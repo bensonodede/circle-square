@@ -6,16 +6,22 @@ var $grid = $('.grid').masonry({
 $(document).ready(function() {
 
   $(function() {
-    $('.lazy').lazy({
-      beforeLoad: function(element) {
-        $grid.masonry();
-      },
-      // called after an element was successfully handled
-      afterLoad: function(element) {
-        $grid.masonry();
-      },
-    });
+  //  $(".lazy").Lazy();
   });
+
+  $('#home-grid').slick({
+    dots: false,
+    infinite: false,
+    speed: 300,
+    mobileFirst: true,
+    centerMode: false,
+    variableWidth: false,
+    autoplay: false,
+    arrows: false
+  });
+
+
+
 
   $('#cart-button').on("click", function() {
     /*

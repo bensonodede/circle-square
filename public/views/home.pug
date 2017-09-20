@@ -35,25 +35,24 @@ html(lang="en-US")
       // Main Container
       // Page Contents
       #content.main.animated.fadein
-        img#home-logo(src= "img/warehouse-plain-black.png")
+        //img#home-logo(src= "img/warehouse-plain-black.png")
         h3#home-title Warehouse
         p#home-text Try on shoes for free, only pay for what you keep.
         h3#home-title-1 Featured
-        .autoflow
-          // Gallery
-          #home-grid.grid.m-t-20.animated.fadeinup.delay-2
-            each product, i in products
-              .grid-item.gallery-item-card(onclick="getID(this)" id= product._id)                  
-                  img.lazy#catalogue(data-src= product.slideshow[0])
-                  |                 
-                  .gallery-item-header
-                    .gallery-item-author
-                      span#product-title #{product.title}
-                      |         
-                      span#product-price.small KSh #{product.price}
-                    //a#cart-button.waves-effect.waves-light.btn(href="#collect_modal") Try it out
-            // End Gallery
-        |       
+        // Gallery
+        #home-grid.animated.fadeinup.delay-2
+          each product, i in products
+            .grid-item.gallery-item-card(onclick="getID(this)" id= product._id)                  
+                img.lazy#catalogue(data-src= product.slideshow[0])
+                |                 
+                .gallery-item-header
+                  .gallery-item-author
+                    span#product-title #{product.title}
+                    |         
+                    span#product-price.small KSh #{product.price}
+                  //a#cart-button.waves-effect.waves-light.btn(href="#collect_modal") Try it out
+          // End Gallery
+          |       
         .clr
       // Footer
       footer.page-footer.primary-color
@@ -115,6 +114,8 @@ html(lang="en-US")
     |   
     script(src="/js/jquery.smoothState.min.js")
     |   
+    script(src="/minjs/slick.min.js")
+    |
     script(src="/js/materialize.min.js")
     |   
     script(src="/js/swiper.min.js")

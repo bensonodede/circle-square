@@ -452,7 +452,7 @@ function toggle() {
 
 }
 
-/********************* ALGOLIA SEARCH FUNCTIONS ****************************/
+/********************* ALGOLIA SEARCH FUNCTIONS ****************************
 
 
 //Algolia autocomplete and suggestions search script

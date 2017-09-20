@@ -871,7 +871,7 @@ nav ul li {
 }
 
 .menu-trigger {
-  position: fixed;
+  position: absolute;
   z-index: 3;
   left: 5px;
   top: 10px;
@@ -1662,7 +1662,8 @@ textarea.materialize-textarea+label {
   margin: 0 5px 12px 6px;
   border: 1px solid rgba(0, 0, 0, .05)!important;
   padding-bottom: 15px;
-  width: calc(50% - 12px);
+  width: 200px !important;
+  height: 260px !important;
   box-shadow: 0 1px 7px rgba(0, 0, 0, .05);
 }
 
@@ -2858,6 +2859,8 @@ div#product_content {
 img#catalogue {
   border-radius: 8px 8px 0px 0px;
   background-color: #d8d8d8;
+  object-fit: cover;
+  height: 78% !important;
 }
 
 span#product-title {
@@ -2881,7 +2884,7 @@ span#product-price {
 #home-text {
   font-family: montserrat;
   font-weight: 300;
-  line-height: 30px;
+  line-height: 28px;
   padding-left: 18px;
   font-size: 22px;
 }
@@ -2896,7 +2899,7 @@ span#product-price {
 #home-title {
   font-family: montserrat;
   font-weight: 600;
-  font-size: 26px;
+  font-size: 24px;
   padding-left: 16px;
   padding-top: 90px;
   padding-right: 24px;
@@ -2905,10 +2908,14 @@ span#product-price {
 #home-title-1 {
   font-family: montserrat;
   font-weight: 600;
-  font-size: 26px;
+  font-size: 24px;
   padding-left: 16px;
   padding-top: 20px;
   padding-right: 24px;
+}
+
+#home-grid {
+  overflow: hidden !important;
 }
 
 #cart-button {
