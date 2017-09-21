@@ -2945,6 +2945,36 @@ span#product-price {
 }
 
 
+/********* Footer ****************/
+
+#footer {
+  margin-top: 20%;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding-top: 40px;
+  border-top: solid 0.1px #a7a7a7;
+}
+
+#footer-text {
+  font-family: montserrat;
+  font-size: 16px;
+  color: #696969 !important;
+}
+
+#footer-text-1 {
+  font-family: montserrat;
+  font-weight: 400;
+  font-size: 14px;
+  color: #696969 !important;
+}
+
+#footer-logo {
+  width: 20%;
+  position: relative;
+  top: -5px;
+}
+
+
 /********* Product-page ****************/
 
 #bannerImg {
