@@ -63,7 +63,7 @@ html(lang="en-US")
             #description
               p.text-flow #{details.description}
             |           
-            #choose_size.product-variation(style="text-align: center;")
+            //#choose_size.product-variation(style="text-align: center;")
               h6
                 | please choose your 
                 strong shoe size (UK)
@@ -90,26 +90,28 @@ html(lang="en-US")
               |             
               #checkout-media-body.media-body
                 span
-                  | You will receive an 
-                  strong.checkout-bold SMS
-                  |  once your order has been confirmed.
-            |           
-            .timeline
-              .dot
-              |             
-              #checkout-media-body.media-body
-                span
                   | Our courier will call you to get 
-                  strong.checkout-bold your loaction.
+                  strong.checkout-bold your location
+                  |  and deliver your item.
+            |                              
+            .timeline
+              .dot
+              |             
+              #checkout-media-body.media-body
+                span
+                  | Get 
+                  strong.checkout-bold 24hrs
+                  |  to try it out.
             |           
             .timeline
               .dot
               |             
               #checkout-media-body.media-body
                 span
-                  | Make your payment with 
-                  strong.checkout-bold cash or M-pesa
-                  |  once your item has been delivered.
+                  | We'll contact you to arrange when 
+                  strong.checkout-bold we'll pick it up.
+                  |  Want to keep it? Just 
+                  strong.checkout-bold pay with M-pesa.
             |           
             a.next-slide-btn.waves-effect.waves-light.btn-large.block.m-20(href="#!") Next
           // End first slide
@@ -120,17 +122,17 @@ html(lang="en-US")
               |             
               hr#checkout-hr
               |             
-              li#checkout-text
+              //li#checkout-text
                 | Your item cost : 
-                span.right KSh. #{details.price}
+                span.right KSh. 0
               |             
-              li#checkout-text
+              //li#checkout-text
                 | Delivery cost : 
-                span.right KSh. 300
+                span.right KSh. 0
               |             
               li#checkout-total
                 | Total: 
-                span.right KSh. #{total}
+                span.right Free!
             |           
             a.next-slide-btn.waves-effect.waves-light.btn-large.block.m-20(href="#!") Next
           // End second slide
@@ -155,7 +157,7 @@ html(lang="en-US")
       .collect
         hr#filter_divider
         |       
-        a#collect_btn.modal-trigger.waves-effect.waves-light.btn-large.block.m-20(href="#collect_modal") Get it now
+        a#collect_btn.modal-trigger.waves-effect.waves-light.btn-large.block.m-20(href="#collect_modal") Try for free
       |     
       i#goBack_product.ion-android-arrow-back.product_back(onclick="goBack()")
       // End of Page Contents      
@@ -176,7 +178,9 @@ html(lang="en-US")
     script(src="/minjs/js.cookie.js")
     |   
     script(src="/minjs/slick.min.js")
-    |   
+    |  
+    script(src="/js/siema.min.js")
+    | 
     script(src="/js/slick-lightbox.min.js")
     |   
     script(src="/minjs/modernizr.js")

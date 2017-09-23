@@ -260,7 +260,7 @@ app.post('/seller-confirm/:id', function(req, res) {
         client.messages.create({
           to: orders.number,
           from: "+16466797502 ",
-          body: "Order ID: #" + orders._id + "\n" + "\n" + "The item you ordered is currently not available" + "\n" + "\n" + "Warehouse Africa."
+          body: "Order ID: #" + orders._id + "\n" + "\n" + "Sorry, the item you ordered is currently not available." + "\n" + "\n" + "Warehouse Africa."
         }, function(err, sms) {
           process.stdout.write(sms.sid);
         });

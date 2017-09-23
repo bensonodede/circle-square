@@ -33,13 +33,13 @@ html(lang="en-US")
     |   
     link(href="/css/swipebox.min.css", rel="stylesheet", type="text/css")
     |       
-    link(href="/css/style.css", rel="stylesheet", type="text/css")
+    link(href="/css/style.css", rel="stylesheet", type="text/css")    
   body
     #main
       // Main Container
       // Page Contents
       #content.main.animated.fadein
-        //img#home-logo(src= "img/warehouse-plain-black.png")
+        //img#home-logo.left(src= "img/warehouse-plain-black.png")
         h3#home-title Warehouse
         p#home-text Try on shoes for free, only pay for what you want to keep.
         h3#home-title-1 Featured
@@ -47,7 +47,7 @@ html(lang="en-US")
         #home-grid.animated.fadeinup.delay-2
           each product, i in products
             .grid-item.gallery-item-card(onclick="getID(this)" id= product._id)                  
-                img.lazy#catalogue(src= product.slideshow[0])
+                img.lazy#carousel(src= product.slideshow[0])
                 |                 
                 .gallery-item-header
                   .gallery-item-author
@@ -70,14 +70,10 @@ html(lang="en-US")
                 |                   
                 a(target="_blank" href="https://www.instagram.com/warehouse_africa/")
                   i.ion-social-instagram-outline.m-10.black-text
-
-        |           
-        .line.white
-        |           
         .footer-copyright.white
           .container
             img#footer-logo.left(src= "img/warehouse-plain-black.png")
-            #footer-text-1.left Warehouse Africa
+            #footer-text-1.left Warehouse Africa.
             // <a class="grey-text text-lighten-4 right" href="#!">Privacy Policy</a>
       // End of Page Contents
       // Menu Trigger
@@ -109,9 +105,7 @@ html(lang="en-US")
       // End of Menu
     // End of Main Container
     script(src="/js/jquery-1.12.2.js")
-    |   
-    script(src="/minjs/slick.min.js")
-    |
+    |       
     script(src="/js/modernizr.js")
     |
     script(src="/js/jquery.lazy.min.js")
@@ -122,6 +116,8 @@ html(lang="en-US")
     |   
     script(src="/js/materialize.min.js")
     |   
+    script(src="/js/siema.min.js")
+    |
     script(src="/js/swiper.min.js")
     |
     script(src="//cdn.jsdelivr.net/velocity/1.5/velocity.min.js")
