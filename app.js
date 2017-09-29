@@ -380,6 +380,13 @@ app.get('/nav', function(req,res){
   res.sendFile(__dirname + '/public/mynav.html')
 });
 
+app.get('/new', function(req,res){
+  res.render('new');
+});
+
+app.get('/map', function(req,res){
+  res.sendFile(__dirname + '/public/map.html')
+});
 
 
 //Start Server

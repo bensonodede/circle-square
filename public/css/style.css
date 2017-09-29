@@ -2863,10 +2863,10 @@ div#product_content {
 }
 
 img#carousel {
-    border-radius: 8px 8px 0px 0px;
-    background-color: #d8d8d8;
-    object-fit: cover;
-    height: calc(75% + 2px);
+  border-radius: 8px 8px 0px 0px;
+  background-color: #d8d8d8;
+  object-fit: cover;
+  height: calc(75% + 2px);
 }
 
 img#catalogue {
@@ -2906,10 +2906,9 @@ span#product-price {
 }
 
 #home-logo {
-  width: 20%;
+  width: 18%;
   position: relative;
-  top: 70px;
-  left: -10px;
+  left: -5px;
 }
 
 #home-title {
@@ -2929,7 +2928,7 @@ span#product-price {
   font-size: 22px;
   line-height: 11px !important;
   padding-left: 18px;
-  padding-top: 30%;
+  padding-top: 40%;
   padding-bottom: 25px;
   padding-right: 24px;
   letter-spacing: -0.5px !important;
@@ -2938,6 +2937,10 @@ span#product-price {
 #home-grid {
   overflow: hidden !important;
   padding-left: 10px;
+}
+
+#poster {
+  padding-top: 20%;
 }
 
 #cart-button {
@@ -2955,6 +2958,80 @@ span#product-price {
 .gallery-item-author {
   width: 100%;
   float: left;
+}
+
+#howcard {
+  background-color: transparent;
+  border-radius: 8px;
+  margin: auto;
+  border: 1px solid rgba(0, 0, 0, 0.1)!important;
+  padding-bottom: 15px;
+  width: calc(100% - 30px) !important;
+  height: 350px !important;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, .05);
+}
+
+#home-number {
+  width: 30px;
+  height: 30px;
+  padding-top: 3px;
+  padding-left: 10px;
+  border: solid 1.1px #767676;
+  color: #767676;
+  border-radius: 50%;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+#featuredicon {
+  width: 170px;
+  margin: 0px -50px;
+}
+
+.howgrid {
+  margin-top: 25%;
+}
+
+.featurescontainer {
+  margin-top: 15%;
+  padding: 0px 22px;
+  overflow: hidden;
+}
+
+#featuredtitle {
+  font-family: montserrat;
+  font-weight: 600;
+  font-size: 22px;
+  color: #767676;
+  width: 65%;
+  display: -webkit-box;
+  line-height: 28px !important;
+  padding-top: 95px;
+  padding-bottom: 25px;
+  letter-spacing: -0.5px !important;
+}
+
+#featuredtitle-right {
+  font-family: montserrat;
+  font-weight: 600;
+  font-size: 22px;
+  color: #767676;
+  width: 70%;
+  position: relative;
+  right: -5%;
+  text-align: right;
+  display: -webkit-box;
+  line-height: 28px !important;
+  padding-top: 90px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+  letter-spacing: -0.5px !important;
+}
+
+#featuredtext {
+  font-family: montserrat;
+  font-size: 16px;
+  color: #696969 !important;
 }
 
 
@@ -3000,7 +3077,6 @@ span#product-price {
 
 
 /********* Checkout-page ****************/
-
 
 .checkout-carousel {
   position: relative;
