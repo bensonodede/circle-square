@@ -41,7 +41,7 @@ html(lang="en-US")
         #shop-template.animated.fadeinup.delay-1
           // ********* Shops get inserted here ***********
         each shop, i in shops
-          .shop-banner-full.animated.fadeinup.delay-1(onclick="getID(this)", id= shop.link)
+          .shop-banner-full.animated.fadeinup.delay-1
             img(src= shop.banner, alt= shop.name)
             |               
             .opacity-overlay.valign-wrapper

@@ -2940,7 +2940,7 @@ span#product-price {
 }
 
 #poster {
-  padding-top: 20%;
+  padding-top: 10%;
 }
 
 #cart-button {
@@ -3003,7 +3003,7 @@ span#product-price {
   font-weight: 600;
   font-size: 22px;
   color: #767676;
-  width: 65%;
+  width: 75%;
   display: -webkit-box;
   line-height: 28px !important;
   padding-top: 95px;
