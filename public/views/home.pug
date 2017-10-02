@@ -51,14 +51,14 @@ html(lang="en-US")
         #home-grid.animated.fadeinup.delay-2
           each product, i in products
             .grid-item.gallery-item-card(onclick="getID(this)" id= product._id)                  
-              img.lazy#carousel(src= product.slideshow[0])
-              |                 
-              .gallery-item-header
-                .gallery-item-author
-                  span#product-title #{product.title}
-                  span#product-price.small KSh #{product.price}
-                //a#cart-button.waves-effect.waves-light.btn(href="#collect_modal") Try it out
-                // End Gallery
+                img.lazy#catalogue(src= product.slideshow[0])
+                |     
+                #shoe-shadow            
+                .gallery-item-header
+                  .gallery-item-author
+                    span#product-title #{product.title}
+                    span#product-price.small KSh &#8226; #{product.price}
+                  // End Gallery
                 |    
         
         //.featurescontainer

@@ -1,6 +1,7 @@
 $(document).ready(function() {
   //Init image carousel
-  $('.carousel').slick({
+
+  /*$('.carousel').slick({
     dots: true,
     infinite: true,
     speed: 300,
@@ -11,7 +12,7 @@ $(document).ready(function() {
     autoplay: false,
     arrows: false
   });
-
+*/
   //Start array function
   function range(start, end) {
     return Array(end - start + 1).fill().map((_, idx) => start + idx)

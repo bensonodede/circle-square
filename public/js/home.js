@@ -6,19 +6,7 @@ var $grid = $('.grid').masonry({
 
 $(document).ready(function() {
 
-  new Siema({
-    selector: '#home-grid',
-    duration: 500,
-    easing: 'ease-out',
-    perPage: 2.2,
-    startIndex: 0,
-    draggable: true,
-    multipleDrag: true,
-    threshold: 10,
-    loop: false
-    //onInit: () => {},
-    //onChange: () => {},
-  });
+  
 
   /*
   $(function() {
