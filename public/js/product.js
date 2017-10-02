@@ -12,7 +12,7 @@ $(document).ready(function() {
     arrows: false
   });
 
-  /*Start array function
+  //Start array function
   function range(start, end) {
     return Array(end - start + 1).fill().map((_, idx) => start + idx)
   }
@@ -39,12 +39,12 @@ $(document).ready(function() {
     swipeToSlide: true,
     initialSlide: 6
   });
-  */
+
 
   //Init checkout slides on btn click
   $("#collect_btn").one("click", function() {
     //Checkout slides
-    $('.checkout-carousel').slick({
+    /*$('.checkout-carousel').slick({
       dots: false,
       infinite: false,
       speed: 300,
@@ -57,21 +57,37 @@ $(document).ready(function() {
       swipeToSlide: false,
       initialSlide: 0
     });
+    */
+    var mySiema = new Siema({
+      selector: '.checkout-carousel',
+      duration: 500,
+      easing: 'ease-out',
+      startIndex: 0,
+      draggable: true,
+      multipleDrag: true,
+      threshold: 10,
+      loop: false
+      //onInit: () => {},
+      //onChange: () => {},
+    });
+
+    //Move to next slide on button
+    $('.next-slide-btn').click(function() {
+       return mySiema.next();
+    });
+
   });
 
-  //Move to next slide on button
-  $('.next-slide-btn').click(function() {
-    $('.checkout-carousel').slick('slickNext');
-  });
 
 
-  /*Size on cick function
+
+  //Size on cick function
   $('#sizes .size').on('click', function() {
     $('#sizes .size').removeClass('active-size');
     $(this).addClass('active-size');
     console.log("DONE");
   });
-*/
+
 
 });
 
@@ -98,10 +114,12 @@ function checkout() {
   var productID = p;
   var num = document.getElementById('checkout-number-input');
   var myNum = num.value;
-
+  sizeCookie = Cookies.get('name');
+  console.log(sizeCookie);
   //Regex test
   var regExNumber = new RegExp("^[0-9\-\+]{10}$");
-
+  //Check for size cookie
+  if (sizeCookie) {
     //Verify number format length
     if (regExNumber.test(myNum)) {
       //Check for '0' as first number
@@ -109,6 +127,7 @@ function checkout() {
         Materialize.toast('Success!', 3000, 'green');
         $.post("/shop/view", {
           productID: productID,
+          size: sizeCookie,
           number: myNum
         }, function(data) {
           window.location.href = "/success/" + data;
@@ -121,15 +140,17 @@ function checkout() {
       Materialize.toast('Invalid phone number', 3000, 'red');
     }
     //End verify number format length
-
+  } else {
+    Materialize.toast('Please choose your size', 3000, 'red');
+  }
+  //End check for size cookie
 
 }
 
-/*Get size value and bake cookie
+//Get size value and bake cookie
 function getID(size) {
   var size = size.id;
   Cookies.set('name', size);
 }
 //remove any previous size cookies
 Cookies.remove('name');
-*/

@@ -53,17 +53,14 @@ html(lang="en-US")
         |       
         #product-details
           // Product Title
-          h3.item_name #{details.title}
-          |           
-          p.item_price Price •
-            span#priceDetails KSh #{details.price}
+          h3.item_name #{details.title}          
         // Prduct Description
         .product-description
           .p-20
             #description
               p.text-flow #{details.description}
             |           
-            //#choose_size.product-variation(style="text-align: center;")
+            #choose_size.product-variation(style="text-align: center;")
               h6
                 | please choose your 
                 strong shoe size (UK)
@@ -76,7 +73,7 @@ html(lang="en-US")
             // Modal Structure
       #collect_modal.modal.bottom-sheet.white
         div
-          i#goBack_product.modal-action.modal-close.ion-android-close.product_back
+          i#closeModal.modal-action.modal-close.ion-android-close.product_back
         // Start slick checkout
         .checkout-carousel
           // first slide
@@ -113,7 +110,7 @@ html(lang="en-US")
                   |  Want to keep it? Just 
                   strong.checkout-bold pay with M-pesa.
             |           
-            a.next-slide-btn.waves-effect.waves-light.btn-large.block.m-20(href="#!") Next
+            a#next-slide-btn.next-slide-btn.waves-effect.waves-light.btn-large.block.m-20(href="#!") Next
           // End first slide
           // second slide
           div
@@ -122,17 +119,17 @@ html(lang="en-US")
               |             
               hr#checkout-hr
               |             
-              //li#checkout-text
+              li#checkout-text
                 | Your item cost : 
-                span.right KSh. 0
+                span.right KSh. #{details.price}
               |             
-              //li#checkout-text
+              li#checkout-text
                 | Delivery cost : 
-                span.right KSh. 0
+                span.right KSh. 300
               |             
               li#checkout-total
                 | Total: 
-                span.right Free!
+                span.right KSh. #{total}
             |           
             a.next-slide-btn.waves-effect.waves-light.btn-large.block.m-20(href="#!") Next
           // End second slide
@@ -156,8 +153,12 @@ html(lang="en-US")
       // Open modal
       .collect
         hr#filter_divider
-        |       
-        a#collect_btn.modal-trigger.waves-effect.waves-light.btn-large.block.m-20(href="#collect_modal") Try for free
+        |     
+        p.item_price Price
+          br
+          span#priceDetails KSh #{details.price}
+        |  
+        a#collect_btn.modal-trigger.waves-effect.waves-light.btn-large.block.m-20(href="#collect_modal") Buy now
       |     
       i#goBack_product.ion-android-arrow-back.product_back(onclick="goBack()")
       // End of Page Contents      
