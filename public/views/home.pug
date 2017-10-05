@@ -44,14 +44,14 @@ html(lang="en-US")
         img#home-logo.right(src= "img/warehouse-plain-black.png")
         h3#home-title Warehouse
         p#home-text Discover a new way to shop for sneakers.
-        img#poster(src= "/img/Adidas_poster _black_v0.jpeg")
+        img#poster(src= "http://res.cloudinary.com/dzxuz9zc9/image/upload/f_auto,q_auto:good/v1506956257/Shoe_empire/Adidas_poster__black_v0.jpg")
           
         h3#home-title-1 Featured
         // Gallery
         #home-grid.animated.fadeinup.delay-2
           each product, i in products
             .grid-item.gallery-item-card(onclick="getID(this)" id= product._id)                  
-                img.lazy#catalogue(src= product.slideshow[0])
+                img.lazy#catalogue(data-src= product.slideshow[0])
                 |     
                 #shoe-shadow            
                 .gallery-item-header
@@ -59,64 +59,7 @@ html(lang="en-US")
                     span#product-title #{product.title}
                     span#product-price.small KSh &#8226; #{product.price}
                   // End Gallery
-                |    
-        
-        //.featurescontainer
-          .howgrid        
-            img#featuredicon.left(src= "http://res.cloudinary.com/dzxuz9zc9/image/upload/v1506710517/alien.png")
-            h3#featuredtitle-right  Find the one that's right for you.
-            p#featuredtext We source the best selection of sneakers. We're here to help you find just the right pair.
-            
-          .howgrid        
-            img#featuredicon.right(src= "http://res.cloudinary.com/dzxuz9zc9/image/upload/v1506710327/Rocket.png")
-            h3#featuredtitle Next day delivery.
-            p#featuredtext You can trust our crew to deliver right on time.
-              
-          .howgrid        
-            img#featuredicon.left(src= "http://res.cloudinary.com/dzxuz9zc9/image/upload/v1506710324/UFO.png")
-            h3#featuredtitle-right Doesn't quite fit? We'll pick it up.
-            p#featuredtext Sometimes it doesn't fit or it doesn't go well with that outfit. Don't worry, we'll pick it up and bring you another pair for free.
-        
-        //h3#home-title-1 Frequently asked questions
-        // Collapsible
-        //ul.faq.collapsible.animated.fadeinright.delay-1(data-collapsible="accordion")
-          li
-            .collapsible-header
-              i.ion-android-arrow-dropdown.right
-              | Information for you
-            |                 
-            .collapsible-body
-              p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-          |               
-          li
-            .collapsible-header
-              i.ion-android-arrow-dropdown.right
-              | Some tips
-            |                 
-            .collapsible-body
-              p
-                | Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          |               
-          li
-            .collapsible-header
-              i.ion-android-arrow-dropdown.right
-              | Places near you
-            |                 
-            .collapsible-body
-              p
-                | Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          |               
-          li
-            .collapsible-header
-              i.ion-android-arrow-dropdown.right
-              | Suggestions
-            |                 
-            .collapsible-body
-              p
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-        
+                |                    
         .clr
       // Footer
       footer.page-footer.white#footer

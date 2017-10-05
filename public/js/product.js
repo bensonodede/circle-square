@@ -45,7 +45,7 @@ $(document).ready(function() {
   //Init checkout slides on btn click
   $("#collect_btn").one("click", function() {
     //Checkout slides
-    /*$('.checkout-carousel').slick({
+    $('.checkout-carousel').slick({
       dots: false,
       infinite: false,
       speed: 300,
@@ -58,26 +58,14 @@ $(document).ready(function() {
       swipeToSlide: false,
       initialSlide: 0
     });
-    */
-    var mySiema = new Siema({
-      selector: '.checkout-carousel',
-      duration: 500,
-      easing: 'ease-out',
-      startIndex: 0,
-      draggable: true,
-      multipleDrag: true,
-      threshold: 10,
-      loop: false
-      //onInit: () => {},
-      //onChange: () => {},
-    });
-
-    //Move to next slide on button
-    $('.next-slide-btn').click(function() {
-       return mySiema.next();
-    });
-
   });
+
+  //Move to next slide on button
+  $('.next-slide-btn').click(function() {
+    $('.checkout-carousel').slick('slickNext');
+  });
+
+
 
 
 
@@ -91,6 +79,7 @@ $(document).ready(function() {
 
 
 });
+
 
 
 function getUrlVars() {

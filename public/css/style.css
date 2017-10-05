@@ -1659,7 +1659,7 @@ textarea.materialize-textarea+label {
 .grid-item.gallery-item-card {
   background-color: transparent;
   margin: 2% 5px 4% 6px;
-/*  border: 1px solid rgba(0, 0, 0, .05)!important;
+  /*  border: 1px solid rgba(0, 0, 0, .05)!important;
   border-radius: 8px;
   box-shadow: 0 1px 7px rgba(0, 0, 0, .05); */
   padding-bottom: 20%;
@@ -2751,31 +2751,24 @@ h3.item_name {
   letter-spacing: 0px;
   padding-right: 30px;
   padding-left: 30px;
-  padding-bottom: 6%;
+  padding-bottom: 6px;
   padding-top: 10%;
+  text-transform: capitalize;
 }
 
 p.item_price {
   font-family: montserrat;
-  font-weight: 300;
+  font-weight: 400;
+  text-align: center;
   font-size: 17px;
   line-height: 25px;
   letter-spacing: 0.1px;
   position: relative;
-  width: 30%;
-  /*border-bottom: 1px solid #d4d4d4; */
   padding-bottom: 0px !important;
-  color: #000000;
-  float: left;
+  color: #a7a7a7;
   margin-right: 0px !important;
-  margin-left: 5% !important;
-  margin-bottom: 0px !important;
-}
-
-#priceDetails {
-  color: #000000;
-  font-weight: 600;
-  font-size: 17px;
+  margin-left: 0% !important;
+  margin-bottom: 4% !important;
 }
 
 #goBack_product {
@@ -2829,7 +2822,6 @@ div#product_content {
   padding-bottom: 8px;
 }
 
-
 #collect_btn {
   color: #fff;
   /*background-image: linear-gradient(240deg, #22a76d 0%, #30cc9b 100%);*/
@@ -2838,14 +2830,10 @@ div#product_content {
   font-size: 1.7rem;
   height: 5rem;
   line-height: 5rem;
-  margin-left: 2px !important;
-  margin-right: 5% !important;
   margin-top: 2px !important;
   margin-bottom: 2px !important;
   text-transform: none;
   position: relative;
-  float: right;
-  width: 50%;
 }
 
 .btn:hover, .btn-large:hover {
@@ -2979,12 +2967,12 @@ span#product-price {
 }
 
 #shoe-shadow {
-  height: 0.97rem;
+  height: 0.75rem;
   background-color: black;
   margin: auto;
-  border-radius: 60%;
+  border-radius: 65%;
   opacity: 0.03;
-  width: 75%;
+  width: 70%;
 }
 
 #poster {
@@ -3118,6 +3106,7 @@ span#product-price {
 
 
 /********* Product-page ****************/
+
 img#slideshowImg {
   width: 72%;
   margin-left: auto;
@@ -3126,14 +3115,13 @@ img#slideshowImg {
 }
 
 #shoe-shadow1 {
-  height: 0.97rem;
+  height: 1.2rem;
   background-color: black;
   margin: auto;
   border-radius: 60%;
   opacity: 0.03;
-  width: 72%;
+  width: 68%;
 }
-
 
 #bannerImg {
   position: absolute;
@@ -3144,7 +3132,7 @@ img#slideshowImg {
 
 .checkout-carousel {
   position: relative;
-  top: 25%;
+  top: 20%;
 }
 
 #checkout-title {

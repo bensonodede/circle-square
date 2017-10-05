@@ -53,7 +53,10 @@ html(lang="en-US")
         |       
         #product-details
           // Product Title
-          h3.item_name #{details.title}          
+          h3.item_name #{details.title} 
+          |     
+          p.item_price KSH &bull; #{details.price}
+            
         // Prduct Description
         .product-description
           .p-20
@@ -152,11 +155,7 @@ html(lang="en-US")
 
       // Open modal
       .collect
-        hr#filter_divider
-        |     
-        p.item_price Price
-          br
-          span#priceDetails KSh #{details.price}
+        hr#filter_divider        
         |  
         a#collect_btn.modal-trigger.waves-effect.waves-light.btn-large.block.m-20(href="#collect_modal") Buy now
       |     

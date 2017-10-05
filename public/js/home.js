@@ -6,7 +6,13 @@ var $grid = $('.grid').masonry({
 
 $(document).ready(function() {
 
-  
+  $(function() {
+    $('.lazy').lazy({
+      effect: "fadeIn",
+      effectTime: 2000,
+      threshold: 0
+    });
+  });
 
   /*
   $(function() {
